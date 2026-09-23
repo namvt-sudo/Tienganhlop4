@@ -39,14 +39,6 @@
       --shadow: rgba(0,0,0,0.35);
     }
   }
-  :root[data-theme="dark"] {
-    --bg: #241c12;
-    --card-bg: #362a1a;
-    --text: #fdf1de;
-    --text-soft: #cbb894;
-    --border: #55411f;
-    --shadow: rgba(0,0,0,0.35);
-  }
 
   * { box-sizing: border-box; }
   body {
@@ -56,13 +48,10 @@
       radial-gradient(circle at 8% 12%, rgba(255,171,0,0.16) 0%, transparent 32%),
       radial-gradient(circle at 92% 8%, rgba(46,196,182,0.14) 0%, transparent 30%),
       radial-gradient(circle at 88% 85%, rgba(155,93,229,0.12) 0%, transparent 32%),
-      radial-gradient(circle at 6% 88%, rgba(255,111,89,0.13) 0%, transparent 30%),
-      repeating-linear-gradient(60deg, rgba(255,171,0,0.05) 0 2px, transparent 2px 46px),
-      repeating-linear-gradient(-60deg, rgba(255,171,0,0.05) 0 2px, transparent 2px 46px),
-      repeating-linear-gradient(0deg, rgba(255,171,0,0.05) 0 2px, transparent 2px 46px);
+      radial-gradient(circle at 6% 88%, rgba(255,111,89,0.13) 0%, transparent 30%);
     background-attachment: fixed;
     color: var(--text);
-    font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
     min-height: 100vh;
     padding: 16px;
   }
@@ -75,11 +64,6 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #ffd873 0%, #ffab00 55%, #ff8a3d 100%);
-    background-image:
-      linear-gradient(135deg, #ffd873 0%, #ffab00 55%, #ff8a3d 100%),
-      repeating-linear-gradient(60deg, rgba(255,255,255,0.10) 0 2px, transparent 2px 26px),
-      repeating-linear-gradient(-60deg, rgba(255,255,255,0.10) 0 2px, transparent 2px 26px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 0 2px, transparent 2px 26px);
     border-radius: 26px;
     padding: 20px 22px;
     display: flex;
@@ -91,149 +75,71 @@
     color: #4a2c00;
   }
   header.top .title-block { display:flex; align-items:center; gap:10px; position:relative; z-index:1; }
-  header.top .emoji { font-size: 40px; filter: drop-shadow(0 3px 0 rgba(0,0,0,0.12)); }
+  header.top .emoji { font-size: 40px; }
   header.top h1 { font-size: 18px; margin: 0; line-height:1.3; font-weight:700; }
-  header.top p { margin: 3px 0 0; font-size: 12.5px; opacity: 0.8; font-weight:600; }
-  .back-btn { background: rgba(255,255,255,0.55); border:none; border-radius:14px; padding:9px 14px; font-weight:700; cursor:pointer; color:#4a2c00; font-size:14px; position:relative; z-index:1; }
-
-  .top-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
-  .ta-btn {
-    border:none; border-radius:14px; padding:9px 14px; font-weight:bold; font-size:13px; cursor:pointer;
-    display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
-  }
-  .ta-signin { background: linear-gradient(135deg,#ffb74d,#ff9800); color:white; }
-  .ta-signup { background: white; color: var(--purple); border:2px solid #e6c8f0 !important; }
-  .ta-locked1 { background: linear-gradient(135deg,#e05a2b,#b8441c); color:white; }
-  .ta-locked2 { background: linear-gradient(135deg,#1fae8e,#0f8f73); color:white; }
-
-  /* ===== Modal popup ===== */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.45);
-    display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal-box {
-    background: linear-gradient(160deg, #fff8e7, #ffffff);
-    border-radius: 24px; max-width: 380px; width: 100%; padding: 24px 22px;
-    text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    border: 2px solid var(--border);
-  }
-  .modal-box .modal-icon {
-    width: 76px; height:76px; border-radius:50%; background: white; border: 3px solid var(--border);
-    display:flex; align-items:center; justify-content:center; font-size:36px; margin: 0 auto 12px;
-  }
-  .modal-box h3 { color: var(--primary-dark); font-size: 19px; margin: 0 0 12px; }
-  .modal-box p { font-size: 14px; color: var(--text); line-height:1.6; margin: 6px 0; }
-  .modal-note {
-    background: #d3f7f0; color:#0f7a67; border-radius:14px; padding:10px 14px; font-size:13px;
-    margin: 14px 0; font-weight: bold;
-  }
-  .modal-btn { width:100%; border:none; border-radius:16px; padding:13px; font-weight:bold; font-size:15px; cursor:pointer; margin-bottom:10px; }
-  .modal-btn.signin { background: linear-gradient(135deg,#ffb74d,#ff9800); color:white; }
-  .modal-btn.signup { background:white; color: var(--purple); border:2px solid #e6c8f0; }
-  .modal-btn.later { background:#eef0f3; color:#5a6270; }
+  header.top p { margin: 3px 0 0; font-size: 12.5px; opacity: 0.85; font-weight:600; }
+  .back-btn { background: rgba(255,255,255,0.65); border:none; border-radius:14px; padding:9px 14px; font-weight:700; cursor:pointer; color:#4a2c00; font-size:14px; position:relative; z-index:1; }
 
   .screen { display: none; }
   .screen.active { display: block; }
 
   /* ===== UNIT MAP ===== */
-  .unit-list { position: relative; display: flex; flex-direction: column; gap: 22px; margin-top: 26px; padding-left: 8px; }
-  .unit-list::before {
-    content: '';
-    position: absolute;
-    left: 34px; top: 10px; bottom: 10px; width: 4px;
-    background-image: linear-gradient(var(--honey-light) 60%, transparent 0%);
-    background-size: 4px 14px;
-    background-repeat: repeat-y;
-    border-radius: 4px;
-    z-index: 0;
-  }
+  .unit-list { position: relative; display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
   .unit-tile {
     position: relative; z-index: 1;
     background: var(--card-bg);
     border-radius: 18px;
-    padding: 14px 16px 14px 8px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
     box-shadow: 0 5px 0 var(--border), 0 8px 16px var(--shadow);
-    border: none;
     cursor: pointer;
     transition: transform 0.12s ease;
   }
   .unit-tile:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--border); }
-  .unit-tile.locked { opacity: 0.65; cursor: default; filter: grayscale(0.35); box-shadow: 0 5px 0 var(--border); }
+  .unit-tile.locked { opacity: 0.65; cursor: default; filter: grayscale(0.35); }
   .unit-tile .hex-badge {
     flex-shrink: 0;
-    width: 60px; height: 66px;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 60px; height: 60px;
+    border-radius: 16px;
     background: linear-gradient(160deg, var(--honey-light), var(--primary));
     display: flex; align-items:center; justify-content:center;
-    font-size: 28px;
-    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12);
+    font-size: 30px;
   }
   .unit-tile.locked .hex-badge { background: linear-gradient(160deg, #d9cfc0, #b7ab97); }
   .unit-tile.passed .hex-badge { background: linear-gradient(160deg, #7fe9dc, var(--green)); }
-  .unit-tile .unit-info { flex: 1; padding-left: 10px; }
-  .unit-tile .unit-info .u-name { font-weight:700; font-size: 15.5px; font-family:'Fredoka',sans-serif; }
+  .unit-tile .unit-info { flex: 1; }
+  .unit-tile .unit-info .u-name { font-weight:700; font-size: 16px; font-family:'Fredoka',sans-serif; }
   .unit-tile .unit-info .u-sub { font-size: 12px; color: var(--text-soft); margin-top:2px; font-weight:600; }
-  .unit-tile .u-status { font-size: 22px; color: var(--primary-dark); flex-shrink:0; }
-  .badge-pass {
-    background: #d7f9ef; color:#0f7a67; font-size:11px; font-weight:800;
-    padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px;
-  }
+  .unit-tile .u-status { font-size: 22px; color: var(--primary-dark); font-weight:bold; }
+  .badge-pass { background: #d7f9ef; color:#0f7a67; font-size:11px; font-weight:800; padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px; }
   .badge-progress { background: #fff0cf; color:#8a5a00; font-size:11px; font-weight:800; padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px; }
   .lock-note { font-size: 11px; color: var(--text-soft); margin-top:4px; font-style: italic; font-weight:600; }
 
-  /* ===== UNIT DETAIL (8 step list) ===== */
-  .step-list { display:flex; flex-direction:column; gap: 10px; margin-top: 18px; padding-left: 4px; }
+  /* ===== STEPS & CARDS ===== */
+  .step-list { display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
   .step-tile {
-    background: var(--card-bg); border-radius: 16px; padding: 12px 14px; display:flex; align-items:center; gap: 12px;
-    border: none; box-shadow: 0 4px 0 var(--border), 0 6px 12px var(--shadow); cursor: pointer;
+    background: var(--card-bg); border-radius: 16px; padding: 14px; display:flex; align-items:center; gap: 12px;
+    box-shadow: 0 4px 0 var(--border), 0 6px 12px var(--shadow); cursor: pointer;
     transition: transform 0.1s ease;
   }
   .step-tile:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--border); }
-  .step-tile.locked { opacity: 0.55; cursor: default; box-shadow: 0 4px 0 var(--border); }
+  .step-tile.locked { opacity: 0.55; cursor: default; }
   .step-tile .step-num {
-    width:34px; height:34px; border-radius:50%; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white;
-    display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; font-size: 14px;
-    font-family:'Fredoka',sans-serif; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
+    width:36px; height:36px; border-radius:50%; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size: 15px;
   }
   .step-tile.locked .step-num { background: linear-gradient(160deg, #d9cfc0, #b7ab97); }
-  .step-tile .step-name { font-weight:700; flex:1; font-size: 14px; }
-  .step-tile .step-check { font-size:18px; }
+  .step-tile .step-name { font-weight:700; flex:1; font-size: 15px; }
 
   .card {
-    position: relative;
     background-color: var(--card-bg);
-    background-image:
-      radial-gradient(circle at 100% 0%, rgba(255,171,0,0.16) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba(46,196,182,0.14) 0%, transparent 50%),
-      repeating-linear-gradient(60deg, rgba(255,171,0,0.11) 0 3px, transparent 3px 38px),
-      repeating-linear-gradient(-60deg, rgba(255,171,0,0.11) 0 3px, transparent 3px 38px),
-      repeating-linear-gradient(0deg, rgba(255,171,0,0.11) 0 3px, transparent 3px 38px);
     border-radius: 22px; padding: 20px; box-shadow: 0 6px 18px var(--shadow); margin-top: 16px; border: 1px solid var(--border);
-    overflow: hidden;
   }
-  .instructions { font-size: 13px; color: var(--text-soft); text-align:center; margin-bottom: 10px; font-weight:600; }
+  .instructions { font-size: 14px; color: var(--text-soft); text-align:center; margin-bottom: 12px; font-weight:600; }
 
-  /* ===== Flashcards ===== */
-  .flash-wrap { display:flex; flex-direction: column; align-items: center; gap: 14px; }
-  .flashcard {
-    width: 100%; max-width: 300px; aspect-ratio: 4/3; border-radius: 24px;
-    background: linear-gradient(160deg, #fff, #fff3d6); border: 3px solid var(--border);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-    cursor: pointer; user-select: none; box-shadow: 0 6px 0 var(--border); transition: transform 0.15s ease;
-  }
-  .flashcard:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--border); }
-  .flashcard .emoji-big { font-size: 78px; }
-  .flashcard .word-en { font-size: 28px; font-weight: bold; color: var(--primary-dark); }
-  .flashcard .word-vi { font-size: 15px; color: var(--text-soft); display:none; }
-  .flashcard.flipped .word-vi { display: block; }
-  .flash-nav { display:flex; align-items:center; gap:16px; }
-  .flash-nav button { background: var(--primary); border:none; color:white; font-size:20px; width:40px; height:40px; border-radius:50%; cursor:pointer; box-shadow: 0 3px 0 var(--primary-dark); }
-  .flash-nav button:active { box-shadow:none; transform: translateY(3px); }
-  .flash-progress { font-weight:bold; color: var(--text-soft); font-size: 13px; }
+  /* Buttons & Utilities */
   .speak-btn { background: var(--blue); color: white; border:none; padding: 8px 16px; border-radius: 14px; font-weight:bold; font-size:14px; cursor:pointer; box-shadow: 0 3px 0 #2678a8; }
   .speak-btn:active { transform: translateY(3px); box-shadow:none; }
   .primary-btn { margin-top: 10px; background: var(--pink); color:white; border:none; padding:12px 22px; border-radius:16px; font-weight:bold; cursor:pointer; box-shadow: 0 3px 0 #c2485f; font-size:15px; }
@@ -241,50 +147,46 @@
   .primary-btn.green { background: var(--green); box-shadow: 0 3px 0 var(--green-dark); }
   .primary-btn.purple { background: var(--purple); box-shadow: 0 3px 0 #6c3483; }
 
-  /* ===== progress dots ===== */
   .dots { display:flex; justify-content:center; gap:6px; margin-bottom:14px; }
   .dots span { width:10px; height:10px; border-radius:50%; background: var(--border); }
   .dots span.done { background: var(--green); }
-  .dots span.wrong-dot { background: var(--red); }
   .dots span.current { background: var(--primary); }
 
-  /* ===== step header inside player ===== */
   .step-title { text-align:center; font-weight:bold; font-size: 15px; color: var(--text-soft); margin-bottom: 6px; }
 
-  /* ===== MCQ block ===== */
+  /* MCQ */
   .mcq-prompt { text-align:center; }
-  .mcq-prompt .emoji-big { font-size: 84px; }
+  .mcq-prompt .emoji-big { font-size: 80px; margin-bottom: 10px; }
   .mcq-prompt .sentence-display { font-size: 18px; font-weight:bold; margin: 10px 0; line-height:1.5; }
   .mcq-prompt .story-text { font-size: 15px; line-height:1.6; background: var(--bg); border-radius:12px; padding:12px; margin-bottom:10px; text-align:left; }
   .options { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top: 14px; }
   .opt-btn {
     background: linear-gradient(135deg, #fff, var(--opt-tint, #fff8e7));
-    border: none; border-radius: 18px; padding: 12px 26px; font-size: 27px; font-weight: 800;
+    border: none; border-radius: 18px; padding: 12px 26px; font-size: 22px; font-weight: 800;
     cursor: pointer; color: var(--text); font-family:'Fredoka',sans-serif;
     box-shadow: 0 4px 0 var(--opt-shadow, var(--border)), 0 6px 10px var(--shadow);
     transition: transform 0.1s ease;
-    width: auto; min-width: 220px; max-width: 100%;
+    width: auto; min-width: 240px; max-width: 100%;
   }
   .opt-btn:active:not([disabled]) { transform: translateY(3px); box-shadow: 0 1px 0 var(--opt-shadow, var(--border)); }
   .opt-btn.opt-c0 { --opt-tint: #fff0c2; --opt-shadow: #f0c463; }
   .opt-btn.opt-c1 { --opt-tint: #ffe0d6; --opt-shadow: #f2a48f; }
   .opt-btn.opt-c2 { --opt-tint: #d3f7f0; --opt-shadow: #7fdbc9; }
   .opt-btn.opt-c3 { --opt-tint: #dbe9ff; --opt-shadow: #93b8f2; }
-  .opt-btn.correct { background: linear-gradient(135deg,#fff,#d3f7f0); box-shadow: 0 4px 0 var(--green-dark), 0 6px 10px var(--shadow); color:#0f7a67; }
-  .opt-btn.wrong { background: linear-gradient(135deg,#fff,#fbdcdc); box-shadow: 0 4px 0 #c94d68, 0 6px 10px var(--shadow); color:#a12742; }
-  .opt-btn[disabled] { cursor: default; }
+  .opt-btn.correct { background: linear-gradient(135deg,#fff,#d3f7f0); box-shadow: 0 4px 0 var(--green-dark); color:#0f7a67; }
+  .opt-btn.wrong { background: linear-gradient(135deg,#fff,#fbdcdc); box-shadow: 0 4px 0 #c94d68; color:#a12742; }
   .opt-btn.opt-locked { cursor: not-allowed; }
-  .opt-btn.opt-locked .opt-label { opacity: 0.45; }
+  .opt-btn.opt-locked .opt-label { opacity: 0.5; }
   .opt-speak-icon {
     display: inline-flex; align-items:center; justify-content:center;
-    width: 46px; height: 46px; border-radius: 50%; background: var(--blue); color: white;
-    font-size: 20px; cursor: pointer; flex-shrink: 0; box-shadow: 0 2px 0 #2678a8;
+    width: 42px; height: 42px; border-radius: 50%; background: var(--blue); color: white;
+    font-size: 18px; cursor: pointer; flex-shrink: 0; box-shadow: 0 2px 0 #2678a8;
   }
   .opt-speak-icon.heard { background: var(--green); box-shadow: 0 2px 0 var(--green-dark); }
   .listen-hint { text-align:center; font-size: 13px; color: var(--primary-dark); font-weight:bold; margin-bottom: 10px; }
   .listen-hint.all-done { color: var(--green); }
 
-  /* ===== Fill missing ===== */
+  /* Fill / Remove / Odd */
   .fill-item { text-align:center; }
   .fill-item .emoji-big { font-size: 76px; }
   .fill-word { font-size: 32px; font-weight:bold; letter-spacing: 3px; margin: 12px 0; color: var(--primary-dark); }
@@ -295,30 +197,25 @@
   .feedback.ok { color: var(--green); }
   .feedback.bad { color: var(--red); }
 
-  /* ===== Remove letter ===== */
-  .remove-item { text-align:center; }
-  .remove-item .emoji-big { font-size: 76px; }
-  .letters-row { display:flex; justify-content:center; gap:4px; margin: 16px 0; flex-wrap:wrap; }
+  .letters-row { display:flex; justify-content:center; gap:6px; margin: 16px 0; flex-wrap:wrap; }
   .letter-btn {
-    width: 42px; height:50px; font-size: 24px; font-weight:bold; border-radius:10px;
+    width: 44px; height:50px; font-size: 24px; font-weight:bold; border-radius:10px;
     border: 2px solid var(--border); background: var(--card-bg); color: var(--text); cursor:pointer;
   }
   .letter-btn.removed-correct { background:#d3f7f0; border-color: var(--green); }
   .letter-btn.removed-wrong { background:#fbdcdc; border-color: var(--red); }
-  .letter-btn[disabled] { cursor:default; }
 
-  /* ===== Odd one out ===== */
   .odd-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
   .odd-card {
     background: var(--bg); border: 3px solid var(--border); border-radius: 16px; padding: 14px;
     text-align:center; cursor:pointer;
   }
-  .odd-card .oc-emoji { font-size: 50px; }
-  .odd-card .oc-label { font-weight:bold; margin-top:4px; font-size:14px; }
+  .odd-card .oc-emoji { font-size: 46px; }
+  .odd-card .oc-label { font-weight:bold; margin-top:4px; font-size:15px; }
   .odd-card.correct { border-color: var(--green); background:#d3f7f0; }
   .odd-card.wrong { border-color: var(--red); background:#fbdcdc; }
 
-  /* ===== Sentence builder ===== */
+  /* Sentence */
   .sentence-answer-area {
     min-height: 56px; border: 2px dashed var(--border); border-radius: 14px; padding: 10px;
     display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center; margin-bottom: 14px;
@@ -329,10 +226,6 @@
     padding: 12px 18px; border-radius: 18px; font-family:'Fredoka',sans-serif; max-width: 90%;
     box-shadow: 0 3px 0 #e0b84a;
   }
-  .speech-bubble::after {
-    content: ''; position: absolute; left: 24px; bottom: -10px;
-    border-width: 10px 8px 0 0; border-style: solid; border-color: var(--honey-light) transparent transparent transparent;
-  }
   .word-chip {
     background: var(--primary); color:white; border:none; padding: 8px 14px; border-radius: 12px;
     font-weight:bold; font-size:15px; cursor:pointer;
@@ -340,16 +233,12 @@
   .word-chip.placed { background: var(--card-bg); color: var(--text); border: 2px solid var(--border); }
   .chip-bank { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom: 14px; }
 
-  /* ===== Writing ===== */
+  /* Writing & Speaking */
   .writing-input {
-    width: 100%; max-width: 280px; font-size: 26px; text-align:center; font-weight:700;
+    width: 100%; max-width: 280px; font-size: 24px; text-align:center; font-weight:700;
     padding: 12px 16px; border-radius: 14px; border: 3px solid var(--primary);
     background: var(--card-bg); color: var(--text); margin: 14px 0; font-family:'Fredoka',sans-serif;
-    text-transform: lowercase;
   }
-  .writing-input:focus { outline:none; border-color: var(--primary-dark); }
-
-  /* ===== Speaking ===== */
   .mic-btn {
     width: 84px; height: 84px; border-radius: 50%; border:none; font-size: 36px; cursor:pointer;
     background: linear-gradient(160deg, var(--honey-light), var(--coral)); color:white; margin: 12px 0;
@@ -359,7 +248,7 @@
   .mic-btn.listening { background: linear-gradient(160deg, #ff8a8a, var(--red)); animation: pulse-mic 1s infinite; }
   @keyframes pulse-mic { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
-  /* ===== Result screen ===== */
+  /* Result */
   .result-screen { text-align:center; padding: 10px; }
   .result-screen .big-emoji { font-size: 60px; }
   .score-circle {
@@ -368,175 +257,85 @@
   }
   .score-circle.pass { border-color: var(--green); }
   .score-circle.fail { border-color: var(--red); }
-  .score-circle .pct { font-size: 26px; font-weight:bold; }
-  .score-circle .lbl { font-size: 10px; color: var(--text-soft); }
+  .score-circle .pct { font-size: 28px; font-weight:bold; }
+  .score-circle .lbl { font-size: 11px; color: var(--text-soft); }
   .unlock-msg { font-weight:bold; font-size:15px; margin: 10px 0; }
   .unlock-msg.pass { color: var(--green); }
   .unlock-msg.fail { color: var(--red); }
 
-  .step-done-banner { text-align:center; padding: 30px 10px; }
-  .step-done-banner .big-emoji { font-size:56px; }
-
-  /* ===== Login screen ===== */
-  .login-wrap {
-    min-height: 80vh; display:flex; align-items:center; justify-content:center; padding: 16px;
-  }
+  /* Login */
+  .login-wrap { min-height: 80vh; display:flex; align-items:center; justify-content:center; padding: 16px; }
   .login-box {
     background: var(--card-bg); border-radius: 26px; padding: 34px 26px; max-width: 360px; width:100%;
-    text-align:center; box-shadow: 0 8px 0 var(--border), 0 12px 24px var(--shadow); border: none;
+    text-align:center; box-shadow: 0 8px 0 var(--border), 0 12px 24px var(--shadow);
   }
-  .login-box .login-emoji { font-size: 58px; margin-bottom: 8px; filter: drop-shadow(0 3px 0 rgba(0,0,0,0.1)); }
-  .login-box h2 { color: var(--primary-dark); margin: 0 0 6px; font-size: 21px; font-weight:700; }
-  .login-box p { color: var(--text-soft); font-size: 13px; margin: 0 0 20px; font-weight:600; }
+  .login-box .login-emoji { font-size: 58px; margin-bottom: 8px; }
+  .login-box h2 { color: var(--primary-dark); margin: 0 0 6px; font-size: 21px; }
+  .login-box p { color: var(--text-soft); font-size: 13px; margin: 0 0 20px; }
   .login-field { text-align:left; margin-bottom: 14px; }
-  .login-field label { display:block; font-size: 13px; font-weight:700; color: var(--text); margin-bottom: 5px; }
+  .login-field label { display:block; font-size: 13px; font-weight:700; margin-bottom: 5px; }
   .login-field input {
     width:100%; padding: 11px 14px; border-radius: 12px; border: 2px solid var(--border);
-    font-size: 15px; background: var(--bg); color: var(--text); box-sizing:border-box; font-family:'Nunito',sans-serif;
+    font-size: 15px; background: var(--bg); color: var(--text);
   }
-  .login-field input:focus { outline: none; border-color: var(--primary); }
   .login-submit {
     width:100%; background: linear-gradient(135deg, var(--honey-light), var(--primary)); color:#4a2c00; border:none;
     border-radius:14px; padding:13px; font-weight:700; font-size:15px; cursor:pointer; margin-top:6px;
-    box-shadow: 0 4px 0 var(--primary-dark); font-family:'Fredoka',sans-serif;
-  }
-  .login-submit:active { transform: translateY(3px); box-shadow:none; }
-  .webview-banner {
-    display: none;
-    background: linear-gradient(135deg, #fff3cd, #ffe8a3);
-    border: 2px solid #f0c463;
-    border-radius: 16px;
-    padding: 12px 14px;
-    margin-bottom: 14px;
-    font-size: 13px;
-    color: #6b4c00;
-    font-weight: 600;
-    line-height: 1.5;
-  }
-  .webview-banner strong { color: #4a3300; }
-  .webview-banner .wb-close {
-    float: right; background:none; border:none; font-size:16px; cursor:pointer; color:#6b4c00; font-weight:bold;
-    line-height:1;
-  }
-  /* ===== Hiệu ứng động cho sinh động hơn ===== */
-  @keyframes waggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-8deg); }
-    75% { transform: rotate(8deg); }
-  }
-  .login-box .login-emoji { animation: waggle 2.6s ease-in-out infinite; display: inline-block; }
-
-  @keyframes popIn {
-    0% { opacity: 0; transform: scale(0.85) translateY(8px); }
-    100% { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  .card, .unit-tile, .step-tile, .login-box { animation: popIn 0.35s ease-out; }
-
-  @keyframes trophyBounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1.08); }
-  }
-  .result-screen .big-emoji { display:inline-block; animation: trophyBounce 1.1s ease-in-out infinite; }
-
-  @keyframes sparklePulse {
-    0%, 100% { opacity: 0.55; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.15); }
-  }
-  .hex-badge { animation: sparklePulse 2.4s ease-in-out infinite; }
-  .unit-tile.locked .hex-badge { animation: none; }
-
-  /* Confetti ăn mừng */
-  .confetti-piece {
-    position: fixed; top: -20px; width: 10px; height: 14px; z-index: 2000; pointer-events: none;
-    animation: confettiFall linear forwards;
-  }
-  @keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(540deg); opacity: 0; }
+    box-shadow: 0 4px 0 var(--primary-dark);
   }
 
-  .reaction-emoji {
-    position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(0.4);
-    font-size: 90px; z-index: 2001; pointer-events: none; opacity: 0;
-    animation: reactionPop 1.5s ease-out forwards;
-  }
-  @keyframes reactionPop {
-    0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
-    15% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-    25% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    75% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    100% { transform: translate(-50%, -55%) scale(1); opacity: 0; }
-  }
-
-  /* ===== Lesson-based UI (giống sách) ===== */
   .lesson-banner {
     display: inline-block; background: linear-gradient(135deg, #4ecdc4, #3da9fc); color: white;
-    font-family:'Fredoka',sans-serif; font-weight:700; font-size: 14px; letter-spacing:1px;
-    padding: 6px 18px; border-radius: 999px; margin-bottom: 14px; box-shadow: 0 3px 0 #2b8fd4;
+    font-weight:700; font-size: 14px; letter-spacing:1px;
+    padding: 6px 18px; border-radius: 999px; margin-bottom: 14px;
   }
   .activity-header { display:flex; align-items:center; gap:12px; margin-bottom: 14px; }
   .activity-num {
     width: 34px; height:34px; border-radius:50%; background: var(--coral); color:white;
-    display:flex; align-items:center; justify-content:center; font-weight:700; font-family:'Fredoka',sans-serif;
-    flex-shrink:0; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
+    display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;
   }
-  .activity-title { font-weight:700; font-size: 17px; font-family:'Fredoka',sans-serif; color: var(--text); }
+  .activity-title { font-weight:700; font-size: 17px; color: var(--text); }
 
   .dialogue-list { display:flex; flex-direction:column; gap:12px; margin-bottom: 10px; }
   .dialogue-row { display:flex; }
   .dialogue-row.right { justify-content:flex-end; }
   .dialogue-bubble {
-    max-width: 78%; background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px;
+    max-width: 80%; background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px;
     padding: 10px 14px; font-size: 15px; font-weight:700; cursor:pointer; box-shadow: 0 3px 0 var(--border);
     display:flex; align-items:center; gap:8px;
   }
   .dialogue-row.right .dialogue-bubble { background: var(--honey-light); border-color:#e0b84a; }
-  .dialogue-bubble .db-speak { flex-shrink:0; font-size:15px; }
 
   .flash-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
   .flash-grid-item {
     background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; padding: 12px;
     text-align:center; cursor:pointer; box-shadow: 0 3px 0 var(--border);
   }
-  .flash-grid-item:active { transform: translateY(2px); box-shadow:none; }
   .flash-grid-item .fg-word { font-weight:700; margin-top:8px; font-size:14px; }
-  .flash-grid-item .fg-speak { font-size:15px; margin-top:4px; }
 
-  .listen-order-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
-  .lo-item {
-    position: relative; background: var(--card-bg); border: 3px solid var(--border); border-radius: 16px;
-    padding: 14px; text-align:center; cursor:pointer; box-shadow: 0 3px 0 var(--border);
-  }
-  .lo-item.picked { border-color: var(--green); background:#e9fbf8; }
-  .lo-badge {
-    position:absolute; top:-10px; left:-10px; width:28px; height:28px; border-radius:50%;
-    background: var(--green); color:white; font-weight:700; display:flex; align-items:center; justify-content:center;
-    font-family:'Fredoka',sans-serif; box-shadow: 0 2px 0 var(--green-dark);
-  }
-  .lo-item .lo-word { font-weight:700; margin-top:6px; font-size:13px; }
-
-  .cr-item { text-align:center; margin-bottom: 20px; }
-  .cr-item .cr-sentence { font-size:16px; font-weight:700; margin: 10px 0; color: var(--text); }
-  .cr-item input {
-    font-size: 18px; font-weight:700; padding: 8px 12px; border-radius: 10px; border: 2px solid var(--primary);
-    background: var(--card-bg); color: var(--text); width: 160px; text-align:center; font-family:'Fredoka',sans-serif;
-  }
-
-  .lyrics-box {
-    background: var(--bg); border-radius: 16px; padding: 16px; margin: 12px 0; text-align:center;
-  }
-  .lyrics-box .ly-line { font-size: 15px; font-weight:700; color: var(--text); line-height:1.9; }
+  .lyrics-box { background: var(--bg); border-radius: 16px; padding: 16px; margin: 12px 0; text-align:center; }
+  .lyrics-box .ly-line { font-size: 15px; font-weight:700; color: var(--text); line-height:1.8; }
   .lyrics-box .ly-line.blank { height: 10px; }
 
   .phonics-row { display:flex; align-items:center; gap:14px; background: var(--bg); border-radius:14px; padding:12px 14px; margin-bottom:10px; cursor:pointer; }
-  .phonics-row .pr-letters { width:50px; height:50px; border-radius:12px; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; font-family:'Fredoka',sans-serif; flex-shrink:0; }
+  .phonics-row .pr-letters { width:50px; height:50px; border-radius:12px; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; flex-shrink:0; }
   .phonics-row .pr-text { flex:1; }
   .phonics-row .pr-text .pr-example { font-weight:700; font-size:16px; }
   .phonics-row .pr-text .pr-sentence { font-size:13px; color: var(--text-soft); }
 
+  .confetti-piece { position: fixed; top: -20px; width: 10px; height: 14px; z-index: 2000; pointer-events: none; animation: confettiFall linear forwards; }
+  @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(540deg); opacity: 0; } }
+
+  .reaction-emoji {
+    position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(0.4);
+    font-size: 80px; z-index: 2001; pointer-events: none; opacity: 0;
+    animation: reactionPop 1.4s ease-out forwards;
+  }
+  @keyframes reactionPop { 0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 20% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; } 80% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 100% { transform: translate(-50%, -55%) scale(1); opacity: 0; } }
 </style>
 </head>
 <body>
+
 <div class="login-wrap" id="login-wrap">
   <div class="login-box">
     <div class="login-emoji">🐝</div>
@@ -544,23 +343,18 @@
     <p>Nhập tài khoản để vào học nhé!</p>
     <div class="login-field">
       <label>Tên đăng nhập</label>
-      <input type="text" id="login-username" autocomplete="off">
+      <input type="text" id="login-username" value="tienganh" autocomplete="off">
     </div>
     <div class="login-field">
       <label>Mật khẩu</label>
-      <input type="password" id="login-password" autocomplete="off">
+      <input type="password" id="login-password" value="1" autocomplete="off">
     </div>
     <button class="login-submit" id="login-submit">Đăng nhập</button>
-    <div class="login-error" id="login-error"></div>
+    <div class="feedback bad" id="login-error"></div>
   </div>
 </div>
 
 <div class="app" id="main-app" style="display:none;">
-
-  <div class="webview-banner" id="webview-banner">
-    <button class="wb-close" id="webview-banner-close">✕</button>
-    ⚠️ <strong>Bạn đang mở trang này trong Zalo/Facebook/Messenger.</strong> Một số tính năng (đặc biệt là <strong>Speaking - Nói</strong>, cần dùng micro) có thể không hoạt động ở đây. Hãy bấm menu "⋮" hoặc "..." ở góc màn hình và chọn <strong>"Mở bằng trình duyệt"</strong> (Chrome/Safari) để dùng đầy đủ tính năng nhé!
-  </div>
 
   <header class="top">
     <div class="title-block">
@@ -578,22 +372,22 @@
     <div class="unit-list" id="unit-list"></div>
   </div>
 
-  <!-- SCREEN: UNIT DETAIL (Lesson 1 / 2 / 3 / Bài kiểm tra) -->
+  <!-- SCREEN: UNIT DETAIL -->
   <div class="screen" id="screen-unit-detail">
     <div class="step-list" id="lesson-list"></div>
   </div>
 
-  <!-- SCREEN: LESSON DONE transition -->
+  <!-- SCREEN: LESSON DONE -->
   <div class="screen" id="screen-lesson-done">
-    <div class="card step-done-banner">
-      <div class="big-emoji">✅</div>
+    <div class="card" style="text-align:center; padding:30px 10px;">
+      <div style="font-size:56px;">🎉</div>
       <h2 id="lesson-done-title">Hoàn thành Lesson!</h2>
       <p id="lesson-done-sub"></p>
-      <button class="primary-btn" id="lesson-done-continue">Tiếp tục</button>
+      <button class="primary-btn green" id="lesson-done-continue">Tiếp tục</button>
     </div>
   </div>
 
-  <!-- SCREEN: LESSON RUNNER (từng hoạt động trong 1 Lesson, đúng số thứ tự như sách) -->
+  <!-- SCREEN: LESSON RUNNER -->
   <div class="screen" id="screen-lesson">
     <div class="card">
       <div class="lesson-banner" id="lesson-banner"></div>
@@ -607,7 +401,7 @@
     </div>
   </div>
 
-  <!-- SCREEN: GENERIC STEP PLAYER (dùng cho Bài kiểm tra Unit tổng hợp) -->
+  <!-- SCREEN: STEP PLAYER (BÀI KIỂM TRA) -->
   <div class="screen" id="screen-step-player">
     <div class="card">
       <div class="step-title" id="sp-title"></div>
@@ -636,7 +430,7 @@
       </div>
 
       <div id="block-remove" style="display:none;">
-        <div class="remove-item">
+        <div class="fill-item">
           <div class="emoji-big" id="remove-emoji"></div>
           <div class="instructions">Chạm vào chữ cái thừa để xoá</div>
           <div class="letters-row" id="letters-row"></div>
@@ -645,32 +439,27 @@
       </div>
 
       <div id="block-odd" style="display:none;">
-        <div class="instructions" id="odd-question">Từ nào khác với các từ còn lại?</div>
+        <div class="instructions">Từ nào khác với các từ còn lại?</div>
         <div class="odd-grid" id="odd-grid"></div>
         <div class="feedback" id="odd-feedback"></div>
       </div>
 
       <div id="block-sentence" style="display:none;">
-        <div class="speech-bubble-demo">
-          <div class="speech-bubble">Where are you from?</div>
-          <div class="speech-bubble" style="align-self:flex-end;">I'm from ____.</div>
-        </div>
         <div class="instructions">Sắp xếp các từ thành câu đúng</div>
         <div class="sentence-answer-area" id="sentence-answer-area"></div>
         <div class="chip-bank" id="sentence-chip-bank"></div>
-        <button class="check-btn" id="sentence-check">✅ Kiểm tra</button>
+        <div style="text-align:center;">
+          <button class="check-btn" id="sentence-check">✅ Kiểm tra</button>
+        </div>
         <div class="feedback" id="sentence-feedback"></div>
       </div>
 
       <div id="block-writing" style="display:none;">
         <div class="fill-item">
           <div class="emoji-big" id="writing-emoji" style="cursor:pointer;" title="Chạm để nghe"></div>
-          <div class="instructions" style="margin-top:-8px; margin-bottom:10px;">👆 Chạm vào hình để nghe từ</div>
-          <div class="instructions">Nhìn hình, nghe từ, rồi gõ đúng từ tiếng Anh nhé!</div>
+          <div class="instructions">👆 Chạm vào hình để nghe rồi gõ lại từ nhé!</div>
           <input type="text" id="writing-input" class="writing-input" autocomplete="off" placeholder="Gõ từ vào đây...">
-          <div>
-            <button class="check-btn" id="writing-check">✅ Kiểm tra</button>
-          </div>
+          <div><button class="check-btn" id="writing-check">✅ Kiểm tra</button></div>
           <div class="feedback" id="writing-feedback"></div>
         </div>
       </div>
@@ -678,7 +467,7 @@
       <div id="block-speaking" style="display:none;">
         <div class="fill-item">
           <div class="emoji-big" id="speaking-emoji"></div>
-          <div class="word-en" id="speaking-word"></div>
+          <div class="word-en" id="speaking-word" style="font-size:26px; color:var(--primary-dark); margin:8px 0;"></div>
           <button class="speak-btn" id="speaking-listen">🔊 Nghe mẫu</button>
 
           <div id="speaking-enable-block" style="margin-top:16px;">
@@ -693,7 +482,7 @@
           </div>
 
           <div id="speaking-unsupported" style="display:none;">
-            <p class="instructions">Trình duyệt này chưa hỗ trợ nhận diện giọng nói (hãy thử Chrome). Mời phụ huynh/giáo viên nghe bé đọc trực tiếp nhé!</p>
+            <p class="instructions">Trình duyệt này chưa hỗ trợ Speech Recognition. Phụ huynh/bé có thể ấn xác nhận nhé!</p>
             <button class="check-btn" id="speaking-fallback-ok">✅ Bé đã đọc xong</button>
           </div>
         </div>
@@ -701,7 +490,7 @@
     </div>
   </div>
 
-  <!-- SCREEN: RESULT (Bài kiểm tra Unit) -->
+  <!-- SCREEN: RESULT -->
   <div class="screen" id="screen-result">
     <div class="card result-screen">
       <div class="big-emoji" id="result-emoji">🏆</div>
@@ -721,29 +510,14 @@
 
 <script>
 (function() {
-  // ================= LOGIN GATE =================
   const VALID_USERNAME = 'tienganh';
   const VALID_PASSWORD = '1';
 
   function showApp() {
     document.getElementById('login-wrap').style.display = 'none';
     document.getElementById('main-app').style.display = 'block';
-    checkInAppBrowser();
     initApp();
   }
-
-  function checkInAppBrowser() {
-    try {
-      const ua = navigator.userAgent || '';
-      const isInAppBrowser = /Zalo|FBAN|FBAV|FB_IAB|Messenger|Instagram|MicroMessenger|Line\//i.test(ua);
-      if (isInAppBrowser) {
-        document.getElementById('webview-banner').style.display = 'block';
-      }
-    } catch (e) {}
-  }
-  document.getElementById('webview-banner-close').addEventListener('click', () => {
-    document.getElementById('webview-banner').style.display = 'none';
-  });
 
   function tryLogin() {
     const u = document.getElementById('login-username').value.trim();
@@ -758,1394 +532,676 @@
   }
   document.getElementById('login-submit').addEventListener('click', tryLogin);
   document.getElementById('login-password').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
-  document.getElementById('login-username').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
 
   let alreadyLoggedIn = false;
   try { alreadyLoggedIn = localStorage.getItem('tienganh4_logged_in') === '1'; } catch (e) {}
   if (alreadyLoggedIn) { showApp(); }
 
-  // ================= MAIN APP (chạy sau khi đăng nhập) =================
   function initApp() {
-  // ================= DATA =================
-  const UNITS = [
-    {
-      id: 1, title: "Unit 1: My friends", emoji: "🌍",
-      // --- dữ liệu dùng chung cho Bài kiểm tra Unit (tổng hợp) ---
-      phonicsLetter: { upper: "A / IA", lower: "a / ia" },
-      distractor: { word: "apple", vi: "quả táo", emoji: "🍎" },
-      words: [
-        { word: "america",   vi: "nước Mỹ",       emoji: "🇺🇸", flag: "us", missingIndex: 0, extraLetters: "amxerica".split(''), extraPos: 2 },
-        { word: "australia", vi: "nước Úc",        emoji: "🇦🇺", flag: "au", missingIndex: 0, extraLetters: "auxstralia".split(''), extraPos: 2 },
-        { word: "britain",   vi: "nước Anh",       emoji: "🇬🇧", flag: "gb", missingIndex: 0, extraLetters: "brxitain".split(''), extraPos: 2 },
-        { word: "japan",     vi: "nước Nhật Bản",  emoji: "🇯🇵", flag: "jp", missingIndex: 0, extraLetters: "jxapan".split(''), extraPos: 1 },
-        { word: "malaysia",  vi: "Malaysia",       emoji: "🇲🇾", flag: "my", missingIndex: 0, extraLetters: "maxlaysia".split(''), extraPos: 2 },
-        { word: "singapore", vi: "Singapore",      emoji: "🇸🇬", flag: "sg", missingIndex: 0, extraLetters: "sixngapore".split(''), extraPos: 2 },
-        { word: "thailand",  vi: "Thái Lan",       emoji: "🇹🇭", flag: "th", missingIndex: 0, extraLetters: "thxailand".split(''), extraPos: 2 },
-        { word: "vietnam",   vi: "Việt Nam",       emoji: "🇻🇳", flag: "vn", missingIndex: 0, extraLetters: "vixetnam".split(''), extraPos: 2 },
-      ],
-      vocabQuizQuestion: "Đây là nước nào?",
-      phonicsQuestions: [
-        { emoji: "🇺🇸", flag: "us", question: 'Which word ends with the sound "a"?', qLang: 'en', options: ["america", "japan"], correct: "america" },
-        { emoji: "🇦🇺", flag: "au", question: 'Which word ends with the sound "ia"?', qLang: 'en', options: ["australia", "singapore"], correct: "australia" },
-        { emoji: "🇲🇾", flag: "my", question: 'Which word ends with the sound "ia"?', qLang: 'en', options: ["malaysia", "thailand"], correct: "malaysia" },
-      ],
-      story: {
-        text: "Minh is from Viet Nam. Lucy is from Britain. Mary is from America. Ben is from Australia.",
-        question: "Where is Mary from?", qLang: 'en',
-        options: ["America", "Britain", "Australia"],
-        answerIndex: 0
+    const UNITS = [
+      {
+        id: 1, title: "Unit 1: My friends", emoji: "🌍",
+        phonicsLetter: { upper: "A / IA", lower: "a / ia" },
+        distractor: { word: "apple", vi: "quả táo", emoji: "🍎" },
+        words: [
+          { word: "america",   vi: "nước Mỹ",        emoji: "🇺🇸", flag: "us", missingIndex: 0, extraLetters: "amxerica".split(''), extraPos: 2 },
+          { word: "australia", vi: "nước Úc",        emoji: "🇦🇺", flag: "au", missingIndex: 0, extraLetters: "auxstralia".split(''), extraPos: 2 },
+          { word: "britain",   vi: "nước Anh",       emoji: "🇬🇧", flag: "gb", missingIndex: 0, extraLetters: "brxitain".split(''), extraPos: 2 },
+          { word: "japan",     vi: "nước Nhật Bản",  emoji: "🇯🇵", flag: "jp", missingIndex: 0, extraLetters: "jxapan".split(''), extraPos: 1 },
+          { word: "malaysia",  vi: "Malaysia",       emoji: "🇲🇾", flag: "my", missingIndex: 0, extraLetters: "maxlaysia".split(''), extraPos: 2 },
+          { word: "singapore", vi: "Singapore",      emoji: "🇸🇬", flag: "sg", missingIndex: 0, extraLetters: "sixngapore".split(''), extraPos: 2 },
+          { word: "thailand",  vi: "Thái Lan",       emoji: "🇹🇭", flag: "th", missingIndex: 0, extraLetters: "thxailand".split(''), extraPos: 2 },
+          { word: "vietnam",   vi: "Việt Nam",       emoji: "🇻🇳", flag: "vn", missingIndex: 0, extraLetters: "vixetnam".split(''), extraPos: 2 }
+        ],
+        vocabQuizQuestion: "Đây là nước nào?",
+        phonicsQuestions: [
+          { emoji: "🇺🇸", flag: "us", question: 'Which word ends with the sound "a"?', qLang: 'en', options: ["america", "japan"], correct: "america" },
+          { emoji: "🇦🇺", flag: "au", question: 'Which word ends with the sound "ia"?', qLang: 'en', options: ["australia", "singapore"], correct: "australia" }
+        ],
+        story: {
+          text: "Minh is from Viet Nam. Lucy is from Britain. Mary is from America. Ben is from Australia.",
+          question: "Where is Mary from?", qLang: 'en',
+          options: ["America", "Britain", "Australia"],
+          answerIndex: 0
+        },
+        sentenceTarget: "Where are you from?",
+        fillSentences: [
+          { before: "I'm from", after: ".", answer: "america",   options: ["america", "britain", "japan"] },
+          { before: "I'm from", after: ".", answer: "vietnam",   options: ["vietnam", "thailand", "japan"] }
+        ],
+        lessons: [
+          {
+            title: "Lesson 1",
+            activities: [
+              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "Hello. I'm Minh. I'm from Viet Nam.", b: "Hello, Minh. I'm Mary. I'm from America." } ] },
+              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "Where are you from?", aBubble: "I'm from ____.", items: [ { flag:'gb', word:'britain', label:'Britain' }, { flag:'vn', word:'vietnam', label:'Viet Nam' } ] },
+              { type: 'song', title: "Let's sing.", lines: ["Hello. I'm Minh.", "I'm from Viet Nam.", "Where are you from?"] }
+            ]
+          },
+          {
+            title: "Lesson 2",
+            activities: [
+              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "Who's that?", b: "It's my new friend." }, { a: "Where's she from?", b: "She's from Japan." } ] },
+              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "Where's she from?", aBubble: "She's from ____.", items: [ { flag:'jp', word:'japan', label:'Japan' }, { flag:'th', word:'thailand', label:'Thailand' } ] }
+            ]
+          },
+          {
+            title: "Lesson 3",
+            activities: [
+              { type: 'phonics_repeat', title: 'Listen and repeat.', rows: [ { letters: 'a', example: 'America', sentence: "I'm from America." }, { letters: 'ia', example: 'Australia', sentence: "She's from Australia." } ] },
+              { type: 'song', title: "Let's chant.", lines: ["America, America.", "Mary's from America.", "Australia, Australia.", "Ben's from Australia."] }
+            ]
+          }
+        ]
       },
-      sentenceTarget: "Where are you from?",
-      fillSentences: [
-        { before: "I'm from", after: ".", answer: "america",   options: ["america", "britain", "japan"] },
-        { before: "I'm from", after: ".", answer: "australia", options: ["australia", "singapore", "thailand"] },
-        { before: "I'm from", after: ".", answer: "britain",   options: ["britain", "america", "vietnam"] },
-        { before: "I'm from", after: ".", answer: "japan",     options: ["japan", "malaysia", "america"] },
-        { before: "I'm from", after: ".", answer: "malaysia",  options: ["malaysia", "japan", "singapore"] },
-        { before: "I'm from", after: ".", answer: "singapore", options: ["singapore", "australia", "malaysia"] },
-        { before: "I'm from", after: ".", answer: "thailand",  options: ["thailand", "vietnam", "britain"] },
-        { before: "I'm from", after: ".", answer: "vietnam",   options: ["vietnam", "thailand", "japan"] },
-      ],
+      {
+        id: 2, title: "Unit 2: Time and daily routines", emoji: "⏰",
+        phonicsLetter: { upper: "O / EE", lower: "o / ee" },
+        distractor: { word: "banana", vi: "quả chuối", emoji: "🍌" },
+        words: [
+          { word: "morning",   vi: "buổi sáng",    emoji: "🌅", missingIndex: 0, extraLetters: "mxorning".split(''), extraPos: 1 },
+          { word: "afternoon", vi: "buổi chiều",   emoji: "☀️", missingIndex: 0, extraLetters: "axfternoon".split(''), extraPos: 1 },
+          { word: "evening",   vi: "buổi tối",     emoji: "🌆", missingIndex: 0, extraLetters: "exvening".split(''), extraPos: 1 },
+          { word: "night",     vi: "ban đêm",      emoji: "🌙", missingIndex: 0, extraLetters: "nxight".split(''), extraPos: 1 }
+        ],
+        vocabQuizQuestion: "Đây là thời điểm nào?",
+        phonicsQuestions: [
+          { emoji: "⏰", question: 'Which word has the sound "o"?', qLang: 'en', options: ["morning", "sleep"], correct: "morning" }
+        ],
+        story: {
+          text: "I get up at six o'clock in the morning. I have breakfast at six thirty. Then I go to school at seven o'clock.",
+          question: "What time do you get up?", qLang: 'en',
+          options: ["six o'clock", "seven o'clock", "six thirty"],
+          answerIndex: 0
+        },
+        sentenceTarget: "What time is it?",
+        fillSentences: [
+          { before: "It is six", after: ".", answer: "o'clock", options: ["o'clock", "school", "bed"] },
+          { before: "Good", after: "!", answer: "morning", options: ["morning", "time", "clock"] }
+        ],
+        lessons: [
+          {
+            title: "Lesson 1",
+            activities: [
+              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "What time is it?", b: "It's seven o'clock." } ] },
+              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "What time is it?", aBubble: "It's ____ o'clock.", items: [ { emoji:'🌅', word:'morning', label:'Morning' }, { emoji:'🌙', word:'night', label:'Night' } ] }
+            ]
+          },
+          {
+            title: "Lesson 2",
+            activities: [
+              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "What time do you get up?", b: "I get up at six o'clock." } ] }
+            ]
+          },
+          {
+            title: "Lesson 3",
+            activities: [
+              { type: 'phonics_repeat', title: 'Listen and repeat.', rows: [ { letters: 'o', example: 'o\'clock', sentence: "It's seven o'clock." }, { letters: 'ee', example: 'fifteen', sentence: "It's seven fifteen." } ] }
+            ]
+          }
+        ]
+      }
+    ];
 
-      // --- dữ liệu 3 Lesson, bám sát đúng SGK ---
-      lessons: [
-        { // LESSON 1
-          title: "Lesson 1",
-          activities: [
-            { type: 'dialogue', title: 'Look, listen and repeat.',
-              exchanges: [
-                { a: "Hello. I'm Minh. I'm from Viet Nam.", b: "Hello, Minh. I'm Mary. I'm from America." },
-                { a: "Hi. I'm Lucy. I'm from Britain.", b: "Hi, Lucy. I'm Ben. I'm from Australia." }
-              ]
-            },
-            { type: 'flashcard_grid', title: 'Listen, point and say.',
-              qBubble: "Where are you from?", aBubble: "I'm from ____.",
-              items: [ { flag:'gb', word:'britain', label:'Britain' }, { flag:'vn', word:'vietnam', label:'Viet Nam' }, { flag:'us', word:'america', label:'America' }, { flag:'au', word:'australia', label:'Australia' } ]
-            },
-            { type: 'talk_practice', title: "Let's talk.", qBubble: "Where are you from?", aBubble: "I'm from ____." },
-            { type: 'listen_order', title: 'Listen and number.',
-              items: [ { flag:'vn', word:'vietnam', label:'Viet Nam' }, { flag:'au', word:'australia', label:'Australia' }, { flag:'us', word:'america', label:'America' }, { flag:'gb', word:'britain', label:'Britain' } ],
-              order: [2, 0, 3, 1]
-            },
-            { type: 'complete_read', title: 'Look, complete and read.',
-              items: [
-                { flag:'vn', before:"I'm from", after:".", answer:'vietnam' },
-                { flag:'us', before:"I'm from", after:".", answer:'america' },
-                { flag:'gb', before:"I'm from", after:".", answer:'britain' },
-                { flag:'au', before:"I'm from", after:".", answer:'australia' }
-              ]
-            },
-            { type: 'song', title: "Let's sing.", songTitle: "Where are you from?",
-              lines: ["Hello. I'm Minh.", "I'm from Viet Nam.", "", "Hello, Lucy. Where are you from?", "I'm from Britain.", "", "Hello, Mary. Where are you from?", "I'm from America.", "", "Hello, Ben. Where are you from?", "I'm from Australia."]
-            }
-          ]
-        },
-        { // LESSON 2
-          title: "Lesson 2",
-          activities: [
-            { type: 'dialogue', title: 'Look, listen and repeat.',
-              exchanges: [
-                { a: "Who's that?", b: "It's my new friend." },
-                { a: "Where's she from?", b: "She's from Japan." }
-              ]
-            },
-            { type: 'flashcard_grid', title: 'Listen, point and say.',
-              qBubble: "Where's he / she from?", aBubble: "He's / She's from ____.",
-              items: [ { flag:'sg', word:'singapore', label:'Singapore' }, { flag:'my', word:'malaysia', label:'Malaysia' }, { flag:'th', word:'thailand', label:'Thailand' }, { flag:'jp', word:'japan', label:'Japan' } ]
-            },
-            { type: 'talk_practice', title: "Let's talk.", qBubble: "Where's he / she from?", aBubble: "He's / She's from ____." },
-            { type: 'mcq_loop', title: 'Listen and tick.',
-              items: [
-                { prompt: "She's from Thailand.", options: [ {flag:'my', word:'malaysia'}, {flag:'th', word:'thailand'} ], answer: 'thailand' },
-                { prompt: "He's from Japan.", options: [ {flag:'sg', word:'singapore'}, {flag:'jp', word:'japan'} ], answer: 'japan' }
-              ]
-            },
-            { type: 'complete_read', title: 'Look, complete and read.',
-              items: [
-                { flag:'sg', before:"She's from", after:".", answer:'singapore' },
-                { flag:'my', before:"He's from", after:".", answer:'malaysia' },
-                { flag:'th', before:"She's from", after:".", answer:'thailand' },
-                { flag:'jp', before:"He's from", after:".", answer:'japan' }
-              ]
-            },
-            { type: 'mcq_loop', title: "Let's play: Find someone who is from...",
-              items: [
-                { flagPrompt: 'sg', options: ['singapore','malaysia','thailand'], answer:'singapore' },
-                { flagPrompt: 'my', options: ['malaysia','japan','vietnam'], answer:'malaysia' },
-                { flagPrompt: 'th', options: ['thailand','britain','america'], answer:'thailand' },
-                { flagPrompt: 'jp', options: ['japan','australia','singapore'], answer:'japan' }
-              ]
-            }
-          ]
-        },
-        { // LESSON 3
-          title: "Lesson 3",
-          activities: [
-            { type: 'phonics_repeat', title: 'Listen and repeat.',
-              rows: [
-                { letters: 'a', example: 'America', sentence: "I'm from America." },
-                { letters: 'ia', example: 'Australia', sentence: "She's from Australia." }
-              ]
-            },
-            { type: 'mcq_loop', title: 'Listen and circle.',
-              items: [
-                { prompt: "I'm from ____.", options: ['america','australia','malaysia'], answer: 'america' },
-                { prompt: "He's from ____.", options: ['canada','australia','america'], answer: 'australia', extraLabel:'canada' }
-              ]
-            },
-            { type: 'chant', title: "Let's chant.",
-              lines: ["America, America.", "Mary's from America.", "She's from America.", "", "Australia, Australia.", "Ben's from Australia.", "He's from Australia."]
-            }
-          ]
+    const PASS_THRESHOLD = 80;
+    let progress = {};
+    try { const s = localStorage.getItem('unit4_lesson_progress_v2'); if (s) progress = JSON.parse(s); } catch (e) {}
+    function saveProgress() { try { localStorage.setItem('unit4_lesson_progress_v2', JSON.stringify(progress)); } catch (e) {} }
+    function getUP(unitId) {
+      if (!progress[unitId]) progress[unitId] = { lessonsDone: [false, false, false], examResult: null, passed: false, bestScore: 0 };
+      return progress[unitId];
+    }
+    function isUnitUnlocked(unitId) {
+      if (unitId === 1) return true;
+      const prev = UNITS.find(u => u.id === unitId - 1);
+      return prev ? getUP(prev.id).passed : true;
+    }
+
+    function cancelSpeech() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    function speak(text) {
+      try {
+        if (!('speechSynthesis' in window)) return;
+        cancelSpeech();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US';
+        u.rate = 0.85;
+        window.speechSynthesis.speak(u);
+      } catch (e) {}
+    }
+
+    let audioCtx = null;
+    function playSound(isCorrect) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioCtx.currentTime;
+        if (isCorrect) {
+          [523.25, 659.25, 783.99].forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine'; osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0, now + i * 0.08);
+            gain.gain.linearRampToValueAtTime(0.2, now + i * 0.08 + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.3);
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.08); osc.stop(now + i * 0.08 + 0.35);
+          });
+        } else {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth'; osc.frequency.value = 140;
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+          osc.connect(gain); gain.connect(audioCtx.destination);
+          osc.start(now); osc.stop(now + 0.35);
         }
-      ]
+      } catch (e) {}
     }
-  ];
-  const PASS_THRESHOLD = 80;
 
-  // ================= PROGRESS (persisted per-viewer) =================
-  let progress = {};
-  try { const s = localStorage.getItem('unit4_lesson_progress_v1'); if (s) progress = JSON.parse(s); } catch (e) {}
-  function saveProgress() { try { localStorage.setItem('unit4_lesson_progress_v1', JSON.stringify(progress)); } catch (e) {} }
-  function getUP(unitId) {
-    if (!progress[unitId]) progress[unitId] = { lessonsDone: [false, false, false], examResult: null, passed: false, bestScore: 0 };
-    return progress[unitId];
-  }
-  function isUnitUnlocked(unitId) {
-    if (unitId === 1) return true;
-    const prev = UNITS.find(u => u.id === unitId - 1);
-    return prev ? getUP(prev.id).passed : true;
-  }
-
-  // ================= VOICE / SPEECH =================
-  let cachedUSVoice = null;
-  function pickUSVoice() {
-    if (!('speechSynthesis' in window)) return null;
-    const voices = window.speechSynthesis.getVoices() || [];
-    if (!voices.length) return null;
-    const preferredNames = ['Google US English', 'Microsoft Aria Online (Natural) - English (United States)', 'Microsoft Guy Online (Natural) - English (United States)', 'Samantha', 'Alex'];
-    for (const name of preferredNames) {
-      const v = voices.find(v => v.name === name);
-      if (v) return v;
-    }
-    const usVoice = voices.find(v => v.lang === 'en-US') || voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en-us'));
-    if (usVoice) return usVoice;
-    return voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en')) || null;
-  }
-  if ('speechSynthesis' in window) {
-    cachedUSVoice = pickUSVoice();
-    window.speechSynthesis.onvoiceschanged = () => { cachedUSVoice = pickUSVoice(); };
-  }
-  function speak(text) {
-    try {
-      if (!('speechSynthesis' in window)) return;
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = 0.85;
-      if (!cachedUSVoice) cachedUSVoice = pickUSVoice();
-      if (cachedUSVoice) u.voice = cachedUSVoice;
-      window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
-    } catch (e) {}
-  }
-  function speakVN(text) {
-    try {
-      if (!('speechSynthesis' in window)) return;
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'vi-VN'; u.rate = 0.9;
-      const voices = window.speechSynthesis.getVoices() || [];
-      const viVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('vi'));
-      if (viVoice) u.voice = viVoice;
-      window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
-    } catch (e) {}
-  }
-  function flagOrEmojiHTML(item) {
-    if (item && item.flag) {
-      const code = item.flag.toUpperCase();
-      return '<span style="display:inline-flex; align-items:center; justify-content:center; width:70px; height:52px; border-radius:8px; overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,0.18); border:2px solid #fff; background:linear-gradient(135deg,#ffd873,#ffab00); vertical-align:middle;">' +
-        '<img src="https://flagcdn.com/80x60/' + item.flag + '.png" alt="" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">' +
-        '<span style="display:none; width:100%; height:100%; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:18px; font-family:Fredoka,sans-serif;">' + code + '</span>' +
-        '</span>';
-    }
-    return item && item.emoji ? item.emoji : '';
-  }
-  function findWordByToken(u, token) {
-    return u.words.find(w => w.word === token) || null;
-  }
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-    return a;
-  }
-
-  // ================= NAV =================
-  let currentUnit = null;
-  let currentLessonIndex = 0;
-  let currentActivityIndex = 0;
-  let activityGraded = { correct: 0, total: 0, answered: false };
-  const SCREENS = ['map', 'unit-detail', 'lesson-done', 'lesson', 'step-player', 'result'];
-  function showScreen(name) {
-    SCREENS.forEach(s => document.getElementById('screen-' + s).classList.remove('active'));
-    document.getElementById('screen-' + name).classList.add('active');
-    document.getElementById('back-btn').style.display = (name === 'map') ? 'none' : 'inline-block';
-  }
-  document.getElementById('back-btn').addEventListener('click', () => {
-    const active = SCREENS.find(s => document.getElementById('screen-' + s).classList.contains('active'));
-    if (active === 'unit-detail' || active === 'result') { renderMap(); showScreen('map'); }
-    else { renderLessonList(); showScreen('unit-detail'); }
-  });
-
-  // ================= UNIT MAP =================
-  function renderMap() {
-    document.getElementById('header-emoji').textContent = '🗺️';
-    document.getElementById('header-title').textContent = 'Lộ trình Tiếng Anh lớp 4';
-    document.getElementById('header-sub').textContent = 'Chọn Unit để bắt đầu học nhé!';
-    const list = document.getElementById('unit-list');
-    list.innerHTML = '';
-    UNITS.forEach(unit => {
-      const unlocked = isUnitUnlocked(unit.id);
-      const p = getUP(unit.id);
-      const tile = document.createElement('div');
-      tile.className = 'unit-tile' + (unlocked ? '' : ' locked') + (p.passed ? ' passed' : '');
-      let subHtml;
-      const doneLessons = p.lessonsDone.filter(Boolean).length;
-      if (!unlocked) {
-        subHtml = '<div class="lock-note">Hoàn thành Unit ' + (unit.id - 1) + ' với ≥ ' + PASS_THRESHOLD + '% để mở khóa</div>';
-      } else if (p.passed) {
-        subHtml = '<span class="badge-pass">✅ Đã đạt ' + p.bestScore + '%</span>';
-      } else if (doneLessons > 0) {
-        subHtml = '<span class="badge-progress">📖 ' + doneLessons + '/3 Lesson</span>';
-      } else {
-        subHtml = '<div class="u-sub">Chưa bắt đầu</div>';
+    function flagOrEmojiHTML(item) {
+      if (item && item.flag) {
+        return '<span style="display:inline-flex; width:64px; height:46px; border-radius:6px; overflow:hidden; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,0.2); vertical-align:middle;">' +
+          '<img src="https://flagcdn.com/80x60/' + item.flag + '.png" alt="" style="width:100%; height:100%; object-fit:cover;">' +
+          '</span>';
       }
-      tile.innerHTML =
-        '<div class="hex-badge">' + (unlocked ? unit.emoji : '🔒') + '</div>' +
-        '<div class="unit-info"><div class="u-name">' + unit.title + '</div>' + subHtml + '</div>' +
-        '<div class="u-status">' + (unlocked ? '›' : '') + '</div>';
-      if (unlocked) tile.addEventListener('click', () => { currentUnit = unit; renderLessonList(); showScreen('unit-detail'); });
-      list.appendChild(tile);
-    });
-  }
-
-  // ================= LESSON LIST (Lesson 1 / 2 / 3 / Bài kiểm tra) =================
-  function renderLessonList() {
-    document.getElementById('header-emoji').textContent = currentUnit.emoji;
-    document.getElementById('header-title').textContent = currentUnit.title;
-    document.getElementById('header-sub').textContent = 'Học lần lượt Lesson 1 → 2 → 3, rồi làm bài kiểm tra';
-    const up = getUP(currentUnit.id);
-    const list = document.getElementById('lesson-list');
-    list.innerHTML = '';
-    currentUnit.lessons.forEach((lesson, i) => {
-      const done = up.lessonsDone[i];
-      const locked = i > 0 && !up.lessonsDone[i - 1];
-      const icon = locked ? '🔒' : (done ? '✅' : '▶️');
-      const tile = document.createElement('div');
-      tile.className = 'step-tile' + (locked ? ' locked' : '');
-      tile.innerHTML =
-        '<div class="step-num">' + (i + 1) + '</div>' +
-        '<div class="step-name">' + lesson.title + '</div>' +
-        '<div class="step-check">' + icon + '</div>';
-      if (!locked) tile.addEventListener('click', () => enterLesson(i));
-      list.appendChild(tile);
-    });
-    // Bài kiểm tra Unit
-    const allLessonsDone = up.lessonsDone.every(Boolean);
-    const testLocked = !allLessonsDone;
-    const testTile = document.createElement('div');
-    testTile.className = 'step-tile' + (testLocked ? ' locked' : '');
-    let testIcon = testLocked ? '🔒' : (up.examResult ? '✅' : '🏆');
-    let testExtra = '';
-    if (!testLocked && up.examResult) {
-      const pct = Math.round((up.examResult.correct / up.examResult.total) * 100);
-      testExtra = ' <span style="color:var(--green-dark); font-size:12px; font-weight:normal;">(' + pct + '%, chạm để làm lại)</span>';
-    } else if (testLocked) {
-      testExtra = ' <span style="color:var(--text-soft); font-size:12px; font-weight:normal;">(hoàn thành cả 3 Lesson để mở)</span>';
+      return item && item.emoji ? item.emoji : '';
     }
-    testTile.innerHTML =
-      '<div class="step-num">🏆</div>' +
-      '<div class="step-name">Bài kiểm tra Unit' + testExtra + '</div>' +
-      '<div class="step-check">' + testIcon + '</div>';
-    if (!testLocked) testTile.addEventListener('click', () => startUnitTest());
-    list.appendChild(testTile);
-  }
 
-  // ================= LESSON RUNNER =================
-  function enterLesson(lessonIndex) {
-    currentLessonIndex = lessonIndex;
-    currentActivityIndex = 0;
-    renderActivity();
-    showScreen('lesson');
-  }
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+      return a;
+    }
 
-  function renderActivity() {
-    const lesson = currentUnit.lessons[currentLessonIndex];
-    const activity = lesson.activities[currentActivityIndex];
-    document.getElementById('lesson-banner').textContent = lesson.title.toUpperCase();
-    document.getElementById('activity-num').textContent = currentActivityIndex + 1;
-    document.getElementById('activity-title').textContent = activity.title;
-    document.getElementById('activity-feedback').textContent = '';
-    document.getElementById('activity-feedback').className = 'feedback';
-    const nextBtn = document.getElementById('activity-next');
-    const body = document.getElementById('activity-body');
-    body.innerHTML = '';
-    activityGraded = { correct: 0, total: 0, answered: false };
+    let currentUnit = null;
+    let currentLessonIndex = 0;
+    let currentActivityIndex = 0;
+    const SCREENS = ['map', 'unit-detail', 'lesson-done', 'lesson', 'step-player', 'result'];
 
-    if (activity.type === 'dialogue') renderActivityDialogue(activity, body, nextBtn);
-    else if (activity.type === 'flashcard_grid') renderActivityFlashcardGrid(activity, body, nextBtn);
-    else if (activity.type === 'talk_practice') renderActivityTalkPractice(activity, body, nextBtn);
-    else if (activity.type === 'listen_order') renderActivityListenOrder(activity, body, nextBtn);
-    else if (activity.type === 'complete_read') renderActivityCompleteRead(activity, body, nextBtn);
-    else if (activity.type === 'song' || activity.type === 'chant') renderActivitySong(activity, body, nextBtn);
-    else if (activity.type === 'mcq_loop') renderActivityMcqLoop(activity, body, nextBtn);
-    else if (activity.type === 'phonics_repeat') renderActivityPhonicsRepeat(activity, body, nextBtn);
-  }
+    function showScreen(name) {
+      cancelSpeech();
+      SCREENS.forEach(s => document.getElementById('screen-' + s).classList.remove('active'));
+      document.getElementById('screen-' + name).classList.add('active');
+      document.getElementById('back-btn').style.display = (name === 'map') ? 'none' : 'inline-block';
+    }
 
-  document.getElementById('activity-next').addEventListener('click', () => {
-    const lesson = currentUnit.lessons[currentLessonIndex];
-    currentActivityIndex++;
-    if (currentActivityIndex >= lesson.activities.length) {
-      // hoàn thành Lesson
+    document.getElementById('back-btn').addEventListener('click', () => {
+      cancelSpeech();
+      const active = SCREENS.find(s => document.getElementById('screen-' + s).classList.contains('active'));
+      if (active === 'unit-detail' || active === 'result') { renderMap(); showScreen('map'); }
+      else { renderLessonList(); showScreen('unit-detail'); }
+    });
+
+    function renderMap() {
+      document.getElementById('header-emoji').textContent = '🗺️';
+      document.getElementById('header-title').textContent = 'Lộ trình Tiếng Anh lớp 4';
+      document.getElementById('header-sub').textContent = 'Chọn Unit để bắt đầu học nhé!';
+      const list = document.getElementById('unit-list');
+      list.innerHTML = '';
+      UNITS.forEach(unit => {
+        const unlocked = isUnitUnlocked(unit.id);
+        const p = getUP(unit.id);
+        const tile = document.createElement('div');
+        tile.className = 'unit-tile' + (unlocked ? '' : ' locked') + (p.passed ? ' passed' : '');
+        let subHtml = unlocked ? (p.passed ? '<span class="badge-pass">✅ Đã đạt ' + p.bestScore + '%</span>' : '<div class="u-sub">Chưa hoàn thành</div>') : '<div class="lock-note">Đạt ≥ ' + PASS_THRESHOLD + '% ở Unit trước để mở</div>';
+        tile.innerHTML = '<div class="hex-badge">' + (unlocked ? unit.emoji : '🔒') + '</div>' +
+          '<div class="unit-info"><div class="u-name">' + unit.title + '</div>' + subHtml + '</div>' +
+          '<div class="u-status">' + (unlocked ? '›' : '') + '</div>';
+        if (unlocked) tile.addEventListener('click', () => { currentUnit = unit; renderLessonList(); showScreen('unit-detail'); });
+        list.appendChild(tile);
+      });
+    }
+
+    function renderLessonList() {
+      document.getElementById('header-emoji').textContent = currentUnit.emoji;
+      document.getElementById('header-title').textContent = currentUnit.title;
+      document.getElementById('header-sub').textContent = 'Học xong các bài rồi thi nhé!';
       const up = getUP(currentUnit.id);
-      up.lessonsDone[currentLessonIndex] = true;
-      saveProgress();
-      document.getElementById('lesson-done-title').textContent = 'Hoàn thành ' + lesson.title + '!';
-      document.getElementById('lesson-done-sub').textContent = 'Giỏi lắm! Con đã học xong tất cả hoạt động trong bài này.';
-      showScreen('lesson-done');
-    } else {
+      const list = document.getElementById('lesson-list');
+      list.innerHTML = '';
+      currentUnit.lessons.forEach((lesson, i) => {
+        const done = up.lessonsDone[i];
+        const locked = i > 0 && !up.lessonsDone[i - 1];
+        const tile = document.createElement('div');
+        tile.className = 'step-tile' + (locked ? ' locked' : '');
+        tile.innerHTML = '<div class="step-num">' + (i + 1) + '</div>' +
+          '<div class="step-name">' + lesson.title + '</div>' +
+          '<div class="step-check">' + (locked ? '🔒' : (done ? '✅' : '▶️')) + '</div>';
+        if (!locked) tile.addEventListener('click', () => enterLesson(i));
+        list.appendChild(tile);
+      });
+
+      const testTile = document.createElement('div');
+      const allDone = up.lessonsDone.every(Boolean);
+      testTile.className = 'step-tile' + (allDone ? '' : ' locked');
+      testTile.innerHTML = '<div class="step-num">🏆</div><div class="step-name">Bài kiểm tra Unit</div><div>' + (allDone ? '▶️' : '🔒') + '</div>';
+      if (allDone) testTile.addEventListener('click', () => startUnitTest());
+      list.appendChild(testTile);
+    }
+
+    function enterLesson(idx) {
+      currentLessonIndex = idx;
+      currentActivityIndex = 0;
       renderActivity();
+      showScreen('lesson');
     }
-  });
-  document.getElementById('lesson-done-continue').addEventListener('click', () => {
-    renderLessonList(); showScreen('unit-detail');
-  });
 
-  // ---- Activity: Dialogue (Look, listen and repeat) ----
-  function renderActivityDialogue(activity, body, nextBtn) {
-    const wrap = document.createElement('div');
-    wrap.className = 'dialogue-list';
-    activity.exchanges.forEach(ex => {
-      const rowA = document.createElement('div');
-      rowA.className = 'dialogue-row';
-      rowA.innerHTML = '<div class="dialogue-bubble"><span class="db-speak">🔊</span><span>' + ex.a + '</span></div>';
-      rowA.addEventListener('click', () => speak(ex.a));
-      wrap.appendChild(rowA);
-      const rowB = document.createElement('div');
-      rowB.className = 'dialogue-row right';
-      rowB.innerHTML = '<div class="dialogue-bubble"><span class="db-speak">🔊</span><span>' + ex.b + '</span></div>';
-      rowB.addEventListener('click', () => speak(ex.b));
-      wrap.appendChild(rowB);
-    });
-    body.appendChild(wrap);
-    const hint = document.createElement('div');
-    hint.className = 'instructions';
-    hint.textContent = '👆 Chạm vào từng câu để nghe';
-    body.insertBefore(hint, wrap);
-    nextBtn.style.display = 'block';
-  }
+    function renderActivity() {
+      const lesson = currentUnit.lessons[currentLessonIndex];
+      const activity = lesson.activities[currentActivityIndex];
+      document.getElementById('lesson-banner').textContent = lesson.title.toUpperCase();
+      document.getElementById('activity-num').textContent = currentActivityIndex + 1;
+      document.getElementById('activity-title').textContent = activity.title;
+      document.getElementById('activity-feedback').textContent = '';
+      const body = document.getElementById('activity-body');
+      body.innerHTML = '';
 
-  // ---- Activity: Flashcard grid (Listen, point and say) ----
-  function renderActivityFlashcardGrid(activity, body, nextBtn) {
-    const demo = document.createElement('div');
-    demo.className = 'speech-bubble-demo';
-    demo.innerHTML = '<div class="speech-bubble">' + activity.qBubble + '</div><div class="speech-bubble" style="align-self:flex-end;">' + activity.aBubble + '</div>';
-    body.appendChild(demo);
-    const hint = document.createElement('div');
-    hint.className = 'instructions';
-    hint.textContent = '👆 Chạm vào từng hình để nghe';
-    body.appendChild(hint);
-    const grid = document.createElement('div');
-    grid.className = 'flash-grid';
-    activity.items.forEach(it => {
-      const cell = document.createElement('div');
-      cell.className = 'flash-grid-item';
-      cell.innerHTML = flagOrEmojiHTML(it) + '<div class="fg-word">' + it.label + '</div><div class="fg-speak">🔊</div>';
-      cell.addEventListener('click', () => speak("I'm from " + it.label + "."));
-      grid.appendChild(cell);
-    });
-    body.appendChild(grid);
-    nextBtn.style.display = 'block';
-  }
-
-  // ---- Activity: Talk practice (Let's talk) ----
-  function renderActivityTalkPractice(activity, body, nextBtn) {
-    const demo = document.createElement('div');
-    demo.className = 'speech-bubble-demo';
-    demo.innerHTML = '<div class="speech-bubble">' + activity.qBubble + '</div><div class="speech-bubble" style="align-self:flex-end;">' + activity.aBubble + '</div>';
-    body.appendChild(demo);
-    const hint = document.createElement('div');
-    hint.className = 'instructions';
-    hint.textContent = '🗣️ Cùng luyện nói với bạn hoặc người thân nhé!';
-    body.appendChild(hint);
-    nextBtn.style.display = 'block';
-  }
-
-  // ---- Activity: Listen and number ----
-  function renderActivityListenOrder(activity, body, nextBtn) {
-    nextBtn.style.display = 'none';
-    const playBtn = document.createElement('button');
-    playBtn.className = 'speak-btn';
-    playBtn.textContent = '🔊 Nghe thứ tự';
-    playBtn.style.marginBottom = '14px';
-    body.appendChild(playBtn);
-
-    const grid = document.createElement('div');
-    grid.className = 'listen-order-grid';
-    body.appendChild(grid);
-
-    let picks = []; // mảng index item theo thứ tự đã chạm
-    const targetOrder = activity.order; // mảng index item theo thứ tự đúng
-
-    function renderGrid() {
-      grid.innerHTML = '';
-      activity.items.forEach((it, idx) => {
-        const cell = document.createElement('div');
-        cell.className = 'lo-item' + (picks.includes(idx) ? ' picked' : '');
-        const badgeNum = picks.indexOf(idx);
-        cell.innerHTML = (badgeNum > -1 ? '<div class="lo-badge">' + (badgeNum + 1) + '</div>' : '') +
-          flagOrEmojiHTML(it) + '<div class="lo-word">' + it.label + '</div>';
-        cell.addEventListener('click', () => {
-          if (activityGraded.answered) return;
-          if (picks.includes(idx)) { picks = picks.filter(p => p !== idx); }
-          else { picks.push(idx); }
-          renderGrid();
-          if (picks.length === activity.items.length) checkOrder();
+      if (activity.type === 'dialogue') {
+        const wrap = document.createElement('div');
+        wrap.className = 'dialogue-list';
+        activity.exchanges.forEach(ex => {
+          const rowA = document.createElement('div');
+          rowA.className = 'dialogue-row';
+          rowA.innerHTML = '<div class="dialogue-bubble"><span>🔊 ' + ex.a + '</span></div>';
+          rowA.onclick = () => speak(ex.a);
+          wrap.appendChild(rowA);
+          if (ex.b) {
+            const rowB = document.createElement('div');
+            rowB.className = 'dialogue-row right';
+            rowB.innerHTML = '<div class="dialogue-bubble"><span>🔊 ' + ex.b + '</span></div>';
+            rowB.onclick = () => speak(ex.b);
+            wrap.appendChild(rowB);
+          }
         });
-        grid.appendChild(cell);
-      });
-    }
-    function playSequence() {
-      let delay = 0;
-      targetOrder.forEach(idx => {
-        setTimeout(() => speak(activity.items[idx].label), delay);
-        delay += 1400;
-      });
-    }
-    playBtn.addEventListener('click', playSequence);
-    function checkOrder() {
-      activityGraded.answered = true;
-      const ok = picks.every((v, i) => v === targetOrder[i]);
-      activityGraded.correct = ok ? 1 : 0;
-      activityGraded.total = 1;
-      const fb = document.getElementById('activity-feedback');
-      if (ok) { fb.textContent = '✅ Chính xác!'; fb.className = 'feedback ok'; }
-      else {
-        const correctNames = targetOrder.map(i => activity.items[i].label).join(' → ');
-        fb.textContent = '❌ Thứ tự đúng là: ' + correctNames;
-        fb.className = 'feedback bad';
+        body.appendChild(wrap);
+      } else if (activity.type === 'flashcard_grid') {
+        const grid = document.createElement('div');
+        grid.className = 'flash-grid';
+        activity.items.forEach(it => {
+          const cell = document.createElement('div');
+          cell.className = 'flash-grid-item';
+          cell.innerHTML = flagOrEmojiHTML(it) + '<div class="fg-word">' + it.label + '</div>';
+          cell.onclick = () => speak(it.label);
+          grid.appendChild(cell);
+        });
+        body.appendChild(grid);
+      } else if (activity.type === 'song') {
+        const box = document.createElement('div');
+        box.className = 'lyrics-box';
+        activity.lines.forEach(line => {
+          const p = document.createElement('div');
+          p.className = 'ly-line'; p.textContent = line;
+          box.appendChild(p);
+        });
+        body.appendChild(box);
+        const playBtn = document.createElement('button');
+        playBtn.className = 'speak-btn';
+        playBtn.textContent = '🔊 Nghe bài đọc / hát';
+        playBtn.onclick = () => speak(activity.lines.join('. '));
+        body.appendChild(playBtn);
+      } else if (activity.type === 'phonics_repeat') {
+        activity.rows.forEach(r => {
+          const row = document.createElement('div');
+          row.className = 'phonics-row';
+          row.innerHTML = '<div class="pr-letters">' + r.letters + '</div><div class="pr-text"><div class="pr-example">' + r.example + '</div><div class="pr-sentence">' + r.sentence + '</div></div><div>🔊</div>';
+          row.onclick = () => speak(r.example + '. ' + r.sentence);
+          body.appendChild(row);
+        });
       }
-      nextBtn.style.display = 'block';
     }
-    renderGrid();
-    setTimeout(playSequence, 400);
-  }
 
-  // ---- Activity: Complete and read ----
-  function renderActivityCompleteRead(activity, body, nextBtn) {
-    nextBtn.style.display = 'none';
-    const checkBtn = document.createElement('button');
-    checkBtn.className = 'check-btn';
-    checkBtn.textContent = '✅ Kiểm tra';
-    checkBtn.style.display = 'block';
-    checkBtn.style.margin = '10px auto';
-
-    activity.items.forEach((it, idx) => {
-      const item = document.createElement('div');
-      item.className = 'cr-item';
-      const w = findWordByToken(currentUnit, it.answer);
-      item.innerHTML = flagOrEmojiHTML(w || it) +
-        '<div class="cr-sentence">' + it.before + ' <input type="text" data-idx="' + idx + '" autocomplete="off"> ' + it.after + '</div>';
-      body.appendChild(item);
+    document.getElementById('activity-next').addEventListener('click', () => {
+      const lesson = currentUnit.lessons[currentLessonIndex];
+      currentActivityIndex++;
+      if (currentActivityIndex >= lesson.activities.length) {
+        const up = getUP(currentUnit.id);
+        up.lessonsDone[currentLessonIndex] = true;
+        saveProgress();
+        document.getElementById('lesson-done-title').textContent = 'Hoàn thành ' + lesson.title + '!';
+        document.getElementById('lesson-done-sub').textContent = 'Bé đã hoàn thành xuất sắc các bài tập!';
+        showScreen('lesson-done');
+      } else {
+        renderActivity();
+      }
     });
-    body.appendChild(checkBtn);
 
-    checkBtn.addEventListener('click', () => {
-      if (activityGraded.answered) return;
-      activityGraded.answered = true;
-      let correctCount = 0;
-      const inputs = body.querySelectorAll('input[data-idx]');
-      inputs.forEach(inp => {
-        const idx = parseInt(inp.getAttribute('data-idx'), 10);
-        const it = activity.items[idx];
-        const val = inp.value.trim().toLowerCase();
-        const ok = val === it.answer.toLowerCase();
-        inp.style.borderColor = ok ? 'var(--green)' : 'var(--red)';
-        if (ok) correctCount++;
+    document.getElementById('lesson-done-continue').addEventListener('click', () => {
+      renderLessonList(); showScreen('unit-detail');
+    });
+
+    // ================= EXAM SYSTEM =================
+    let stepQueue = [];
+    let stepQIdx = 0;
+    let stepCorrect = 0;
+    let stepAnswered = false;
+
+    function startUnitTest() {
+      stepQIdx = 0; stepCorrect = 0;
+      stepQueue = buildExamQueue(currentUnit);
+      document.getElementById('sp-title').textContent = 'Bài kiểm tra tổng hợp';
+      renderStepQuestion();
+      showScreen('step-player');
+    }
+
+    function buildExamQueue(u) {
+      let qList = [];
+      u.words.forEach(w => {
+        qList.push({ type: 'mcq', emoji: w.emoji, flag: w.flag, question: u.vocabQuizQuestion, options: shuffle(u.words.map(x => x.word)), correct: w.word });
+        qList.push({ type: 'fill', word: w });
+        qList.push({ type: 'remove', word: w });
+        qList.push({ type: 'writing', word: w });
+        qList.push({ type: 'speaking', word: w });
       });
-      activityGraded.correct = correctCount;
-      activityGraded.total = activity.items.length;
-      const fb = document.getElementById('activity-feedback');
-      fb.textContent = '✅ Đúng ' + correctCount + '/' + activity.items.length + ' câu';
-      fb.className = 'feedback ' + (correctCount === activity.items.length ? 'ok' : 'bad');
-      checkBtn.style.display = 'none';
-      nextBtn.style.display = 'block';
-    });
-  }
+      qList.push({ type: 'sentence', target: u.sentenceTarget });
+      return shuffle(qList);
+    }
 
-  // ---- Activity: Song / Chant ----
-  function renderActivitySong(activity, body, nextBtn) {
-    const box = document.createElement('div');
-    box.className = 'lyrics-box';
-    activity.lines.forEach(line => {
-      const p = document.createElement('div');
-      p.className = line === '' ? 'ly-line blank' : 'ly-line';
-      p.textContent = line;
-      box.appendChild(p);
-    });
-    body.appendChild(box);
-    const playBtn = document.createElement('button');
-    playBtn.className = 'speak-btn';
-    playBtn.textContent = '🔊 Nghe bài hát';
-    playBtn.addEventListener('click', () => {
-      const fullText = activity.lines.filter(l => l !== '').join('. ');
-      speak(fullText);
-    });
-    body.appendChild(playBtn);
-    nextBtn.style.display = 'block';
-  }
+    function renderDots() {
+      const el = document.getElementById('sp-dots');
+      el.innerHTML = '';
+      stepQueue.forEach((_, i) => {
+        const s = document.createElement('span');
+        if (i < stepQIdx) s.classList.add('done');
+        else if (i === stepQIdx) s.classList.add('current');
+        el.appendChild(s);
+      });
+    }
 
-  // ---- Activity: MCQ loop (Listen and tick / Listen and circle / Let's play) ----
-  function renderActivityMcqLoop(activity, body, nextBtn) {
-    nextBtn.style.display = 'none';
-    let qIdx = 0;
-    let correctCount = 0;
-    const container = document.createElement('div');
-    body.appendChild(container);
+    function hideAllBlocks() {
+      ['mcq','fill','remove','odd','sentence','writing','speaking'].forEach(b => document.getElementById('block-' + b).style.display = 'none');
+    }
 
-    function renderQ() {
-      container.innerHTML = '';
-      if (qIdx >= activity.items.length) {
-        activityGraded.answered = true;
-        activityGraded.correct = correctCount;
-        activityGraded.total = activity.items.length;
-        const fb = document.getElementById('activity-feedback');
-        fb.textContent = '✅ Đúng ' + correctCount + '/' + activity.items.length + ' câu';
-        fb.className = 'feedback ' + (correctCount === activity.items.length ? 'ok' : 'bad');
-        nextBtn.style.display = 'block';
+    function renderStepQuestion() {
+      stepAnswered = false;
+      if (stepQIdx >= stepQueue.length) {
+        finishExam();
         return;
       }
-      const q = activity.items[qIdx];
-      let answered = false;
-
-      if (q.flagPrompt) {
-        // dạng: xem cờ, chọn tên nước đúng (text options)
-        const promptWord = findWordByToken(currentUnit, q.answer);
-        const flagDiv = document.createElement('div');
-        flagDiv.style.textAlign = 'center'; flagDiv.style.marginBottom = '14px';
-        flagDiv.innerHTML = flagOrEmojiHTML({ flag: q.flagPrompt });
-        container.appendChild(flagDiv);
-        const optWrap = document.createElement('div');
-        optWrap.className = 'options';
-        shuffle(q.options).forEach(optWord => {
-          const btn = document.createElement('button');
-          btn.className = 'opt-btn opt-c' + (Math.floor(Math.random() * 4));
-          btn.style.display = 'flex'; btn.style.alignItems = 'center'; btn.style.justifyContent = 'center'; btn.style.gap = '10px';
-          btn.innerHTML = '<span style="cursor:pointer;" class="mcqloop-speak">🔊</span><span>' + optWord + '</span>';
-          btn.querySelector('.mcqloop-speak').addEventListener('click', (e) => { e.stopPropagation(); speak(optWord); });
-          btn.addEventListener('click', () => {
-            if (answered) return; answered = true;
-            const ok = optWord === q.answer;
-            if (ok) correctCount++;
-            const allBtns = optWrap.querySelectorAll('.opt-btn');
-            allBtns.forEach(b => { b.disabled = true; if (b.textContent.trim() === q.answer) b.classList.add('correct'); if (b === btn && !ok) b.classList.add('wrong'); });
-            speak(optWord);
-            setTimeout(() => { qIdx++; renderQ(); }, 1200);
-          });
-          optWrap.appendChild(btn);
-        });
-        container.appendChild(optWrap);
-      } else {
-        // dạng: nghe câu, chọn đáp án đúng (ảnh cờ hoặc chữ)
-        const promptDiv = document.createElement('div');
-        promptDiv.style.textAlign = 'center'; promptDiv.style.marginBottom = '10px';
-        const speakPromptBtn = document.createElement('button');
-        speakPromptBtn.className = 'speak-btn';
-        speakPromptBtn.textContent = '🔊 Nghe câu';
-        speakPromptBtn.addEventListener('click', () => speak(q.prompt));
-        promptDiv.appendChild(speakPromptBtn);
-        const promptText = document.createElement('div');
-        promptText.className = 'instructions';
-        promptText.style.marginTop = '8px';
-        promptText.textContent = q.prompt;
-        promptDiv.appendChild(promptText);
-        container.appendChild(promptDiv);
-        setTimeout(() => speak(q.prompt), 300);
-
-        const optWrap = document.createElement('div');
-        const isFlagOptions = q.options.length && typeof q.options[0] === 'object';
-        optWrap.className = isFlagOptions ? 'flash-grid' : 'options';
-        shuffle(q.options).forEach(opt => {
-          const label = isFlagOptions ? opt.word : opt;
-          const btn = document.createElement('div');
-          btn.className = isFlagOptions ? 'flash-grid-item' : 'opt-btn opt-c' + (Math.floor(Math.random() * 4));
-          if (isFlagOptions) {
-            btn.innerHTML = flagOrEmojiHTML(opt) + '<div class="fg-word">' + opt.word + '</div>';
-          } else {
-            btn.style.display = 'flex'; btn.style.alignItems = 'center'; btn.style.justifyContent = 'center'; btn.style.gap = '10px';
-            btn.innerHTML = '<span style="cursor:pointer;" class="mcqloop-speak">🔊</span><span>' + label + '</span>';
-          }
-          btn.addEventListener('click', (e) => {
-            if (e.target.classList.contains('mcqloop-speak')) { speak(label); return; }
-            if (answered) return; answered = true;
-            const ok = label === q.answer;
-            if (ok) correctCount++;
-            const allBtns = optWrap.children;
-            Array.from(allBtns).forEach(b => {
-              const bLabel = b.querySelector('.fg-word') ? b.querySelector('.fg-word').textContent : b.querySelector('span:last-child').textContent;
-              if (bLabel === q.answer) b.style.outline = '3px solid var(--green)';
-              if (b === btn && !ok) b.style.outline = '3px solid var(--red)';
-            });
-            setTimeout(() => { qIdx++; renderQ(); }, 1200);
-          });
-          optWrap.appendChild(btn);
-        });
-        container.appendChild(optWrap);
-      }
+      hideAllBlocks();
+      renderDots();
+      const q = stepQueue[stepQIdx];
+      if (q.type === 'mcq') renderMCQ(q);
+      else if (q.type === 'fill') renderFill(q);
+      else if (q.type === 'remove') renderRemove(q);
+      else if (q.type === 'sentence') renderSentence(q);
+      else if (q.type === 'writing') renderWriting(q);
+      else if (q.type === 'speaking') renderSpeaking(q);
     }
-    renderQ();
-  }
 
-  // ---- Activity: Phonics repeat ----
-  function renderActivityPhonicsRepeat(activity, body, nextBtn) {
-    activity.rows.forEach(row => {
-      const rowEl = document.createElement('div');
-      rowEl.className = 'phonics-row';
-      rowEl.innerHTML = '<div class="pr-letters">' + row.letters + '</div>' +
-        '<div class="pr-text"><div class="pr-example">' + row.example + '</div><div class="pr-sentence">' + row.sentence + '</div></div>' +
-        '<div style="font-size:20px;">🔊</div>';
-      rowEl.addEventListener('click', () => speak(row.example + '. ' + row.sentence));
-      body.appendChild(rowEl);
-    });
-    nextBtn.style.display = 'block';
-  }
+    function goNext(isCorrect) {
+      playSound(isCorrect);
+      if (isCorrect) stepCorrect++;
+      setTimeout(() => { stepQIdx++; renderStepQuestion(); }, isCorrect ? 1400 : 2200);
+    }
 
-  let currentStepIndex = 10;
-  function finishUnit(examCorrect, examTotal) {
-    const up = getUP(currentUnit.id);
-    up.examResult = { correct: examCorrect, total: examTotal };
-    const pct = examTotal > 0 ? Math.round((examCorrect / examTotal) * 100) : 0;
-    if (pct > up.bestScore) up.bestScore = pct;
-    const passed = pct >= PASS_THRESHOLD;
-    if (passed) up.passed = true;
-    saveProgress();
-
-    document.getElementById('result-pct').textContent = pct + '%';
-    const circle = document.getElementById('score-circle');
-    circle.classList.remove('pass', 'fail'); circle.classList.add(passed ? 'pass' : 'fail');
-    document.getElementById('result-emoji').textContent = passed ? '🏆' : '💪';
-    document.getElementById('result-title').textContent = passed ? 'Xuất sắc!' : 'Cố gắng thêm nhé!';
-    const unlockMsg = document.getElementById('unlock-msg');
-    const nextUnit = UNITS.find(u => u.id === currentUnit.id + 1);
-    if (passed) {
-      unlockMsg.textContent = nextUnit ? '🎉 Bạn đã mở khóa ' + nextUnit.title + '!' : '🎉 Bạn đã hoàn thành mọi Unit hiện có!';
-      unlockMsg.className = 'unlock-msg pass';
-      document.getElementById('result-next').style.display = nextUnit ? 'inline-block' : 'none';
-    } else {
-      unlockMsg.textContent = 'Cần đạt tối thiểu ' + PASS_THRESHOLD + '% ở bài kiểm tra để mở Unit tiếp theo. Bạn làm lại bài kiểm tra nhé!';
-      unlockMsg.className = 'unlock-msg fail';
-      document.getElementById('result-next').style.display = 'none';
-    }
-    showScreen('result');
-    if (passed) { fireConfetti(); showReaction('💐'); }
-  }
-
-  function fireConfetti(count) {
-    const colors = ['#ffab00', '#ff6f59', '#2ec4b6', '#3da9fc', '#9b5de5', '#ff6f91'];
-    count = count || 40;
-    for (let i = 0; i < count; i++) {
-      const piece = document.createElement('div');
-      piece.className = 'confetti-piece';
-      piece.style.left = Math.random() * 100 + 'vw';
-      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-      piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
-      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-      document.body.appendChild(piece);
-      setTimeout(() => piece.remove(), 4000);
-    }
-  }
-  document.getElementById('result-retry').addEventListener('click', () => {
-    startUnitTest();
-  });
-  document.getElementById('result-next').addEventListener('click', () => {
-    const nextUnit = UNITS.find(u => u.id === currentUnit.id + 1);
-    if (nextUnit) { currentUnit = nextUnit; renderLessonList(); showScreen('unit-detail'); }
-  });
-  document.getElementById('result-map').addEventListener('click', () => { renderMap(); showScreen('map'); });
-
-  // ================= STEP 1: PHONICS INTRO =================
-  function startPhonicsIntro() {
-    document.getElementById('phonics-letter-big').textContent = currentUnit.phonicsLetter.upper;
-    const row = document.getElementById('phonics-word-row');
-    row.innerHTML = '';
-    currentUnit.words.forEach(w => {
-      const d = document.createElement('div');
-      d.style.textAlign = 'center';
-      d.style.cursor = 'pointer';
-      d.innerHTML = '<div style="font-size:40px;">' + flagOrEmojiHTML(w) + '</div><div style="font-weight:bold; font-size:13px;">' + w.word + '</div><div style="font-size:16px;">🔊</div>';
-      d.addEventListener('click', () => speak(w.word));
-      row.appendChild(d);
-    });
-    showScreen('phonics-intro');
-  }
-  document.getElementById('phonics-speak-letter').addEventListener('click', () => {
-    speak(currentUnit.phonicsLetter.lower);
-  });
-  document.getElementById('phonics-continue').addEventListener('click', () => {
-    startGenericStep('phonics-check');
-  });
-
-  // ================= STEP 2: VOCAB FLASHCARDS =================
-  let fcIndex = 0;
-  function startVocabFlashcards() {
-    fcIndex = 0;
-    document.getElementById('fc-total').textContent = currentUnit.words.length;
-    renderFlashcard();
-    showScreen('vocab');
-  }
-  function renderFlashcard() {
-    const w = currentUnit.words[fcIndex];
-    document.getElementById('fc-emoji').innerHTML = flagOrEmojiHTML(w);
-    document.getElementById('fc-word').textContent = w.word;
-    document.getElementById('fc-vi').textContent = w.vi;
-    document.getElementById('fc-index').textContent = fcIndex + 1;
-    document.getElementById('flashcard').classList.remove('flipped');
-  }
-  document.getElementById('flashcard').addEventListener('click', () => document.getElementById('flashcard').classList.toggle('flipped'));
-  document.getElementById('fc-speak').addEventListener('click', (e) => { e.stopPropagation(); speak(currentUnit.words[fcIndex].word); });
-  document.getElementById('fc-prev').addEventListener('click', () => { fcIndex = (fcIndex - 1 + currentUnit.words.length) % currentUnit.words.length; renderFlashcard(); });
-  document.getElementById('fc-next').addEventListener('click', () => { fcIndex = (fcIndex + 1) % currentUnit.words.length; renderFlashcard(); });
-  document.getElementById('go-to-vocab-quiz').addEventListener('click', () => startGenericStep('vocab-quiz'));
-
-  // ================= GENERIC STEP PLAYER =================
-  let stepQueue = [];
-  let stepQIdx = 0;
-  let stepCorrect = 0;
-  let stepAnswered = false;
-
-  const STEP_TITLES = {
-    'phonics-check': '1. Phonics & Sounds — Câu hỏi',
-    'vocab-quiz': '2. Vocabulary — Câu hỏi',
-    'remove': '3. Remove Letter',
-    'fill': '4. Fill Missing',
-    'odd': '5. Odd One Out',
-    'reading': '6. Reading Stories',
-    'sentence': '7. Sentence Builder',
-    'fillsentence': '8. Fill Sentence',
-    'writing': '9. Writing (Viết)',
-    'speaking': '10. Speaking (Nói)',
-    'unittest': '11. Bài kiểm tra Unit'
-  };
-  // map generic key to the actual step index (0..10) for progress recording
-  const KEY_TO_STEPINDEX = { 'phonics-check': 0, 'vocab-quiz': 1, 'remove': 2, 'fill': 3, 'odd': 4, 'reading': 5, 'sentence': 6, 'fillsentence': 7, 'writing': 8, 'speaking': 9, 'unittest': 10 };
-
-  function startUnitTest() { const key = 'unittest';
-    currentStepIndex = KEY_TO_STEPINDEX[key];
-    stepQIdx = 0; stepCorrect = 0;
-    stepQueue = buildQueue(key);
-    document.getElementById('sp-title').textContent = STEP_TITLES[key];
-    renderDots();
-    renderStepQuestion(key);
-    showScreen('step-player');
-  }
-
-  function buildQueue(key) {
-    const u = currentUnit;
-    if (key === 'phonics-check') {
-      if (u.phonicsQuestions && u.phonicsQuestions.length) {
-        return shuffle(u.phonicsQuestions).map(pq => ({ type: 'mcq', emoji: pq.emoji, flag: pq.flag, question: pq.question, qLang: pq.qLang, options: shuffle(pq.options.slice()), correct: pq.correct }));
-      }
-      return shuffle(u.words).map(correctW => ({ type: 'mcq', emoji: correctW.emoji, flag: correctW.flag, question: 'Từ nào có chứa âm "' + u.phonicsLetter.lower + '"?', options: shuffle([correctW.word, u.distractor.word]), correct: correctW.word }));
-    }
-    if (key === 'vocab-quiz') {
-      return shuffle(u.words).map(w => ({ type: 'mcq', emoji: w.emoji, flag: w.flag, question: u.vocabQuizQuestion || 'Đây là từ gì?', qLang: 'vi', options: shuffle(u.words.map(x => x.word)), correct: w.word }));
-    }
-    if (key === 'remove') {
-      return shuffle(u.words).map(w => ({ type: 'remove', word: w }));
-    }
-    if (key === 'fill') {
-      return shuffle(u.words).map(w => ({ type: 'fill', word: w }));
-    }
-    if (key === 'odd') {
-      const oddItem = { emoji: u.distractor.emoji, label: u.distractor.word };
-      const items = shuffle(u.words.map(w => ({ emoji: w.emoji, flag: w.flag, label: w.word })).concat([oddItem]));
-      return [{ type: 'odd', items: items, correctLabel: oddItem.label }];
-    }
-    if (key === 'reading') {
-      return [{ type: 'mcq', story: u.story.text, question: u.story.question, qLang: 'en', options: shuffle(u.story.options), correct: u.story.options[u.story.answerIndex] }];
-    }
-    if (key === 'sentence') {
-      return [{ type: 'sentence', target: u.sentenceTarget }];
-    }
-    if (key === 'fillsentence') {
-      return u.fillSentences.map(fs => ({ type: 'mcq', sentence: fs.before + ' ____ ' + fs.after, question: 'Chọn từ đúng điền vào chỗ trống', qLang: 'vi', options: shuffle(fs.options), correct: fs.answer }));
-    }
-    if (key === 'writing') {
-      return shuffle(u.words).map(w => ({ type: 'writing', word: w }));
-    }
-    if (key === 'speaking') {
-      return shuffle(u.words).map(w => ({ type: 'speaking', word: w }));
-    }
-    if (key === 'unittest') {
-      let all = [];
-      all = all.concat(buildQueue('phonics-check'));
-      all = all.concat(buildQueue('vocab-quiz'));
-      all = all.concat(buildQueue('remove'));
-      all = all.concat(buildQueue('fill'));
-      all = all.concat(buildQueue('odd'));
-      all = all.concat(buildQueue('reading'));
-      all = all.concat(buildQueue('sentence'));
-      all = all.concat(buildQueue('fillsentence'));
-      all = all.concat(buildQueue('writing'));
-      all = all.concat(buildQueue('speaking'));
-      return shuffle(all);
-    }
-    return [];
-  }
-
-  function renderDots() {
-    const el = document.getElementById('sp-dots');
-    el.innerHTML = '';
-    stepQueue.forEach((_, i) => {
-      const s = document.createElement('span');
-      if (i < stepQIdx) s.classList.add('done');
-      else if (i === stepQIdx) s.classList.add('current');
-      el.appendChild(s);
-    });
-  }
-
-  function hideAllBlocks() {
-    ['mcq','fill','remove','odd','sentence','writing','speaking'].forEach(b => document.getElementById('block-' + b).style.display = 'none');
-  }
-
-  function renderStepQuestion() {
-    stepAnswered = false;
-    if (stepQIdx >= stepQueue.length) {
-      finishUnit(stepCorrect, stepQueue.length);
-      return;
-    }
-    const q = stepQueue[stepQIdx];
-    hideAllBlocks();
-    renderDots();
-    if (q.type === 'mcq') renderMCQ(q);
-    else if (q.type === 'fill') renderFill(q);
-    else if (q.type === 'remove') renderRemove(q);
-    else if (q.type === 'odd') renderOdd(q);
-    else if (q.type === 'sentence') renderSentence(q);
-    else if (q.type === 'writing') renderWriting(q);
-    else if (q.type === 'speaking') renderSpeaking(q);
-  }
-
-  let audioCtx = null;
-  function playSuccessSound() {
-    try {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const now = audioCtx.currentTime;
-      const notes = [523.25, 659.25, 783.99]; // Đô-Mi-Sol, nghe vui tai
-      notes.forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        const start = now + i * 0.1;
-        gain.gain.setValueAtTime(0, start);
-        gain.gain.linearRampToValueAtTime(0.25, start + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.35);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(start);
-        osc.stop(start + 0.4);
+    // MCQ
+    function renderMCQ(q) {
+      document.getElementById('block-mcq').style.display = 'block';
+      const emojiEl = document.getElementById('mcq-emoji');
+      emojiEl.style.display = 'block';
+      emojiEl.innerHTML = flagOrEmojiHTML(q);
+      document.getElementById('mcq-question').textContent = q.question;
+      const opts = document.getElementById('mcq-options');
+      opts.innerHTML = '';
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn opt-c' + (idx % 4);
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (stepAnswered) return;
+          stepAnswered = true;
+          const ok = opt === q.correct;
+          btn.classList.add(ok ? 'correct' : 'wrong');
+          goNext(ok);
+        };
+        opts.appendChild(btn);
       });
-    } catch (e) {}
-  }
-
-  function showReaction(emoji) {
-    const el = document.createElement('div');
-    el.className = 'reaction-emoji';
-    el.textContent = emoji;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1500);
-  }
-
-  function goNext(correct) {
-    if (correct) { stepCorrect++; showReaction('👏'); playSuccessSound(); }
-    const delay = correct ? 1600 : 2600;
-    setTimeout(() => { stepQIdx++; renderStepQuestion(); }, delay);
-  }
-
-  // ---- MCQ (dùng cho phonics-check, vocab-quiz, reading, fillsentence) ----
-  function renderMCQ(q) {
-    document.getElementById('block-mcq').style.display = 'block';
-    const emojiEl = document.getElementById('mcq-emoji');
-    const storyEl = document.getElementById('mcq-story');
-    const sentEl = document.getElementById('mcq-sentence');
-    emojiEl.style.display = q.emoji ? 'block' : 'none';
-    if (q.emoji) emojiEl.innerHTML = flagOrEmojiHTML(q);
-    storyEl.style.display = q.story ? 'block' : 'none';
-    if (q.story) storyEl.textContent = q.story;
-    const storySpeakBtn = document.getElementById('mcq-story-speak');
-    storySpeakBtn.style.display = q.story ? 'inline-block' : 'none';
-    storySpeakBtn.onclick = () => speak(q.story);
-
-    sentEl.style.display = q.sentence ? 'block' : 'none';
-    if (q.sentence) sentEl.textContent = q.sentence;
-    const questionEl = document.getElementById('mcq-question');
-    questionEl.textContent = q.question || '';
-    questionEl.style.display = q.question ? 'block' : 'none';
-    const questionSpeakBtn = document.getElementById('mcq-question-speak');
-    questionSpeakBtn.style.display = (q.question && q.qLang !== 'vi') ? 'inline-block' : 'none';
-    questionSpeakBtn.onclick = () => speak(q.sentence ? (q.sentence + '. ' + q.question) : q.question);
-
-    const listenHint = document.getElementById('mcq-listen-hint');
-    const listenedSet = new Set();
-    function updateListenHint() {
-      if (listenedSet.size >= q.options.length) {
-        listenHint.textContent = '✅ Giờ hãy chọn đáp án đúng nhé!';
-        listenHint.className = 'listen-hint all-done';
-      } else {
-        listenHint.textContent = '🎧 Hãy bấm 🔊 để nghe hết ' + q.options.length + ' đáp án trước khi chọn (' + listenedSet.size + '/' + q.options.length + ')';
-        listenHint.className = 'listen-hint';
-      }
     }
-    updateListenHint();
 
-    const optionsEl = document.getElementById('mcq-options');
-    optionsEl.innerHTML = '';
-    q.options.forEach((opt, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'opt-btn opt-locked opt-c' + (idx % 4);
-      btn.style.display = 'flex';
-      btn.style.alignItems = 'center';
-      btn.style.justifyContent = 'center';
-      btn.style.gap = '10px';
-
-      const speakIcon = document.createElement('span');
-      speakIcon.textContent = '🔊';
-      speakIcon.className = 'opt-speak-icon';
-      speakIcon.title = 'Nghe thử';
-      speakIcon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        speak(opt);
-        listenedSet.add(idx);
-        speakIcon.classList.add('heard');
-        updateListenHint();
-        if (listenedSet.size >= q.options.length) {
-          optionsEl.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('opt-locked'));
-        }
-      });
-
-      const label = document.createElement('span');
-      label.className = 'opt-label';
-      label.textContent = opt;
-
-      btn.appendChild(speakIcon);
-      btn.appendChild(label);
-
-      btn.addEventListener('click', () => {
-        if (stepAnswered) return;
-        if (listenedSet.size < q.options.length) return; // chưa nghe đủ, chưa cho chọn
-        stepAnswered = true;
-        const allBtns = optionsEl.querySelectorAll('.opt-btn');
-        allBtns.forEach(b => {
-          b.disabled = true;
-          b.classList.remove('opt-locked');
-          const bLabel = b.querySelector('span:last-child').textContent;
-          if (bLabel === q.correct) b.classList.add('correct');
-          if (b === btn && opt !== q.correct) b.classList.add('wrong');
-        });
-        const ok = (opt === q.correct);
-        if (q.sentence) {
-          const filledSentence = q.sentence.replace('____', q.correct);
-          sentEl.innerHTML = q.sentence.replace('____', '<span style="color:var(--green); text-decoration: underline;">' + q.correct + '</span>');
-          setTimeout(() => speak(filledSentence), 200);
-        }
-        goNext(ok);
-      });
-      optionsEl.appendChild(btn);
-    });
-  }
-
-  // ---- FILL MISSING ----
-  function renderFill(q) {
-    document.getElementById('block-fill').style.display = 'block';
-    document.getElementById('fill-emoji').innerHTML = flagOrEmojiHTML(q.word);
-    document.getElementById('fill-feedback').textContent = '';
-    document.getElementById('fill-feedback').className = 'feedback';
-    const wrap = document.getElementById('fill-word-wrap');
-    wrap.innerHTML = '';
-    q.word.word.split('').forEach((ch, i) => {
-      if (i === q.word.missingIndex) {
-        const input = document.createElement('input');
-        input.type = 'text'; input.maxLength = 1; input.id = 'fill-input'; input.autocomplete = 'off';
-        wrap.appendChild(input);
-      } else {
-        const span = document.createElement('span'); span.textContent = ch; wrap.appendChild(span);
-      }
-    });
-    setTimeout(() => { const inp = document.getElementById('fill-input'); if (inp) inp.focus(); }, 50);
-  }
-  document.getElementById('fill-check').addEventListener('click', () => {
-    if (stepAnswered) return;
-    const q = stepQueue[stepQIdx];
-    const inp = document.getElementById('fill-input');
-    if (!inp) return;
-    const val = (inp.value || '').trim().toLowerCase();
-    const correctLetter = q.word.word[q.word.missingIndex];
-    const fb = document.getElementById('fill-feedback');
-    const ok = (val === correctLetter);
-    stepAnswered = true;
-    if (ok) { fb.textContent = '✅ Chính xác! ' + q.word.word; fb.className = 'feedback ok'; speak(q.word.word); }
-    else { fb.textContent = '❌ Đáp án đúng là: ' + q.word.word; fb.className = 'feedback bad'; }
-    goNext(ok);
-  });
-
-  // ---- REMOVE LETTER ----
-  function renderRemove(q) {
-    document.getElementById('block-remove').style.display = 'block';
-    document.getElementById('remove-emoji').innerHTML = flagOrEmojiHTML(q.word);
-    document.getElementById('remove-feedback').textContent = '';
-    const row = document.getElementById('letters-row');
-    row.innerHTML = '';
-    q.word.extraLetters.forEach((ch, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'letter-btn';
-      btn.textContent = ch;
-      btn.addEventListener('click', () => {
-        if (stepAnswered) return;
-        stepAnswered = true;
-        const allBtns = row.querySelectorAll('.letter-btn');
-        allBtns.forEach(b => b.disabled = true);
-        const ok = (i === q.word.extraPos);
-        const fb = document.getElementById('remove-feedback');
-        if (ok) { btn.classList.add('removed-correct'); fb.textContent = '✅ Đúng rồi! Từ đúng là: ' + q.word.word; fb.className = 'feedback ok'; speak(q.word.word); }
-        else {
-          btn.classList.add('removed-wrong');
-          allBtns[q.word.extraPos].classList.add('removed-correct');
-          fb.textContent = '❌ Chữ thừa là "' + q.word.extraLetters[q.word.extraPos] + '". Từ đúng: ' + q.word.word;
-          fb.className = 'feedback bad';
-        }
-        goNext(ok);
-      });
-      row.appendChild(btn);
-    });
-  }
-
-  // ---- ODD ONE OUT ----
-  function renderOdd(q) {
-    document.getElementById('block-odd').style.display = 'block';
-    document.getElementById('odd-feedback').textContent = '';
-    const grid = document.getElementById('odd-grid');
-    grid.innerHTML = '';
-    q.items.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'odd-card';
-      card.innerHTML = '<div class="oc-emoji">' + flagOrEmojiHTML(item) + '</div><div class="oc-label">' + item.label + '</div><div class="oc-speak" style="font-size:16px; cursor:pointer;">🔊</div>';
-      card.querySelector('.oc-speak').addEventListener('click', (e) => {
-        e.stopPropagation();
-        speak(item.label);
-      });
-      card.addEventListener('click', () => {
-        if (stepAnswered) return;
-        stepAnswered = true;
-        const allCards = grid.querySelectorAll('.odd-card');
-        const ok = (item.label === q.correctLabel);
-        allCards.forEach(c => {
-          const lbl = c.querySelector('.oc-label').textContent;
-          if (lbl === q.correctLabel) c.classList.add('correct');
-          if (c === card && !ok) c.classList.add('wrong');
-        });
-        const fb = document.getElementById('odd-feedback');
-        fb.textContent = ok ? '✅ Chính xác! "' + q.correctLabel + '" là từ khác nhóm.' : '❌ Từ khác nhóm là "' + q.correctLabel + '".';
-        fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-        goNext(ok);
-      });
-      grid.appendChild(card);
-    });
-  }
-
-  // ---- SENTENCE BUILDER ----
-  let sentenceTokens = [];   // [{id, text}]
-  let originalBankOrder = []; // fixed shuffled order of tokens
-  let placedIds = [];        // array of token ids currently placed, in placement order
-
-  function renderSentence(q) {
-    document.getElementById('block-sentence').style.display = 'block';
-    document.getElementById('sentence-feedback').textContent = '';
-    const words = q.target.split(' ');
-    sentenceTokens = words.map((w, i) => ({ id: i, text: w }));
-    originalBankOrder = shuffle(sentenceTokens.slice());
-    placedIds = [];
-    renderSentenceUI();
-  }
-
-  function renderSentenceUI() {
-    const answerArea = document.getElementById('sentence-answer-area');
-    const bank = document.getElementById('sentence-chip-bank');
-    answerArea.innerHTML = '';
-    bank.innerHTML = '';
-
-    placedIds.forEach((id) => {
-      const token = sentenceTokens.find(t => t.id === id);
-      const chip = document.createElement('button');
-      chip.className = 'word-chip placed';
-      chip.textContent = token.text;
-      chip.addEventListener('click', () => {
-        speak(token.text);
-        placedIds = placedIds.filter(pid => pid !== id);
-        renderSentenceUI();
-      });
-      answerArea.appendChild(chip);
-    });
-
-    originalBankOrder.forEach((token) => {
-      if (placedIds.includes(token.id)) return;
-      const chip = document.createElement('button');
-      chip.className = 'word-chip';
-      chip.textContent = token.text;
-      chip.addEventListener('click', () => {
-        speak(token.text);
-        placedIds.push(token.id);
-        renderSentenceUI();
-      });
-      bank.appendChild(chip);
-    });
-  }
-
-  document.getElementById('sentence-check').addEventListener('click', () => {
-    if (stepAnswered) return;
-    const q = stepQueue[stepQIdx];
-    const built = placedIds.map(id => sentenceTokens.find(t => t.id === id).text).join(' ');
-    const ok = (built === q.target);
-    stepAnswered = true;
-    const fb = document.getElementById('sentence-feedback');
-    if (ok) { fb.textContent = '✅ Chính xác!'; fb.className = 'feedback ok'; speak(q.target); }
-    else { fb.textContent = '❌ Câu đúng là: "' + q.target + '"'; fb.className = 'feedback bad'; }
-    goNext(ok);
-  });
-
-  // ================= WRITING (bước 9) =================
-  function renderWriting(q) {
-    document.getElementById('block-writing').style.display = 'block';
-    document.getElementById('writing-emoji').innerHTML = flagOrEmojiHTML(q.word);
-    const input = document.getElementById('writing-input');
-    input.value = '';
-    document.getElementById('writing-feedback').textContent = '';
-    document.getElementById('writing-feedback').className = 'feedback';
-    setTimeout(() => input.focus(), 50);
-  }
-  function checkWriting() {
-    if (stepAnswered) return;
-    const q = stepQueue[stepQIdx];
-    const val = document.getElementById('writing-input').value.trim().toLowerCase();
-    const correct = q.word.word.toLowerCase();
-    const ok = (val === correct);
-    stepAnswered = true;
-    const fb = document.getElementById('writing-feedback');
-    if (ok) { fb.textContent = '✅ Chính xác!'; fb.className = 'feedback ok'; speak(correct); }
-    else { fb.textContent = '❌ Đáp án đúng là: ' + correct; fb.className = 'feedback bad'; }
-    goNext(ok);
-  }
-  document.getElementById('writing-emoji').addEventListener('click', () => {
-    const q = stepQueue[stepQIdx];
-    if (q) speak(q.word.word);
-  });
-  document.getElementById('writing-check').addEventListener('click', checkWriting);
-  document.getElementById('writing-input').addEventListener('keydown', (e) => { if (e.key === 'Enter') checkWriting(); });
-
-  // ================= SPEAKING (bước 10) =================
-  const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let recognizer = null;
-  if (SpeechRecognitionAPI) {
-    try {
-      recognizer = new SpeechRecognitionAPI();
-      recognizer.lang = 'en-US';
-      recognizer.maxAlternatives = 3;
-    } catch (e) { recognizer = null; }
-  }
-
-  let micIsHeld = false;
-  let permissionChecked = false;
-
-  function renderSpeaking(q) {
-    document.getElementById('block-speaking').style.display = 'block';
-    micIsHeld = false;
-    document.getElementById('speaking-emoji').innerHTML = flagOrEmojiHTML(q.word);
-    document.getElementById('speaking-word').textContent = q.word.word;
-    document.getElementById('speaking-feedback').textContent = '';
-    document.getElementById('speaking-feedback').className = 'feedback';
-    document.getElementById('speaking-enable-feedback').textContent = '';
-    const micBtn = document.getElementById('speaking-mic');
-    const unsupportedBlock = document.getElementById('speaking-unsupported');
-    const enableBlock = document.getElementById('speaking-enable-block');
-    const recordBlock = document.getElementById('speaking-record-block');
-    if (recognizer) {
-      unsupportedBlock.style.display = 'none';
-      if (permissionChecked) {
-        enableBlock.style.display = 'none';
-        recordBlock.style.display = 'block';
-      } else {
-        enableBlock.style.display = 'block';
-        recordBlock.style.display = 'none';
-      }
-    } else {
-      enableBlock.style.display = 'none';
-      recordBlock.style.display = 'none';
-      unsupportedBlock.style.display = 'block';
-    }
-  }
-  document.getElementById('speaking-listen').addEventListener('click', () => {
-    const q = stepQueue[stepQIdx];
-    if (q) speak(q.word.word);
-  });
-
-  document.getElementById('speaking-enable-btn').addEventListener('click', () => {
-    const enableFb = document.getElementById('speaking-enable-feedback');
-    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
-      // Không có API kiểm tra trước, cứ cho thử ghi âm trực tiếp
-      permissionChecked = true;
-      document.getElementById('speaking-enable-block').style.display = 'none';
-      document.getElementById('speaking-record-block').style.display = 'block';
-      return;
-    }
-    enableFb.textContent = '🎙️ Đang xin quyền micro...';
-    enableFb.className = 'feedback';
-    navigator.mediaDevices.getUserMedia({ audio: true })
-      .then((stream) => {
-        stream.getTracks().forEach(t => t.stop());
-        permissionChecked = true;
-        document.getElementById('speaking-enable-block').style.display = 'none';
-        document.getElementById('speaking-record-block').style.display = 'block';
-      })
-      .catch((err) => {
-        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
-          enableFb.textContent = '⚠️ Bạn đã từ chối hoặc trang này đang bị chặn quyền micro. Vào cài đặt trình duyệt (biểu tượng 🔒/ⓘ cạnh thanh địa chỉ, hoặc menu ⋮ > Cài đặt trang) để bật lại quyền "Microphone", rồi tải lại trang.';
-        } else if (err.name === 'NotFoundError') {
-          enableFb.textContent = '⚠️ Không tìm thấy micro trên thiết bị này.';
+    // Fill
+    function renderFill(q) {
+      document.getElementById('block-fill').style.display = 'block';
+      document.getElementById('fill-emoji').innerHTML = flagOrEmojiHTML(q.word);
+      document.getElementById('fill-feedback').textContent = '';
+      const wrap = document.getElementById('fill-word-wrap');
+      wrap.innerHTML = '';
+      q.word.word.split('').forEach((ch, i) => {
+        if (i === q.word.missingIndex) {
+          const inp = document.createElement('input');
+          inp.maxLength = 1; inp.id = 'fill-input';
+          wrap.appendChild(inp);
         } else {
-          enableFb.textContent = '⚠️ Không truy cập được micro: ' + err.name;
+          const s = document.createElement('span'); s.textContent = ch; wrap.appendChild(s);
         }
-        enableFb.className = 'feedback bad';
       });
-  });
-  function startListening() {
-    const q = stepQueue[stepQIdx];
-    const micBtn = document.getElementById('speaking-mic');
-    const fb = document.getElementById('speaking-feedback');
-    let gotResultOrError = false;
-    micBtn.classList.add('listening');
-    fb.textContent = '🎧 Đang nghe... (đang giữ nút, hãy đọc to!)';
-    fb.className = 'feedback';
-
-    // Tạo mới đối tượng nhận diện mỗi lần ghi âm — Safari/iPad không cho dùng lại 1 đối tượng nhiều lần
-    let liveRecognizer;
-    try {
-      liveRecognizer = new SpeechRecognitionAPI();
-      liveRecognizer.lang = 'en-US';
-      liveRecognizer.maxAlternatives = 3;
-    } catch (e) {
-      micBtn.classList.remove('listening');
-      fb.textContent = '⚠️ Không khởi tạo được micro. Hãy tải lại trang và thử lại nhé.';
-      fb.className = 'feedback bad';
-      return;
+      setTimeout(() => { const el = document.getElementById('fill-input'); if(el) el.focus(); }, 100);
     }
-    currentRecognizerInstance = liveRecognizer;
-
-    try {
-      liveRecognizer.start();
-    } catch (e) {
-      micBtn.classList.remove('listening');
-      fb.textContent = '⚠️ Không khởi động được micro. Hãy thử bấm lại.';
-      fb.className = 'feedback bad';
-      return;
-    }
-
-    const safetyTimeout = setTimeout(() => {
-      if (!gotResultOrError && !stepAnswered) {
-        gotResultOrError = true;
-        micBtn.classList.remove('listening');
-        try { liveRecognizer.abort(); } catch (e) {}
-        fb.textContent = '⚠️ Không nhận được phản hồi sau 8 giây. Hãy thử giữ nút và đọc to lại nhé.';
-        fb.className = 'feedback bad';
-      }
-    }, 8000);
-
-    liveRecognizer.onresult = (event) => {
-      gotResultOrError = true;
-      clearTimeout(safetyTimeout);
+    document.getElementById('fill-check').onclick = () => {
       if (stepAnswered) return;
-      const transcript = (event.results[0][0].transcript || '').toLowerCase().trim();
-      const correct = q.word.word.toLowerCase();
-      const ok = transcript.includes(correct) || correct.includes(transcript);
+      const q = stepQueue[stepQIdx];
+      const val = (document.getElementById('fill-input').value || '').toLowerCase().trim();
+      const ok = val === q.word.word[q.word.missingIndex];
       stepAnswered = true;
-      if (ok) { fb.textContent = '✅ Tuyệt vời! Máy nghe được: "' + transcript + '"'; fb.className = 'feedback ok'; }
-      else { fb.textContent = '❌ Máy nghe được: "' + transcript + '" — chưa khớp với "' + correct + '". Thử lại nhé!'; fb.className = 'feedback bad'; }
+      const fb = document.getElementById('fill-feedback');
+      fb.textContent = ok ? '✅ Chính xác!' : '❌ Đáp án đúng là: ' + q.word.word;
+      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
       goNext(ok);
     };
-    liveRecognizer.onerror = (event) => {
-      gotResultOrError = true;
-      clearTimeout(safetyTimeout);
+
+    // Remove
+    function renderRemove(q) {
+      document.getElementById('block-remove').style.display = 'block';
+      document.getElementById('remove-emoji').innerHTML = flagOrEmojiHTML(q.word);
+      document.getElementById('remove-feedback').textContent = '';
+      const row = document.getElementById('letters-row');
+      row.innerHTML = '';
+      q.word.extraLetters.forEach((ch, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'letter-btn';
+        btn.textContent = ch;
+        btn.onclick = () => {
+          if (stepAnswered) return;
+          stepAnswered = true;
+          const ok = i === q.word.extraPos;
+          btn.classList.add(ok ? 'removed-correct' : 'removed-wrong');
+          const fb = document.getElementById('remove-feedback');
+          fb.textContent = ok ? '✅ Đúng rồi!' : '❌ Chữ thừa là: ' + q.word.extraLetters[q.word.extraPos];
+          fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+          goNext(ok);
+        };
+        row.appendChild(btn);
+      });
+    }
+
+    // Sentence (Đã chuẩn hóa tách từ bỏ dấu câu)
+    let sentenceWords = [];
+    let placedWords = [];
+    function renderSentence(q) {
+      document.getElementById('block-sentence').style.display = 'block';
+      document.getElementById('sentence-feedback').textContent = '';
+      const rawWords = q.target.replace(/[?.!]/g, '').split(' ');
+      sentenceWords = shuffle(rawWords.map((w, idx) => ({ id: idx, text: w })));
+      placedWords = [];
+      updateSentenceUI();
+    }
+    function updateSentenceUI() {
+      const area = document.getElementById('sentence-answer-area');
+      const bank = document.getElementById('sentence-chip-bank');
+      area.innerHTML = ''; bank.innerHTML = '';
+      placedWords.forEach(w => {
+        const chip = document.createElement('button');
+        chip.className = 'word-chip placed';
+        chip.textContent = w.text;
+        chip.onclick = () => { placedWords = placedWords.filter(x => x.id !== w.id); updateSentenceUI(); };
+        area.appendChild(chip);
+      });
+      sentenceWords.forEach(w => {
+        if (!placedWords.some(x => x.id === w.id)) {
+          const chip = document.createElement('button');
+          chip.className = 'word-chip';
+          chip.textContent = w.text;
+          chip.onclick = () => { placedWords.push(w); updateSentenceUI(); };
+          bank.appendChild(chip);
+        }
+      });
+    }
+    document.getElementById('sentence-check').onclick = () => {
       if (stepAnswered) return;
-      let msg = '⚠️ Không nghe rõ, hãy giữ nút và thử lại.';
-      if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
-        msg = '⚠️ Trình duyệt chưa được cấp quyền micro. Kiểm tra lại cài đặt quyền cho trang này nhé.';
-      } else if (event.error === 'network') {
-        msg = '⚠️ Lỗi kết nối mạng — tính năng nhận diện giọng nói cần có Internet.';
-      } else if (event.error === 'no-speech') {
-        msg = '⚠️ Không nghe thấy gì. Hãy giữ nút LÂU HƠN MỘT CHÚT và đọc to ngay khi vừa bấm nhé.';
-      } else if (event.error === 'audio-capture') {
-        msg = '⚠️ Không tìm thấy micro trên thiết bị này.';
-      } else if (event.error === 'aborted') {
-        msg = '⚠️ Bạn thả tay hơi nhanh — hãy giữ nút lâu hơn (khoảng 1-2 giây), đọc to ngay khi giữ, rồi mới thả nhé.';
-      }
-      fb.textContent = msg;
-      fb.className = 'feedback bad';
+      const q = stepQueue[stepQIdx];
+      const built = placedWords.map(x => x.text).join(' ').toLowerCase();
+      const target = q.target.replace(/[?.!]/g, '').toLowerCase();
+      const ok = built === target;
+      stepAnswered = true;
+      const fb = document.getElementById('sentence-feedback');
+      fb.textContent = ok ? '✅ Chính xác!' : '❌ Câu đúng là: ' + q.target;
+      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+      goNext(ok);
     };
-    liveRecognizer.onend = () => {
-      micBtn.classList.remove('listening');
-      // Phòng trường hợp trình duyệt kết thúc mà không báo kết quả/lỗi gì cả
-      if (!gotResultOrError && !stepAnswered) {
-        fb.textContent = '⚠️ Không nhận được phản hồi. Hãy giữ nút lâu hơn (1-2 giây) và đọc to ngay khi vừa bấm nhé.';
-        fb.className = 'feedback bad';
-      }
-    };
-  }
 
-  let currentRecognizerInstance = null;
-  function stopListening() {
+    // Writing
+    function renderWriting(q) {
+      document.getElementById('block-writing').style.display = 'block';
+      document.getElementById('writing-emoji').innerHTML = flagOrEmojiHTML(q.word);
+      document.getElementById('writing-input').value = '';
+      document.getElementById('writing-feedback').textContent = '';
+      setTimeout(() => document.getElementById('writing-input').focus(), 100);
+    }
+    document.getElementById('writing-check').onclick = checkWriting;
+    document.getElementById('writing-input').onkeydown = (e) => { if (e.key === 'Enter') checkWriting(); };
+    function checkWriting() {
+      if (stepAnswered) return;
+      const q = stepQueue[stepQIdx];
+      const val = document.getElementById('writing-input').value.trim().toLowerCase();
+      const ok = val === q.word.word.toLowerCase();
+      stepAnswered = true;
+      const fb = document.getElementById('writing-feedback');
+      fb.textContent = ok ? '✅ Chính xác!' : '❌ Đáp án là: ' + q.word.word;
+      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+      goNext(ok);
+    }
+
+    // Speaking
+    const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let rec = null;
+    let micHeld = false;
+    let micAllowed = false;
+
+    function renderSpeaking(q) {
+      document.getElementById('block-speaking').style.display = 'block';
+      document.getElementById('speaking-emoji').innerHTML = flagOrEmojiHTML(q.word);
+      document.getElementById('speaking-word').textContent = q.word.word;
+      document.getElementById('speaking-feedback').textContent = '';
+      const recBlock = document.getElementById('speaking-record-block');
+      const enableBlock = document.getElementById('speaking-enable-block');
+      const unsuppBlock = document.getElementById('speaking-unsupported');
+
+      if (!SpeechAPI) {
+        recBlock.style.display = 'none'; enableBlock.style.display = 'none'; unsuppBlock.style.display = 'block';
+      } else if (micAllowed) {
+        recBlock.style.display = 'block'; enableBlock.style.display = 'none'; unsuppBlock.style.display = 'none';
+      } else {
+        recBlock.style.display = 'none'; enableBlock.style.display = 'block'; unsuppBlock.style.display = 'none';
+      }
+    }
+    document.getElementById('speaking-listen').onclick = () => {
+      const q = stepQueue[stepQIdx];
+      if (q) speak(q.word.word);
+    };
+    document.getElementById('speaking-enable-btn').onclick = () => {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(s => {
+          s.getTracks().forEach(t => t.stop());
+          micAllowed = true;
+          document.getElementById('speaking-enable-block').style.display = 'none';
+          document.getElementById('speaking-record-block').style.display = 'block';
+        }).catch(() => {
+          document.getElementById('speaking-enable-feedback').textContent = '⚠️ Chưa cấp quyền Micro.';
+        });
+      } else {
+        micAllowed = true;
+        document.getElementById('speaking-enable-block').style.display = 'none';
+        document.getElementById('speaking-record-block').style.display = 'block';
+      }
+    };
+
+    function startListening() {
+      if (!SpeechAPI || stepAnswered) return;
+      try {
+        rec = new SpeechAPI();
+        rec.lang = 'en-US';
+        rec.start();
+        document.getElementById('speaking-mic').classList.add('listening');
+        document.getElementById('speaking-feedback').textContent = '🎧 Đang nghe bé nói...';
+        rec.onresult = (e) => {
+          if (stepAnswered) return;
+          const transcript = (e.results[0][0].transcript || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+          const target = stepQueue[stepQIdx].word.word.toLowerCase().replace(/[^a-z0-9]/g, '');
+          const ok = transcript.includes(target) || target.includes(transcript);
+          stepAnswered = true;
+          const fb = document.getElementById('speaking-feedback');
+          fb.textContent = ok ? '✅ Bé nói rất tốt!' : '❌ Chưa chính xác, bé đọc lại nhé!';
+          fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
+          goNext(ok);
+        };
+        rec.onerror = () => {
+          document.getElementById('speaking-mic').classList.remove('listening');
+        };
+        rec.onend = () => {
+          document.getElementById('speaking-mic').classList.remove('listening');
+        };
+      } catch (err) {}
+    }
+
     const micBtn = document.getElementById('speaking-mic');
-    micBtn.classList.remove('listening');
-    try { if (currentRecognizerInstance) currentRecognizerInstance.stop(); } catch (e) {}
+    micBtn.onpointerdown = (e) => { e.preventDefault(); micHeld = true; startListening(); };
+    micBtn.onpointerup = (e) => { e.preventDefault(); micHeld = false; };
+    document.getElementById('speaking-fallback-ok').onclick = () => {
+      if (stepAnswered) return;
+      stepAnswered = true;
+      goNext(true);
+    };
+
+    // Finish Exam
+    function finishExam() {
+      const up = getUP(currentUnit.id);
+      const pct = Math.round((stepCorrect / stepQueue.length) * 100);
+      if (pct > up.bestScore) up.bestScore = pct;
+      const passed = pct >= PASS_THRESHOLD;
+      if (passed) up.passed = true;
+      saveProgress();
+
+      document.getElementById('result-pct').textContent = pct + '%';
+      const circle = document.getElementById('score-circle');
+      circle.className = 'score-circle ' + (passed ? 'pass' : 'fail');
+      document.getElementById('result-emoji').textContent = passed ? '🏆' : '💪';
+      document.getElementById('result-title').textContent = passed ? 'Xuất sắc!' : 'Cố gắng thêm nhé!';
+      const unlockMsg = document.getElementById('unlock-msg');
+      const nextUnit = UNITS.find(u => u.id === currentUnit.id + 1);
+
+      if (passed) {
+        unlockMsg.textContent = nextUnit ? '🎉 Bé đã mở khóa ' + nextUnit.title + '!' : '🎉 Bé đã hoàn thành khóa học!';
+        unlockMsg.className = 'unlock-msg pass';
+        document.getElementById('result-next').style.display = nextUnit ? 'inline-block' : 'none';
+      } else {
+        unlockMsg.textContent = 'Cần đạt tối thiểu ' + PASS_THRESHOLD + '% để mở Unit tiếp theo.';
+        unlockMsg.className = 'unlock-msg fail';
+        document.getElementById('result-next').style.display = 'none';
+      }
+      showScreen('result');
+    }
+
+    document.getElementById('result-retry').onclick = startUnitTest;
+    document.getElementById('result-next').onclick = () => {
+      const nextU = UNITS.find(u => u.id === currentUnit.id + 1);
+      if (nextU) { currentUnit = nextU; renderLessonList(); showScreen('unit-detail'); }
+    };
+    document.getElementById('result-map').onclick = () => { renderMap(); showScreen('map'); };
+
+    renderMap();
+    showScreen('map');
   }
-
-  function handleMicDown(e) {
-    e.preventDefault();
-    if (stepAnswered || !recognizer || micIsHeld || !permissionChecked) return;
-    micIsHeld = true;
-    startListening();
-  }
-  function handleMicUp(e) {
-    if (e) e.preventDefault();
-    if (!micIsHeld) return;
-    micIsHeld = false;
-    // Không gọi recognizer.stop() ở đây — để máy tự nhận diện lúc im lặng và xử lý kết quả,
-    // tránh lỗi "aborted" khi dừng đột ngột giữa chừng (hay gặp trên điện thoại).
-  }
-
-  const micBtnEl = document.getElementById('speaking-mic');
-  micBtnEl.addEventListener('pointerdown', handleMicDown);
-  micBtnEl.addEventListener('pointerup', handleMicUp);
-  micBtnEl.addEventListener('pointerleave', handleMicUp);
-  micBtnEl.addEventListener('pointercancel', handleMicUp);
-  document.getElementById('speaking-fallback-ok').addEventListener('click', () => {
-    if (stepAnswered) return;
-    stepAnswered = true;
-    const fb = document.getElementById('speaking-feedback');
-    fb.textContent = '✅ Đã ghi nhận!';
-    fb.className = 'feedback ok';
-    goNext(true);
-  });
-
-
-  // ================= INIT =================
-  renderMap();
-  showScreen('map');
-  } // end initApp
 })();
 </script>
 </body>
