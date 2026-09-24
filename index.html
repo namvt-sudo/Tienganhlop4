@@ -4,39 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff6e6">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>Lộ trình học Tiếng Anh lớp 4</title>
+<title>Lớp học Tiếng Anh lớp 4 - Cùng Cô Emily</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fff6e6;
+    --bg: #fff8eb;
     --card-bg: #ffffff;
-    --text: #2b2116;
-    --text-soft: #8a7654;
-    --primary: #ffab00;
-    --primary-dark: #e08600;
-    --honey-light: #ffd873;
-    --coral: #ff6f59;
-    --coral-dark: #e04f3d;
+    --text: #2c2117;
+    --text-soft: #857053;
+    --primary: #ffaa00;
+    --primary-dark: #e08300;
+    --honey-light: #ffdc73;
+    --coral: #ff6e59;
+    --coral-dark: #df4e3a;
     --pink: #ff6f91;
     --green: #2ec4b6;
-    --green-dark: #1a9e92;
+    --green-dark: #1b9b8f;
     --red: #ef476f;
     --blue: #3da9fc;
     --purple: #9b5de5;
-    --border: #ffe1a8;
-    --shadow: rgba(120,80,10,0.14);
+    --border: #ffe2a8;
+    --shadow: rgba(110, 75, 10, 0.12);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #241c12;
-      --card-bg: #362a1a;
-      --text: #fdf1de;
-      --text-soft: #cbb894;
-      --border: #55411f;
-      --shadow: rgba(0,0,0,0.35);
+      --bg: #221a11;
+      --card-bg: #322617;
+      --text: #fef2df;
+      --text-soft: #c8b48f;
+      --border: #523f1e;
+      --shadow: rgba(0, 0, 0, 0.35);
     }
   }
 
@@ -45,223 +44,247 @@
     margin: 0;
     background-color: var(--bg);
     background-image:
-      radial-gradient(circle at 8% 12%, rgba(255,171,0,0.16) 0%, transparent 32%),
-      radial-gradient(circle at 92% 8%, rgba(46,196,182,0.14) 0%, transparent 30%),
-      radial-gradient(circle at 88% 85%, rgba(155,93,229,0.12) 0%, transparent 32%),
-      radial-gradient(circle at 6% 88%, rgba(255,111,89,0.13) 0%, transparent 30%);
+      radial-gradient(circle at 10% 12%, rgba(255,170,0,0.15) 0%, transparent 35%),
+      radial-gradient(circle at 90% 10%, rgba(46,196,182,0.14) 0%, transparent 32%),
+      radial-gradient(circle at 85% 85%, rgba(155,93,229,0.12) 0%, transparent 35%);
     background-attachment: fixed;
     color: var(--text);
     font-family: 'Nunito', system-ui, -apple-system, sans-serif;
     min-height: 100vh;
     padding: 16px;
   }
-  h1, h2, h3, .step-num, .fc-word, .word-en, button {
-    font-family: 'Fredoka', 'Nunito', sans-serif;
-  }
-  .app { max-width: 720px; margin: 0 auto; }
+  h1, h2, h3, .step-num, .word-en, button { font-family: 'Fredoka', 'Nunito', sans-serif; }
+  .app { max-width: 760px; margin: 0 auto; }
 
+  /* Header */
   header.top {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #ffd873 0%, #ffab00 55%, #ff8a3d 100%);
-    border-radius: 26px;
-    padding: 20px 22px;
+    background: linear-gradient(135deg, #ffd973 0%, #ffaa00 55%, #ff8736 100%);
+    border-radius: 24px;
+    padding: 18px 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 8px 0 var(--primary-dark), 0 10px 20px var(--shadow);
-    flex-wrap: wrap;
-    gap: 10px;
-    color: #4a2c00;
+    color: #4a2b00;
   }
-  header.top .title-block { display:flex; align-items:center; gap:10px; position:relative; z-index:1; }
+  header.top .title-block { display:flex; align-items:center; gap:12px; }
   header.top .emoji { font-size: 40px; }
-  header.top h1 { font-size: 18px; margin: 0; line-height:1.3; font-weight:700; }
-  header.top p { margin: 3px 0 0; font-size: 12.5px; opacity: 0.85; font-weight:600; }
-  .back-btn { background: rgba(255,255,255,0.65); border:none; border-radius:14px; padding:9px 14px; font-weight:700; cursor:pointer; color:#4a2c00; font-size:14px; position:relative; z-index:1; }
+  header.top h1 { font-size: 19px; margin: 0; }
+  header.top p { margin: 2px 0 0; font-size: 13px; opacity: 0.85; font-weight:700; }
+  .back-btn { background: rgba(255,255,255,0.7); border:none; border-radius:14px; padding:8px 14px; font-weight:700; cursor:pointer; color:#4a2b00; font-size:14px; }
 
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /* ===== UNIT MAP ===== */
-  .unit-list { position: relative; display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
+  /* Unit Map */
+  .unit-list { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
   .unit-tile {
-    position: relative; z-index: 1;
     background: var(--card-bg);
-    border-radius: 18px;
-    padding: 14px 16px;
+    border-radius: 20px;
+    padding: 16px 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     box-shadow: 0 5px 0 var(--border), 0 8px 16px var(--shadow);
     cursor: pointer;
-    transition: transform 0.12s ease;
+    transition: transform 0.1s ease;
   }
   .unit-tile:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--border); }
-  .unit-tile.locked { opacity: 0.65; cursor: default; filter: grayscale(0.35); }
+  .unit-tile.locked { opacity: 0.6; cursor: default; filter: grayscale(0.4); }
   .unit-tile .hex-badge {
-    flex-shrink: 0;
-    width: 60px; height: 60px;
-    border-radius: 16px;
+    width: 60px; height: 60px; border-radius: 16px;
     background: linear-gradient(160deg, var(--honey-light), var(--primary));
-    display: flex; align-items:center; justify-content:center;
-    font-size: 30px;
+    display: flex; align-items:center; justify-content:center; font-size: 30px;
   }
-  .unit-tile.locked .hex-badge { background: linear-gradient(160deg, #d9cfc0, #b7ab97); }
   .unit-tile.passed .hex-badge { background: linear-gradient(160deg, #7fe9dc, var(--green)); }
   .unit-tile .unit-info { flex: 1; }
-  .unit-tile .unit-info .u-name { font-weight:700; font-size: 16px; font-family:'Fredoka',sans-serif; }
-  .unit-tile .unit-info .u-sub { font-size: 12px; color: var(--text-soft); margin-top:2px; font-weight:600; }
-  .unit-tile .u-status { font-size: 22px; color: var(--primary-dark); font-weight:bold; }
+  .unit-tile .unit-info .u-name { font-weight:700; font-size: 17px; }
+  .unit-tile .unit-info .u-sub { font-size: 12.5px; color: var(--text-soft); font-weight:600; margin-top:3px; }
   .badge-pass { background: #d7f9ef; color:#0f7a67; font-size:11px; font-weight:800; padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px; }
-  .badge-progress { background: #fff0cf; color:#8a5a00; font-size:11px; font-weight:800; padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px; }
-  .lock-note { font-size: 11px; color: var(--text-soft); margin-top:4px; font-style: italic; font-weight:600; }
 
-  /* ===== STEPS & CARDS ===== */
-  .step-list { display:flex; flex-direction:column; gap: 12px; margin-top: 18px; }
+  /* Card */
+  .card {
+    background-color: var(--card-bg);
+    border-radius: 24px; padding: 22px; box-shadow: 0 6px 20px var(--shadow); margin-top: 18px; border: 1px solid var(--border);
+  }
+
+  /* ================= TEACHER CLASSROOM STYLES ================= */
+  .teacher-stage {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: linear-gradient(180deg, #eef9ff 0%, #e0f2fe 100%);
+    border: 3px solid #b9e6fe;
+    border-radius: 22px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(61, 169, 252, 0.12);
+  }
+  .teacher-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .teacher-avatar {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid var(--blue);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: teacherBreathe 3s ease-in-out infinite;
+  }
+  @keyframes teacherBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .teacher-avatar.talking {
+    animation: teacherTalk 0.5s ease-in-out infinite alternate;
+  }
+  @keyframes teacherTalk {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.05) translateY(-3px); }
+  }
+  .teacher-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .teacher-name-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    background: var(--blue);
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-top: -8px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  .teacher-bubble {
+    position: relative;
+    background: #ffffff;
+    border: 2px solid #b9e6fe;
+    border-radius: 18px;
+    padding: 14px 16px;
+    flex: 1;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+  }
+  .teacher-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px; top: 24px;
+    width: 0; height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 10px solid #b9e6fe;
+  }
+  .teacher-bubble::after {
+    content: '';
+    position: absolute;
+    left: -7px; top: 25px;
+    width: 0; height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #ffffff;
+  }
+  .teacher-say-en {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    line-height: 1.4;
+    margin: 0 0 6px;
+  }
+  .teacher-say-vi {
+    font-size: 13px;
+    color: var(--text-soft);
+    font-weight: 600;
+    margin: 0;
+  }
+  .teacher-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .teacher-speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    box-shadow: 0 2px 0 #2076ad;
+  }
+
+  /* Dialogue Area */
+  .dialogue-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .dialogue-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  .dialogue-item:active { transform: scale(0.98); }
+  .dialogue-item.active-speaking { border-color: var(--green); background: #eafaf7; }
+  .speaker-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--border);
+    display: flex; align-items:center; justify-content:center;
+    font-size: 24px; flex-shrink: 0;
+  }
+  .dialogue-content { flex: 1; }
+  .dialogue-text { font-weight: 800; font-size: 15px; color: var(--text); }
+  .dialogue-sub { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+
+  /* Flashcards Grid */
+  .flash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .flash-grid-item {
+    background: var(--card-bg); border: 2px solid var(--border); border-radius: 18px; padding: 14px;
+    text-align: center; cursor: pointer; box-shadow: 0 4px 0 var(--border);
+  }
+  .flash-grid-item:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--border); }
+  .flash-grid-item .fg-word { font-weight: 800; margin-top: 8px; font-size: 15px; color: var(--primary-dark); }
+  .flash-grid-item .fg-vi { font-size: 12px; color: var(--text-soft); }
+
+  /* Interactive Buttons */
+  .primary-btn {
+    background: var(--pink); color: #fff; border: none; padding: 12px 24px;
+    border-radius: 16px; font-weight: 700; font-size: 15px; cursor: pointer;
+    box-shadow: 0 4px 0 #c2485f;
+  }
+  .primary-btn:active { transform: translateY(2px); box-shadow: none; }
+  .primary-btn.green { background: var(--green); box-shadow: 0 4px 0 var(--green-dark); }
+  .primary-btn.purple { background: var(--purple); box-shadow: 0 4px 0 #6c3483; }
+
+  .feedback { margin-top: 12px; font-weight: 800; font-size: 15px; text-align: center; min-height: 24px; }
+  .feedback.ok { color: var(--green-dark); }
+  .feedback.bad { color: var(--red); }
+
+  /* Step Tiles */
+  .step-list { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
   .step-tile {
     background: var(--card-bg); border-radius: 16px; padding: 14px; display:flex; align-items:center; gap: 12px;
     box-shadow: 0 4px 0 var(--border), 0 6px 12px var(--shadow); cursor: pointer;
-    transition: transform 0.1s ease;
   }
-  .step-tile:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--border); }
-  .step-tile.locked { opacity: 0.55; cursor: default; }
+  .step-tile.locked { opacity: 0.5; cursor: default; }
   .step-tile .step-num {
     width:36px; height:36px; border-radius:50%; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size: 15px;
   }
-  .step-tile.locked .step-num { background: linear-gradient(160deg, #d9cfc0, #b7ab97); }
   .step-tile .step-name { font-weight:700; flex:1; font-size: 15px; }
-
-  .card {
-    background-color: var(--card-bg);
-    border-radius: 22px; padding: 20px; box-shadow: 0 6px 18px var(--shadow); margin-top: 16px; border: 1px solid var(--border);
-  }
-  .instructions { font-size: 14px; color: var(--text-soft); text-align:center; margin-bottom: 12px; font-weight:600; }
-
-  /* Buttons & Utilities */
-  .speak-btn { background: var(--blue); color: white; border:none; padding: 8px 16px; border-radius: 14px; font-weight:bold; font-size:14px; cursor:pointer; box-shadow: 0 3px 0 #2678a8; }
-  .speak-btn:active { transform: translateY(3px); box-shadow:none; }
-  .primary-btn { margin-top: 10px; background: var(--pink); color:white; border:none; padding:12px 22px; border-radius:16px; font-weight:bold; cursor:pointer; box-shadow: 0 3px 0 #c2485f; font-size:15px; }
-  .primary-btn:active { transform: translateY(3px); box-shadow:none; }
-  .primary-btn.green { background: var(--green); box-shadow: 0 3px 0 var(--green-dark); }
-  .primary-btn.purple { background: var(--purple); box-shadow: 0 3px 0 #6c3483; }
-
-  .dots { display:flex; justify-content:center; gap:6px; margin-bottom:14px; }
-  .dots span { width:10px; height:10px; border-radius:50%; background: var(--border); }
-  .dots span.done { background: var(--green); }
-  .dots span.current { background: var(--primary); }
-
-  .step-title { text-align:center; font-weight:bold; font-size: 15px; color: var(--text-soft); margin-bottom: 6px; }
-
-  /* MCQ */
-  .mcq-prompt { text-align:center; }
-  .mcq-prompt .emoji-big { font-size: 80px; margin-bottom: 10px; }
-  .mcq-prompt .sentence-display { font-size: 18px; font-weight:bold; margin: 10px 0; line-height:1.5; }
-  .mcq-prompt .story-text { font-size: 15px; line-height:1.6; background: var(--bg); border-radius:12px; padding:12px; margin-bottom:10px; text-align:left; }
-  .options { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top: 14px; }
-  .opt-btn {
-    background: linear-gradient(135deg, #fff, var(--opt-tint, #fff8e7));
-    border: none; border-radius: 18px; padding: 12px 26px; font-size: 22px; font-weight: 800;
-    cursor: pointer; color: var(--text); font-family:'Fredoka',sans-serif;
-    box-shadow: 0 4px 0 var(--opt-shadow, var(--border)), 0 6px 10px var(--shadow);
-    transition: transform 0.1s ease;
-    width: auto; min-width: 240px; max-width: 100%;
-  }
-  .opt-btn:active:not([disabled]) { transform: translateY(3px); box-shadow: 0 1px 0 var(--opt-shadow, var(--border)); }
-  .opt-btn.opt-c0 { --opt-tint: #fff0c2; --opt-shadow: #f0c463; }
-  .opt-btn.opt-c1 { --opt-tint: #ffe0d6; --opt-shadow: #f2a48f; }
-  .opt-btn.opt-c2 { --opt-tint: #d3f7f0; --opt-shadow: #7fdbc9; }
-  .opt-btn.opt-c3 { --opt-tint: #dbe9ff; --opt-shadow: #93b8f2; }
-  .opt-btn.correct { background: linear-gradient(135deg,#fff,#d3f7f0); box-shadow: 0 4px 0 var(--green-dark); color:#0f7a67; }
-  .opt-btn.wrong { background: linear-gradient(135deg,#fff,#fbdcdc); box-shadow: 0 4px 0 #c94d68; color:#a12742; }
-  .opt-btn.opt-locked { cursor: not-allowed; }
-  .opt-btn.opt-locked .opt-label { opacity: 0.5; }
-  .opt-speak-icon {
-    display: inline-flex; align-items:center; justify-content:center;
-    width: 42px; height: 42px; border-radius: 50%; background: var(--blue); color: white;
-    font-size: 18px; cursor: pointer; flex-shrink: 0; box-shadow: 0 2px 0 #2678a8;
-  }
-  .opt-speak-icon.heard { background: var(--green); box-shadow: 0 2px 0 var(--green-dark); }
-  .listen-hint { text-align:center; font-size: 13px; color: var(--primary-dark); font-weight:bold; margin-bottom: 10px; }
-  .listen-hint.all-done { color: var(--green); }
-
-  /* Fill / Remove / Odd */
-  .fill-item { text-align:center; }
-  .fill-item .emoji-big { font-size: 76px; }
-  .fill-word { font-size: 32px; font-weight:bold; letter-spacing: 3px; margin: 12px 0; color: var(--primary-dark); }
-  .fill-word input { width: 44px; height: 52px; font-size: 28px; text-align:center; font-weight:bold; border: 3px solid var(--primary); border-radius: 10px; margin: 0 2px; text-transform: lowercase; background: var(--card-bg); color: var(--text); }
-  .check-btn { background: var(--green); color:white; border:none; padding: 10px 24px; border-radius:16px; font-weight:bold; font-size:16px; cursor:pointer; box-shadow: 0 3px 0 var(--green-dark); }
-  .check-btn:active { transform: translateY(3px); box-shadow:none; }
-  .feedback { margin-top:10px; font-weight:bold; font-size:15px; min-height: 22px; text-align:center; }
-  .feedback.ok { color: var(--green); }
-  .feedback.bad { color: var(--red); }
-
-  .letters-row { display:flex; justify-content:center; gap:6px; margin: 16px 0; flex-wrap:wrap; }
-  .letter-btn {
-    width: 44px; height:50px; font-size: 24px; font-weight:bold; border-radius:10px;
-    border: 2px solid var(--border); background: var(--card-bg); color: var(--text); cursor:pointer;
-  }
-  .letter-btn.removed-correct { background:#d3f7f0; border-color: var(--green); }
-  .letter-btn.removed-wrong { background:#fbdcdc; border-color: var(--red); }
-
-  .odd-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-  .odd-card {
-    background: var(--bg); border: 3px solid var(--border); border-radius: 16px; padding: 14px;
-    text-align:center; cursor:pointer;
-  }
-  .odd-card .oc-emoji { font-size: 46px; }
-  .odd-card .oc-label { font-weight:bold; margin-top:4px; font-size:15px; }
-  .odd-card.correct { border-color: var(--green); background:#d3f7f0; }
-  .odd-card.wrong { border-color: var(--red); background:#fbdcdc; }
-
-  /* Sentence */
-  .sentence-answer-area {
-    min-height: 56px; border: 2px dashed var(--border); border-radius: 14px; padding: 10px;
-    display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center; margin-bottom: 14px;
-  }
-  .speech-bubble-demo { display:flex; flex-direction:column; align-items:flex-start; gap:14px; margin: 6px 0 18px; }
-  .speech-bubble {
-    position: relative; background: var(--honey-light); color: #4a3300; font-weight:700; font-size:16px;
-    padding: 12px 18px; border-radius: 18px; font-family:'Fredoka',sans-serif; max-width: 90%;
-    box-shadow: 0 3px 0 #e0b84a;
-  }
-  .word-chip {
-    background: var(--primary); color:white; border:none; padding: 8px 14px; border-radius: 12px;
-    font-weight:bold; font-size:15px; cursor:pointer;
-  }
-  .word-chip.placed { background: var(--card-bg); color: var(--text); border: 2px solid var(--border); }
-  .chip-bank { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom: 14px; }
-
-  /* Writing & Speaking */
-  .writing-input {
-    width: 100%; max-width: 280px; font-size: 24px; text-align:center; font-weight:700;
-    padding: 12px 16px; border-radius: 14px; border: 3px solid var(--primary);
-    background: var(--card-bg); color: var(--text); margin: 14px 0; font-family:'Fredoka',sans-serif;
-  }
-  .mic-btn {
-    width: 84px; height: 84px; border-radius: 50%; border:none; font-size: 36px; cursor:pointer;
-    background: linear-gradient(160deg, var(--honey-light), var(--coral)); color:white; margin: 12px 0;
-    box-shadow: 0 5px 0 var(--coral-dark);
-  }
-  .mic-btn:active { transform: translateY(4px); box-shadow:none; }
-  .mic-btn.listening { background: linear-gradient(160deg, #ff8a8a, var(--red)); animation: pulse-mic 1s infinite; }
-  @keyframes pulse-mic { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-
-  /* Result */
-  .result-screen { text-align:center; padding: 10px; }
-  .result-screen .big-emoji { font-size: 60px; }
-  .score-circle {
-    width: 120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    flex-direction:column; margin: 14px auto; border: 8px solid var(--border);
-  }
-  .score-circle.pass { border-color: var(--green); }
-  .score-circle.fail { border-color: var(--red); }
-  .score-circle .pct { font-size: 28px; font-weight:bold; }
-  .score-circle .lbl { font-size: 11px; color: var(--text-soft); }
-  .unlock-msg { font-weight:bold; font-size:15px; margin: 10px 0; }
-  .unlock-msg.pass { color: var(--green); }
-  .unlock-msg.fail { color: var(--red); }
 
   /* Login */
   .login-wrap { min-height: 80vh; display:flex; align-items:center; justify-content:center; padding: 16px; }
@@ -269,9 +292,6 @@
     background: var(--card-bg); border-radius: 26px; padding: 34px 26px; max-width: 360px; width:100%;
     text-align:center; box-shadow: 0 8px 0 var(--border), 0 12px 24px var(--shadow);
   }
-  .login-box .login-emoji { font-size: 58px; margin-bottom: 8px; }
-  .login-box h2 { color: var(--primary-dark); margin: 0 0 6px; font-size: 21px; }
-  .login-box p { color: var(--text-soft); font-size: 13px; margin: 0 0 20px; }
   .login-field { text-align:left; margin-bottom: 14px; }
   .login-field label { display:block; font-size: 13px; font-weight:700; margin-bottom: 5px; }
   .login-field input {
@@ -283,64 +303,16 @@
     border-radius:14px; padding:13px; font-weight:700; font-size:15px; cursor:pointer; margin-top:6px;
     box-shadow: 0 4px 0 var(--primary-dark);
   }
-
-  .lesson-banner {
-    display: inline-block; background: linear-gradient(135deg, #4ecdc4, #3da9fc); color: white;
-    font-weight:700; font-size: 14px; letter-spacing:1px;
-    padding: 6px 18px; border-radius: 999px; margin-bottom: 14px;
-  }
-  .activity-header { display:flex; align-items:center; gap:12px; margin-bottom: 14px; }
-  .activity-num {
-    width: 34px; height:34px; border-radius:50%; background: var(--coral); color:white;
-    display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0;
-  }
-  .activity-title { font-weight:700; font-size: 17px; color: var(--text); }
-
-  .dialogue-list { display:flex; flex-direction:column; gap:12px; margin-bottom: 10px; }
-  .dialogue-row { display:flex; }
-  .dialogue-row.right { justify-content:flex-end; }
-  .dialogue-bubble {
-    max-width: 80%; background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px;
-    padding: 10px 14px; font-size: 15px; font-weight:700; cursor:pointer; box-shadow: 0 3px 0 var(--border);
-    display:flex; align-items:center; gap:8px;
-  }
-  .dialogue-row.right .dialogue-bubble { background: var(--honey-light); border-color:#e0b84a; }
-
-  .flash-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 16px; }
-  .flash-grid-item {
-    background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; padding: 12px;
-    text-align:center; cursor:pointer; box-shadow: 0 3px 0 var(--border);
-  }
-  .flash-grid-item .fg-word { font-weight:700; margin-top:8px; font-size:14px; }
-
-  .lyrics-box { background: var(--bg); border-radius: 16px; padding: 16px; margin: 12px 0; text-align:center; }
-  .lyrics-box .ly-line { font-size: 15px; font-weight:700; color: var(--text); line-height:1.8; }
-  .lyrics-box .ly-line.blank { height: 10px; }
-
-  .phonics-row { display:flex; align-items:center; gap:14px; background: var(--bg); border-radius:14px; padding:12px 14px; margin-bottom:10px; cursor:pointer; }
-  .phonics-row .pr-letters { width:50px; height:50px; border-radius:12px; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; flex-shrink:0; }
-  .phonics-row .pr-text { flex:1; }
-  .phonics-row .pr-text .pr-example { font-weight:700; font-size:16px; }
-  .phonics-row .pr-text .pr-sentence { font-size:13px; color: var(--text-soft); }
-
-  .confetti-piece { position: fixed; top: -20px; width: 10px; height: 14px; z-index: 2000; pointer-events: none; animation: confettiFall linear forwards; }
-  @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(540deg); opacity: 0; } }
-
-  .reaction-emoji {
-    position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%) scale(0.4);
-    font-size: 80px; z-index: 2001; pointer-events: none; opacity: 0;
-    animation: reactionPop 1.4s ease-out forwards;
-  }
-  @keyframes reactionPop { 0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 20% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; } 80% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 100% { transform: translate(-50%, -55%) scale(1); opacity: 0; } }
 </style>
 </head>
 <body>
 
+<!-- LOGIN -->
 <div class="login-wrap" id="login-wrap">
   <div class="login-box">
-    <div class="login-emoji">🐝</div>
-    <h2>Ong Chăm Chỉ</h2>
-    <p>Nhập tài khoản để vào học nhé!</p>
+    <div style="font-size:56px; margin-bottom:10px;">🐝</div>
+    <h2 style="color:var(--primary-dark); margin:0 0 6px;">Ong Chăm Chỉ</h2>
+    <p style="color:var(--text-soft); font-size:13px; margin:0 0 18px; font-weight:600;">Lớp học Tiếng Anh cô Emily chào đón bé!</p>
     <div class="login-field">
       <label>Tên đăng nhập</label>
       <input type="text" id="login-username" value="tienganh" autocomplete="off">
@@ -349,160 +321,73 @@
       <label>Mật khẩu</label>
       <input type="password" id="login-password" value="1" autocomplete="off">
     </div>
-    <button class="login-submit" id="login-submit">Đăng nhập</button>
+    <button class="login-submit" id="login-submit">Vào lớp học</button>
     <div class="feedback bad" id="login-error"></div>
   </div>
 </div>
 
+<!-- MAIN APP -->
 <div class="app" id="main-app" style="display:none;">
 
   <header class="top">
     <div class="title-block">
-      <div class="emoji" id="header-emoji">🗺️</div>
+      <div class="emoji" id="header-emoji">👩‍🏫</div>
       <div>
-        <h1 id="header-title">Lộ trình Tiếng Anh lớp 4</h1>
-        <p id="header-sub">Chọn Unit để bắt đầu học nhé!</p>
+        <h1 id="header-title">Lớp học Cô Emily</h1>
+        <p id="header-sub">Chọn bài học để bắt đầu nhé!</p>
       </div>
     </div>
     <button class="back-btn" id="back-btn" style="display:none;">‹ Quay lại</button>
   </header>
 
-  <!-- SCREEN: UNIT MAP -->
+  <!-- SCREEN 1: MAP -->
   <div class="screen active" id="screen-map">
     <div class="unit-list" id="unit-list"></div>
   </div>
 
-  <!-- SCREEN: UNIT DETAIL -->
+  <!-- SCREEN 2: UNIT DETAIL -->
   <div class="screen" id="screen-unit-detail">
     <div class="step-list" id="lesson-list"></div>
   </div>
 
-  <!-- SCREEN: LESSON DONE -->
-  <div class="screen" id="screen-lesson-done">
-    <div class="card" style="text-align:center; padding:30px 10px;">
-      <div style="font-size:56px;">🎉</div>
-      <h2 id="lesson-done-title">Hoàn thành Lesson!</h2>
-      <p id="lesson-done-sub"></p>
-      <button class="primary-btn green" id="lesson-done-continue">Tiếp tục</button>
-    </div>
-  </div>
-
-  <!-- SCREEN: LESSON RUNNER -->
+  <!-- SCREEN 3: CLASSROOM LESSON RUNNER -->
   <div class="screen" id="screen-lesson">
     <div class="card">
-      <div class="lesson-banner" id="lesson-banner"></div>
-      <div class="activity-header">
-        <div class="activity-num" id="activity-num">1</div>
-        <div class="activity-title" id="activity-title"></div>
+
+      <!-- KHUNG CÔ GIÁO GIẢNG BÀI TRỰC TIẾP -->
+      <div class="teacher-stage">
+        <div class="teacher-avatar-wrap">
+          <div class="teacher-avatar" id="teacher-avatar">
+            <!-- Avatar hoạt hình cô giáo thân thiện -->
+            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=MissEmily&backgroundColor=b6e3f4" alt="Teacher Emily">
+          </div>
+          <div class="teacher-name-tag">Cô Emily</div>
+        </div>
+        <div class="teacher-bubble">
+          <p class="teacher-say-en" id="teacher-text-en">"Hello children! Welcome to our English class!"</p>
+          <p class="teacher-say-vi" id="teacher-text-vi">Chào các con! Chào mừng đến với lớp học Tiếng Anh nhé!</p>
+          <div class="teacher-actions">
+            <button class="teacher-speak-btn" id="btn-teacher-speak">🔊 Nghe cô nói</button>
+            <button class="teacher-speak-btn" id="btn-teacher-slow" style="background:#4ecdc4; box-shadow:0 2px 0 #1b9b8f;">🐢 Nghe chậm</button>
+          </div>
+        </div>
       </div>
-      <div id="activity-body"></div>
+
+      <!-- VÙNG TƯƠNG TÁC BÀI HỌC CỦA BÉ -->
+      <div id="classroom-body"></div>
+
       <div class="feedback" id="activity-feedback"></div>
-      <button class="primary-btn" id="activity-next" style="width:100%; margin-top:16px;">Tiếp theo ➡️</button>
+      <button class="primary-btn green" id="activity-next" style="width:100%; margin-top:16px;">Bài tiếp theo ➡️</button>
     </div>
   </div>
 
-  <!-- SCREEN: STEP PLAYER (BÀI KIỂM TRA) -->
-  <div class="screen" id="screen-step-player">
-    <div class="card">
-      <div class="step-title" id="sp-title"></div>
-      <div class="dots" id="sp-dots"></div>
-
-      <div id="block-mcq" style="display:none;">
-        <div class="mcq-prompt">
-          <div class="emoji-big" id="mcq-emoji" style="display:none;"></div>
-          <div class="story-text" id="mcq-story" style="display:none;"></div>
-          <button class="speak-btn" id="mcq-story-speak" style="display:none; margin-bottom:10px;">🔊 Nghe đoạn văn</button>
-          <div class="sentence-display" id="mcq-sentence" style="display:none;"></div>
-          <div class="instructions" id="mcq-question"></div>
-          <button class="speak-btn" id="mcq-question-speak" style="display:none; margin-bottom:10px;">🔊 Nghe câu hỏi</button>
-          <div class="listen-hint" id="mcq-listen-hint"></div>
-          <div class="options" id="mcq-options"></div>
-        </div>
-      </div>
-
-      <div id="block-fill" style="display:none;">
-        <div class="fill-item">
-          <div class="emoji-big" id="fill-emoji"></div>
-          <div class="fill-word" id="fill-word-wrap"></div>
-          <button class="check-btn" id="fill-check">✅ Kiểm tra</button>
-          <div class="feedback" id="fill-feedback"></div>
-        </div>
-      </div>
-
-      <div id="block-remove" style="display:none;">
-        <div class="fill-item">
-          <div class="emoji-big" id="remove-emoji"></div>
-          <div class="instructions">Chạm vào chữ cái thừa để xoá</div>
-          <div class="letters-row" id="letters-row"></div>
-          <div class="feedback" id="remove-feedback"></div>
-        </div>
-      </div>
-
-      <div id="block-odd" style="display:none;">
-        <div class="instructions">Từ nào khác với các từ còn lại?</div>
-        <div class="odd-grid" id="odd-grid"></div>
-        <div class="feedback" id="odd-feedback"></div>
-      </div>
-
-      <div id="block-sentence" style="display:none;">
-        <div class="instructions">Sắp xếp các từ thành câu đúng</div>
-        <div class="sentence-answer-area" id="sentence-answer-area"></div>
-        <div class="chip-bank" id="sentence-chip-bank"></div>
-        <div style="text-align:center;">
-          <button class="check-btn" id="sentence-check">✅ Kiểm tra</button>
-        </div>
-        <div class="feedback" id="sentence-feedback"></div>
-      </div>
-
-      <div id="block-writing" style="display:none;">
-        <div class="fill-item">
-          <div class="emoji-big" id="writing-emoji" style="cursor:pointer;" title="Chạm để nghe"></div>
-          <div class="instructions">👆 Chạm vào hình để nghe rồi gõ lại từ nhé!</div>
-          <input type="text" id="writing-input" class="writing-input" autocomplete="off" placeholder="Gõ từ vào đây...">
-          <div><button class="check-btn" id="writing-check">✅ Kiểm tra</button></div>
-          <div class="feedback" id="writing-feedback"></div>
-        </div>
-      </div>
-
-      <div id="block-speaking" style="display:none;">
-        <div class="fill-item">
-          <div class="emoji-big" id="speaking-emoji"></div>
-          <div class="word-en" id="speaking-word" style="font-size:26px; color:var(--primary-dark); margin:8px 0;"></div>
-          <button class="speak-btn" id="speaking-listen">🔊 Nghe mẫu</button>
-
-          <div id="speaking-enable-block" style="margin-top:16px;">
-            <button class="check-btn" id="speaking-enable-btn">🔓 Bấm để bật Micro</button>
-            <div class="feedback" id="speaking-enable-feedback"></div>
-          </div>
-
-          <div id="speaking-record-block" style="display:none;">
-            <div class="instructions" style="margin-top:14px;">Giữ nút micro, đọc to từ này, rồi thả tay ra nhé!</div>
-            <button class="mic-btn" id="speaking-mic">🎤</button>
-            <div class="feedback" id="speaking-feedback"></div>
-          </div>
-
-          <div id="speaking-unsupported" style="display:none;">
-            <p class="instructions">Trình duyệt này chưa hỗ trợ Speech Recognition. Phụ huynh/bé có thể ấn xác nhận nhé!</p>
-            <button class="check-btn" id="speaking-fallback-ok">✅ Bé đã đọc xong</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SCREEN: RESULT -->
-  <div class="screen" id="screen-result">
-    <div class="card result-screen">
-      <div class="big-emoji" id="result-emoji">🏆</div>
-      <h2 id="result-title">Hoàn thành!</h2>
-      <div class="score-circle" id="score-circle">
-        <div class="pct" id="result-pct">0%</div>
-        <div class="lbl">chính xác</div>
-      </div>
-      <div class="unlock-msg" id="unlock-msg"></div>
-      <button class="primary-btn" id="result-retry">🔁 Làm lại bài kiểm tra</button>
-      <button class="primary-btn green" id="result-next" style="display:none;">➡️ Sang Unit tiếp theo</button>
-      <button class="primary-btn purple" id="result-map">🗺️ Về bản đồ Unit</button>
+  <!-- SCREEN 4: LESSON DONE -->
+  <div class="screen" id="screen-lesson-done">
+    <div class="card" style="text-align:center; padding:32px 14px;">
+      <div style="font-size:60px;">🌟</div>
+      <h2>Hoàn thành bài học xuất sắc!</h2>
+      <p style="color:var(--text-soft); font-weight:600;">Cô Emily rất tự hào về con hôm nay.</p>
+      <button class="primary-btn purple" id="lesson-done-continue">Trở về danh sách bài</button>
     </div>
   </div>
 
@@ -510,8 +395,8 @@
 
 <script>
 (function() {
-  const VALID_USERNAME = 'tienganh';
-  const VALID_PASSWORD = '1';
+  const VALID_USER = 'tienganh';
+  const VALID_PASS = '1';
 
   function showApp() {
     document.getElementById('login-wrap').style.display = 'none';
@@ -519,688 +404,251 @@
     initApp();
   }
 
-  function tryLogin() {
+  document.getElementById('login-submit').addEventListener('click', () => {
     const u = document.getElementById('login-username').value.trim();
     const p = document.getElementById('login-password').value;
-    const err = document.getElementById('login-error');
-    if (u === VALID_USERNAME && p === VALID_PASSWORD) {
-      try { localStorage.setItem('tienganh4_logged_in', '1'); } catch (e) {}
+    if (u === VALID_USER && p === VALID_PASS) {
+      try { localStorage.setItem('tienganh4_login', '1'); } catch(e){}
       showApp();
     } else {
-      err.textContent = '❌ Sai tên đăng nhập hoặc mật khẩu.';
+      document.getElementById('login-error').textContent = '❌ Sai tên hoặc mật khẩu!';
     }
-  }
-  document.getElementById('login-submit').addEventListener('click', tryLogin);
-  document.getElementById('login-password').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(); });
+  });
 
-  let alreadyLoggedIn = false;
-  try { alreadyLoggedIn = localStorage.getItem('tienganh4_logged_in') === '1'; } catch (e) {}
-  if (alreadyLoggedIn) { showApp(); }
+  if (localStorage.getItem('tienganh4_login') === '1') { showApp(); }
 
   function initApp() {
     const UNITS = [
       {
         id: 1, title: "Unit 1: My friends", emoji: "🌍",
-        phonicsLetter: { upper: "A / IA", lower: "a / ia" },
-        distractor: { word: "apple", vi: "quả táo", emoji: "🍎" },
-        words: [
-          { word: "america",   vi: "nước Mỹ",        emoji: "🇺🇸", flag: "us", missingIndex: 0, extraLetters: "amxerica".split(''), extraPos: 2 },
-          { word: "australia", vi: "nước Úc",        emoji: "🇦🇺", flag: "au", missingIndex: 0, extraLetters: "auxstralia".split(''), extraPos: 2 },
-          { word: "britain",   vi: "nước Anh",       emoji: "🇬🇧", flag: "gb", missingIndex: 0, extraLetters: "brxitain".split(''), extraPos: 2 },
-          { word: "japan",     vi: "nước Nhật Bản",  emoji: "🇯🇵", flag: "jp", missingIndex: 0, extraLetters: "jxapan".split(''), extraPos: 1 },
-          { word: "malaysia",  vi: "Malaysia",       emoji: "🇲🇾", flag: "my", missingIndex: 0, extraLetters: "maxlaysia".split(''), extraPos: 2 },
-          { word: "singapore", vi: "Singapore",      emoji: "🇸🇬", flag: "sg", missingIndex: 0, extraLetters: "sixngapore".split(''), extraPos: 2 },
-          { word: "thailand",  vi: "Thái Lan",       emoji: "🇹🇭", flag: "th", missingIndex: 0, extraLetters: "thxailand".split(''), extraPos: 2 },
-          { word: "vietnam",   vi: "Việt Nam",       emoji: "🇻🇳", flag: "vn", missingIndex: 0, extraLetters: "vixetnam".split(''), extraPos: 2 }
-        ],
-        vocabQuizQuestion: "Đây là nước nào?",
-        phonicsQuestions: [
-          { emoji: "🇺🇸", flag: "us", question: 'Which word ends with the sound "a"?', qLang: 'en', options: ["america", "japan"], correct: "america" },
-          { emoji: "🇦🇺", flag: "au", question: 'Which word ends with the sound "ia"?', qLang: 'en', options: ["australia", "singapore"], correct: "australia" }
-        ],
-        story: {
-          text: "Minh is from Viet Nam. Lucy is from Britain. Mary is from America. Ben is from Australia.",
-          question: "Where is Mary from?", qLang: 'en',
-          options: ["America", "Britain", "Australia"],
-          answerIndex: 0
-        },
-        sentenceTarget: "Where are you from?",
-        fillSentences: [
-          { before: "I'm from", after: ".", answer: "america",   options: ["america", "britain", "japan"] },
-          { before: "I'm from", after: ".", answer: "vietnam",   options: ["vietnam", "thailand", "japan"] }
-        ],
         lessons: [
           {
-            title: "Lesson 1",
-            activities: [
-              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "Hello. I'm Minh. I'm from Viet Nam.", b: "Hello, Minh. I'm Mary. I'm from America." } ] },
-              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "Where are you from?", aBubble: "I'm from ____.", items: [ { flag:'gb', word:'britain', label:'Britain' }, { flag:'vn', word:'vietnam', label:'Viet Nam' } ] },
-              { type: 'song', title: "Let's sing.", lines: ["Hello. I'm Minh.", "I'm from Viet Nam.", "Where are you from?"] }
+            title: "Lesson 1: Where are you from?",
+            teacherIntro: {
+              en: "Today, let's learn how to ask where our friends are from! Listen and repeat after me: Where are you from?",
+              vi: "Hôm nay cô trò mình cùng học cách hỏi quê quán của bạn bè nhé! Hãy cùng lắng nghe cô đọc mẫu nhé!"
+            },
+            dialogues: [
+              { speaker: "👦", name: "Minh", en: "Hello. I'm Minh. I'm from Viet Nam.", vi: "Xin chào, mình là Minh. Mình đến từ Việt Nam." },
+              { speaker: "👧", name: "Mary", en: "Hello, Minh. I'm Mary. I'm from America.", vi: "Chào Minh, mình là Mary. Mình đến từ nước Mỹ." },
+              { speaker: "👧", name: "Lucy", en: "Hi. I'm Lucy. I'm from Britain.", vi: "Chào bạn. Mình là Lucy. Mình đến từ nước Anh." },
+              { speaker: "👦", name: "Ben", en: "Hi, Lucy. I'm Ben. I'm from Australia.", vi: "Chào Lucy. Mình là Ben. Mình đến từ nước Úc." }
+            ],
+            words: [
+              { flag: "vn", word: "vietnam", label: "Viet Nam", vi: "Nước Việt Nam" },
+              { flag: "us", word: "america", label: "America", vi: "Nước Mỹ" },
+              { flag: "gb", word: "britain", label: "Britain", vi: "Nước Anh" },
+              { flag: "au", word: "australia", label: "Australia", vi: "Nước Úc" }
             ]
           },
           {
-            title: "Lesson 2",
-            activities: [
-              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "Who's that?", b: "It's my new friend." }, { a: "Where's she from?", b: "She's from Japan." } ] },
-              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "Where's she from?", aBubble: "She's from ____.", items: [ { flag:'jp', word:'japan', label:'Japan' }, { flag:'th', word:'thailand', label:'Thailand' } ] }
-            ]
-          },
-          {
-            title: "Lesson 3",
-            activities: [
-              { type: 'phonics_repeat', title: 'Listen and repeat.', rows: [ { letters: 'a', example: 'America', sentence: "I'm from America." }, { letters: 'ia', example: 'Australia', sentence: "She's from Australia." } ] },
-              { type: 'song', title: "Let's chant.", lines: ["America, America.", "Mary's from America.", "Australia, Australia.", "Ben's from Australia."] }
+            title: "Lesson 2: He's & She's from...",
+            teacherIntro: {
+              en: "Great job! Now let's learn to talk about another friend: Where's he from? She's from Japan.",
+              vi: "Bây giờ cô hướng dẫn con cách hỏi về bạn nam và bạn nữ khác nhé: Cậu ấy/Cô ấy đến từ đâu?"
+            },
+            dialogues: [
+              { speaker: "👦", name: "Minh", en: "Who's that?", vi: "Đó là ai thế bạn?" },
+              { speaker: "👧", name: "Mai", en: "It's my new friend. She's from Japan.", vi: "Đó là bạn mới của mình. Bạn ấy đến từ Nhật Bản." }
+            ],
+            words: [
+              { flag: "jp", word: "japan", label: "Japan", vi: "Nhật Bản" },
+              { flag: "th", word: "thailand", label: "Thailand", vi: "Thái Lan" },
+              { flag: "my", word: "malaysia", label: "Malaysia", vi: "Malaysia" },
+              { flag: "sg", word: "singapore", label: "Singapore", vi: "Singapore" }
             ]
           }
         ]
       },
       {
         id: 2, title: "Unit 2: Time and daily routines", emoji: "⏰",
-        phonicsLetter: { upper: "O / EE", lower: "o / ee" },
-        distractor: { word: "banana", vi: "quả chuối", emoji: "🍌" },
-        words: [
-          { word: "morning",   vi: "buổi sáng",    emoji: "🌅", missingIndex: 0, extraLetters: "mxorning".split(''), extraPos: 1 },
-          { word: "afternoon", vi: "buổi chiều",   emoji: "☀️", missingIndex: 0, extraLetters: "axfternoon".split(''), extraPos: 1 },
-          { word: "evening",   vi: "buổi tối",     emoji: "🌆", missingIndex: 0, extraLetters: "exvening".split(''), extraPos: 1 },
-          { word: "night",     vi: "ban đêm",      emoji: "🌙", missingIndex: 0, extraLetters: "nxight".split(''), extraPos: 1 }
-        ],
-        vocabQuizQuestion: "Đây là thời điểm nào?",
-        phonicsQuestions: [
-          { emoji: "⏰", question: 'Which word has the sound "o"?', qLang: 'en', options: ["morning", "sleep"], correct: "morning" }
-        ],
-        story: {
-          text: "I get up at six o'clock in the morning. I have breakfast at six thirty. Then I go to school at seven o'clock.",
-          question: "What time do you get up?", qLang: 'en',
-          options: ["six o'clock", "seven o'clock", "six thirty"],
-          answerIndex: 0
-        },
-        sentenceTarget: "What time is it?",
-        fillSentences: [
-          { before: "It is six", after: ".", answer: "o'clock", options: ["o'clock", "school", "bed"] },
-          { before: "Good", after: "!", answer: "morning", options: ["morning", "time", "clock"] }
-        ],
         lessons: [
           {
-            title: "Lesson 1",
-            activities: [
-              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "What time is it?", b: "It's seven o'clock." } ] },
-              { type: 'flashcard_grid', title: 'Listen, point and say.', qBubble: "What time is it?", aBubble: "It's ____ o'clock.", items: [ { emoji:'🌅', word:'morning', label:'Morning' }, { emoji:'🌙', word:'night', label:'Night' } ] }
-            ]
-          },
-          {
-            title: "Lesson 2",
-            activities: [
-              { type: 'dialogue', title: 'Look, listen and repeat.', exchanges: [ { a: "What time do you get up?", b: "I get up at six o'clock." } ] }
-            ]
-          },
-          {
-            title: "Lesson 3",
-            activities: [
-              { type: 'phonics_repeat', title: 'Listen and repeat.', rows: [ { letters: 'o', example: 'o\'clock', sentence: "It's seven o'clock." }, { letters: 'ee', example: 'fifteen', sentence: "It's seven fifteen." } ] }
+            title: "Lesson 1: What time is it?",
+            teacherIntro: {
+              en: "Look at the clock! What time is it? Let's practice saying the time together!",
+              vi: "Nhìn vào chiếc đồng hồ kìa! Mấy giờ rồi nhỉ? Cùng cô luyện tập hỏi và trả lời giờ nhé!"
+            },
+            dialogues: [
+              { speaker: "👦", name: "Tom", en: "What time is it?", vi: "Mấy giờ rồi bạn ơi?" },
+              { speaker: "👧", name: "Mai", en: "It's seven o'clock.", vi: "Bây giờ là 7 giờ đúng rồi." }
+            ],
+            words: [
+              { emoji: "🌅", word: "morning", label: "Morning", vi: "Buổi sáng" },
+              { emoji: "☀️", word: "afternoon", label: "Afternoon", vi: "Buổi chiều" },
+              { emoji: "🌆", word: "evening", label: "Evening", vi: "Buổi tối" },
+              { emoji: "🌙", word: "night", label: "Night", vi: "Ban đêm" }
             ]
           }
         ]
       }
     ];
 
-    const PASS_THRESHOLD = 80;
-    let progress = {};
-    try { const s = localStorage.getItem('unit4_lesson_progress_v2'); if (s) progress = JSON.parse(s); } catch (e) {}
-    function saveProgress() { try { localStorage.setItem('unit4_lesson_progress_v2', JSON.stringify(progress)); } catch (e) {} }
-    function getUP(unitId) {
-      if (!progress[unitId]) progress[unitId] = { lessonsDone: [false, false, false], examResult: null, passed: false, bestScore: 0 };
-      return progress[unitId];
-    }
-    function isUnitUnlocked(unitId) {
-      if (unitId === 1) return true;
-      const prev = UNITS.find(u => u.id === unitId - 1);
-      return prev ? getUP(prev.id).passed : true;
-    }
-
-    function cancelSpeech() {
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    }
-
-    function speak(text) {
-      try {
-        if (!('speechSynthesis' in window)) return;
-        cancelSpeech();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'en-US';
-        u.rate = 0.85;
-        window.speechSynthesis.speak(u);
-      } catch (e) {}
-    }
-
-    let audioCtx = null;
-    function playSound(isCorrect) {
-      try {
-        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const now = audioCtx.currentTime;
-        if (isCorrect) {
-          [523.25, 659.25, 783.99].forEach((freq, i) => {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine'; osc.frequency.value = freq;
-            gain.gain.setValueAtTime(0, now + i * 0.08);
-            gain.gain.linearRampToValueAtTime(0.2, now + i * 0.08 + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.3);
-            osc.connect(gain); gain.connect(audioCtx.destination);
-            osc.start(now + i * 0.08); osc.stop(now + i * 0.08 + 0.35);
-          });
-        } else {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'sawtooth'; osc.frequency.value = 140;
-          gain.gain.setValueAtTime(0.2, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-          osc.connect(gain); gain.connect(audioCtx.destination);
-          osc.start(now); osc.stop(now + 0.35);
-        }
-      } catch (e) {}
-    }
-
-    function flagOrEmojiHTML(item) {
-      if (item && item.flag) {
-        return '<span style="display:inline-flex; width:64px; height:46px; border-radius:6px; overflow:hidden; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,0.2); vertical-align:middle;">' +
-          '<img src="https://flagcdn.com/80x60/' + item.flag + '.png" alt="" style="width:100%; height:100%; object-fit:cover;">' +
-          '</span>';
-      }
-      return item && item.emoji ? item.emoji : '';
-    }
-
-    function shuffle(arr) {
-      const a = arr.slice();
-      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-      return a;
-    }
-
     let currentUnit = null;
-    let currentLessonIndex = 0;
-    let currentActivityIndex = 0;
-    const SCREENS = ['map', 'unit-detail', 'lesson-done', 'lesson', 'step-player', 'result'];
+    let currentLesson = null;
+    let teacherSpeakingTimeout = null;
 
-    function showScreen(name) {
-      cancelSpeech();
-      SCREENS.forEach(s => document.getElementById('screen-' + s).classList.remove('active'));
-      document.getElementById('screen-' + name).classList.add('active');
-      document.getElementById('back-btn').style.display = (name === 'map') ? 'none' : 'inline-block';
+    function cancelAllSpeech() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      document.getElementById('teacher-avatar').classList.remove('talking');
+      if (teacherSpeakingTimeout) clearTimeout(teacherSpeakingTimeout);
+    }
+
+    function teacherSpeak(text, rate = 0.85) {
+      if (!('speechSynthesis' in window)) return;
+      cancelAllSpeech();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = rate;
+
+      const avatar = document.getElementById('teacher-avatar');
+      u.onstart = () => avatar.classList.add('talking');
+      u.onend = () => avatar.classList.remove('talking');
+      u.onerror = () => avatar.classList.remove('talking');
+
+      window.speechSynthesis.speak(u);
+    }
+
+    function showScreen(id) {
+      cancelAllSpeech();
+      ['map', 'unit-detail', 'lesson', 'lesson-done'].forEach(s => {
+        document.getElementById('screen-' + s).classList.remove('active');
+      });
+      document.getElementById('screen-' + id).classList.add('active');
+      document.getElementById('back-btn').style.display = (id === 'map') ? 'none' : 'inline-block';
     }
 
     document.getElementById('back-btn').addEventListener('click', () => {
-      cancelSpeech();
-      const active = SCREENS.find(s => document.getElementById('screen-' + s).classList.contains('active'));
-      if (active === 'unit-detail' || active === 'result') { renderMap(); showScreen('map'); }
-      else { renderLessonList(); showScreen('unit-detail'); }
+      const active = document.querySelector('.screen.active').id;
+      if (active === 'screen-unit-detail') showScreen('map');
+      else if (active === 'screen-lesson') showScreen('unit-detail');
+      else showScreen('map');
     });
 
+    // MAP
     function renderMap() {
-      document.getElementById('header-emoji').textContent = '🗺️';
-      document.getElementById('header-title').textContent = 'Lộ trình Tiếng Anh lớp 4';
-      document.getElementById('header-sub').textContent = 'Chọn Unit để bắt đầu học nhé!';
       const list = document.getElementById('unit-list');
       list.innerHTML = '';
-      UNITS.forEach(unit => {
-        const unlocked = isUnitUnlocked(unit.id);
-        const p = getUP(unit.id);
-        const tile = document.createElement('div');
-        tile.className = 'unit-tile' + (unlocked ? '' : ' locked') + (p.passed ? ' passed' : '');
-        let subHtml = unlocked ? (p.passed ? '<span class="badge-pass">✅ Đã đạt ' + p.bestScore + '%</span>' : '<div class="u-sub">Chưa hoàn thành</div>') : '<div class="lock-note">Đạt ≥ ' + PASS_THRESHOLD + '% ở Unit trước để mở</div>';
-        tile.innerHTML = '<div class="hex-badge">' + (unlocked ? unit.emoji : '🔒') + '</div>' +
-          '<div class="unit-info"><div class="u-name">' + unit.title + '</div>' + subHtml + '</div>' +
-          '<div class="u-status">' + (unlocked ? '›' : '') + '</div>';
-        if (unlocked) tile.addEventListener('click', () => { currentUnit = unit; renderLessonList(); showScreen('unit-detail'); });
-        list.appendChild(tile);
+      UNITS.forEach(u => {
+        const div = document.createElement('div');
+        div.className = 'unit-tile';
+        div.innerHTML = `
+          <div class="hex-badge">${u.emoji}</div>
+          <div class="unit-info">
+            <div class="u-name">${u.title}</div>
+            <div class="u-sub">Gồm ${u.lessons.length} bài học cùng cô Emily</div>
+          </div>
+          <div style="font-size:24px; color:var(--primary-dark);">›</div>
+        `;
+        div.onclick = () => {
+          currentUnit = u;
+          renderUnitDetail();
+          showScreen('unit-detail');
+        };
+        list.appendChild(div);
       });
     }
 
-    function renderLessonList() {
-      document.getElementById('header-emoji').textContent = currentUnit.emoji;
+    // DETAIL
+    function renderUnitDetail() {
       document.getElementById('header-title').textContent = currentUnit.title;
-      document.getElementById('header-sub').textContent = 'Học xong các bài rồi thi nhé!';
-      const up = getUP(currentUnit.id);
       const list = document.getElementById('lesson-list');
       list.innerHTML = '';
-      currentUnit.lessons.forEach((lesson, i) => {
-        const done = up.lessonsDone[i];
-        const locked = i > 0 && !up.lessonsDone[i - 1];
-        const tile = document.createElement('div');
-        tile.className = 'step-tile' + (locked ? ' locked' : '');
-        tile.innerHTML = '<div class="step-num">' + (i + 1) + '</div>' +
-          '<div class="step-name">' + lesson.title + '</div>' +
-          '<div class="step-check">' + (locked ? '🔒' : (done ? '✅' : '▶️')) + '</div>';
-        if (!locked) tile.addEventListener('click', () => enterLesson(i));
-        list.appendChild(tile);
+      currentUnit.lessons.forEach((l, idx) => {
+        const div = document.createElement('div');
+        div.className = 'step-tile';
+        div.innerHTML = `
+          <div class="step-num">${idx + 1}</div>
+          <div class="step-name">${l.title}</div>
+          <div>▶️ Vào học</div>
+        `;
+        div.onclick = () => {
+          currentLesson = l;
+          startClassroomLesson();
+          showScreen('lesson');
+        };
+        list.appendChild(div);
       });
-
-      const testTile = document.createElement('div');
-      const allDone = up.lessonsDone.every(Boolean);
-      testTile.className = 'step-tile' + (allDone ? '' : ' locked');
-      testTile.innerHTML = '<div class="step-num">🏆</div><div class="step-name">Bài kiểm tra Unit</div><div>' + (allDone ? '▶️' : '🔒') + '</div>';
-      if (allDone) testTile.addEventListener('click', () => startUnitTest());
-      list.appendChild(testTile);
     }
 
-    function enterLesson(idx) {
-      currentLessonIndex = idx;
-      currentActivityIndex = 0;
-      renderActivity();
-      showScreen('lesson');
-    }
+    // CLASSROOM RUNNER
+    function startClassroomLesson() {
+      // 1. Cập nhật lời cô giáo
+      document.getElementById('teacher-text-en').textContent = `"${currentLesson.teacherIntro.en}"`;
+      document.getElementById('teacher-text-vi').textContent = currentLesson.teacherIntro.vi;
 
-    function renderActivity() {
-      const lesson = currentUnit.lessons[currentLessonIndex];
-      const activity = lesson.activities[currentActivityIndex];
-      document.getElementById('lesson-banner').textContent = lesson.title.toUpperCase();
-      document.getElementById('activity-num').textContent = currentActivityIndex + 1;
-      document.getElementById('activity-title').textContent = activity.title;
-      document.getElementById('activity-feedback').textContent = '';
-      const body = document.getElementById('activity-body');
+      document.getElementById('btn-teacher-speak').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.85);
+      document.getElementById('btn-teacher-slow').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.65);
+
+      // Tự động phát lời cô chào đón bé sau khi mở màn hình
+      setTimeout(() => teacherSpeak(currentLesson.teacherIntro.en, 0.85), 400);
+
+      // 2. Tạo nội dung học (Hội thoại & Thẻ bài)
+      const body = document.getElementById('classroom-body');
       body.innerHTML = '';
 
-      if (activity.type === 'dialogue') {
-        const wrap = document.createElement('div');
-        wrap.className = 'dialogue-list';
-        activity.exchanges.forEach(ex => {
-          const rowA = document.createElement('div');
-          rowA.className = 'dialogue-row';
-          rowA.innerHTML = '<div class="dialogue-bubble"><span>🔊 ' + ex.a + '</span></div>';
-          rowA.onclick = () => speak(ex.a);
-          wrap.appendChild(rowA);
-          if (ex.b) {
-            const rowB = document.createElement('div');
-            rowB.className = 'dialogue-row right';
-            rowB.innerHTML = '<div class="dialogue-bubble"><span>🔊 ' + ex.b + '</span></div>';
-            rowB.onclick = () => speak(ex.b);
-            wrap.appendChild(rowB);
-          }
+      // Khối hội thoại Look & Listen
+      const dBox = document.createElement('div');
+      dBox.className = 'dialogue-box';
+      currentLesson.dialogues.forEach(d => {
+        const item = document.createElement('div');
+        item.className = 'dialogue-item';
+        item.innerHTML = `
+          <div class="speaker-avatar">${d.speaker}</div>
+          <div class="dialogue-content">
+            <div class="dialogue-text">${d.name}: "${d.en}"</div>
+            <div class="dialogue-sub">${d.vi}</div>
+          </div>
+          <div style="font-size:20px;">🔊</div>
+        `;
+        item.onclick = () => {
+          document.querySelectorAll('.dialogue-item').forEach(el => el.classList.remove('active-speaking'));
+          item.classList.add('active-speaking');
+          teacherSpeak(d.en, 0.85);
+        };
+        dBox.appendChild(item);
+      });
+      body.appendChild(dBox);
+
+      // Khối từ vựng trực quan (Point and say)
+      if (currentLesson.words) {
+        const titleWords = document.createElement('div');
+        titleWords.style.fontWeight = '800';
+        titleWords.style.margin = '14px 0 8px';
+        titleWords.textContent = '👇 Chạm vào từng từ để cùng cô luyện đọc nhé:';
+        body.appendChild(titleWords);
+
+        const fGrid = document.createElement('div');
+        fGrid.className = 'flash-grid';
+        currentLesson.words.forEach(w => {
+          const c = document.createElement('div');
+          c.className = 'flash-grid-item';
+          const visual = w.flag ? 
+            `<img src="https://flagcdn.com/80x60/${w.flag}.png" style="width:60px; height:42px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.15);">` : 
+            `<span style="font-size:42px;">${w.emoji}</span>`;
+          c.innerHTML = `
+            ${visual}
+            <div class="fg-word">${w.label}</div>
+            <div class="fg-vi">${w.vi}</div>
+          `;
+          c.onclick = () => {
+            teacherSpeak(`I am from ${w.label}`, 0.8);
+          };
+          fGrid.appendChild(c);
         });
-        body.appendChild(wrap);
-      } else if (activity.type === 'flashcard_grid') {
-        const grid = document.createElement('div');
-        grid.className = 'flash-grid';
-        activity.items.forEach(it => {
-          const cell = document.createElement('div');
-          cell.className = 'flash-grid-item';
-          cell.innerHTML = flagOrEmojiHTML(it) + '<div class="fg-word">' + it.label + '</div>';
-          cell.onclick = () => speak(it.label);
-          grid.appendChild(cell);
-        });
-        body.appendChild(grid);
-      } else if (activity.type === 'song') {
-        const box = document.createElement('div');
-        box.className = 'lyrics-box';
-        activity.lines.forEach(line => {
-          const p = document.createElement('div');
-          p.className = 'ly-line'; p.textContent = line;
-          box.appendChild(p);
-        });
-        body.appendChild(box);
-        const playBtn = document.createElement('button');
-        playBtn.className = 'speak-btn';
-        playBtn.textContent = '🔊 Nghe bài đọc / hát';
-        playBtn.onclick = () => speak(activity.lines.join('. '));
-        body.appendChild(playBtn);
-      } else if (activity.type === 'phonics_repeat') {
-        activity.rows.forEach(r => {
-          const row = document.createElement('div');
-          row.className = 'phonics-row';
-          row.innerHTML = '<div class="pr-letters">' + r.letters + '</div><div class="pr-text"><div class="pr-example">' + r.example + '</div><div class="pr-sentence">' + r.sentence + '</div></div><div>🔊</div>';
-          row.onclick = () => speak(r.example + '. ' + r.sentence);
-          body.appendChild(row);
-        });
+        body.appendChild(fGrid);
       }
     }
 
     document.getElementById('activity-next').addEventListener('click', () => {
-      const lesson = currentUnit.lessons[currentLessonIndex];
-      currentActivityIndex++;
-      if (currentActivityIndex >= lesson.activities.length) {
-        const up = getUP(currentUnit.id);
-        up.lessonsDone[currentLessonIndex] = true;
-        saveProgress();
-        document.getElementById('lesson-done-title').textContent = 'Hoàn thành ' + lesson.title + '!';
-        document.getElementById('lesson-done-sub').textContent = 'Bé đã hoàn thành xuất sắc các bài tập!';
-        showScreen('lesson-done');
-      } else {
-        renderActivity();
-      }
+      showScreen('lesson-done');
     });
 
     document.getElementById('lesson-done-continue').addEventListener('click', () => {
-      renderLessonList(); showScreen('unit-detail');
+      showScreen('unit-detail');
     });
 
-    // ================= EXAM SYSTEM =================
-    let stepQueue = [];
-    let stepQIdx = 0;
-    let stepCorrect = 0;
-    let stepAnswered = false;
-
-    function startUnitTest() {
-      stepQIdx = 0; stepCorrect = 0;
-      stepQueue = buildExamQueue(currentUnit);
-      document.getElementById('sp-title').textContent = 'Bài kiểm tra tổng hợp';
-      renderStepQuestion();
-      showScreen('step-player');
-    }
-
-    function buildExamQueue(u) {
-      let qList = [];
-      u.words.forEach(w => {
-        qList.push({ type: 'mcq', emoji: w.emoji, flag: w.flag, question: u.vocabQuizQuestion, options: shuffle(u.words.map(x => x.word)), correct: w.word });
-        qList.push({ type: 'fill', word: w });
-        qList.push({ type: 'remove', word: w });
-        qList.push({ type: 'writing', word: w });
-        qList.push({ type: 'speaking', word: w });
-      });
-      qList.push({ type: 'sentence', target: u.sentenceTarget });
-      return shuffle(qList);
-    }
-
-    function renderDots() {
-      const el = document.getElementById('sp-dots');
-      el.innerHTML = '';
-      stepQueue.forEach((_, i) => {
-        const s = document.createElement('span');
-        if (i < stepQIdx) s.classList.add('done');
-        else if (i === stepQIdx) s.classList.add('current');
-        el.appendChild(s);
-      });
-    }
-
-    function hideAllBlocks() {
-      ['mcq','fill','remove','odd','sentence','writing','speaking'].forEach(b => document.getElementById('block-' + b).style.display = 'none');
-    }
-
-    function renderStepQuestion() {
-      stepAnswered = false;
-      if (stepQIdx >= stepQueue.length) {
-        finishExam();
-        return;
-      }
-      hideAllBlocks();
-      renderDots();
-      const q = stepQueue[stepQIdx];
-      if (q.type === 'mcq') renderMCQ(q);
-      else if (q.type === 'fill') renderFill(q);
-      else if (q.type === 'remove') renderRemove(q);
-      else if (q.type === 'sentence') renderSentence(q);
-      else if (q.type === 'writing') renderWriting(q);
-      else if (q.type === 'speaking') renderSpeaking(q);
-    }
-
-    function goNext(isCorrect) {
-      playSound(isCorrect);
-      if (isCorrect) stepCorrect++;
-      setTimeout(() => { stepQIdx++; renderStepQuestion(); }, isCorrect ? 1400 : 2200);
-    }
-
-    // MCQ
-    function renderMCQ(q) {
-      document.getElementById('block-mcq').style.display = 'block';
-      const emojiEl = document.getElementById('mcq-emoji');
-      emojiEl.style.display = 'block';
-      emojiEl.innerHTML = flagOrEmojiHTML(q);
-      document.getElementById('mcq-question').textContent = q.question;
-      const opts = document.getElementById('mcq-options');
-      opts.innerHTML = '';
-      q.options.forEach((opt, idx) => {
-        const btn = document.createElement('button');
-        btn.className = 'opt-btn opt-c' + (idx % 4);
-        btn.textContent = opt;
-        btn.onclick = () => {
-          if (stepAnswered) return;
-          stepAnswered = true;
-          const ok = opt === q.correct;
-          btn.classList.add(ok ? 'correct' : 'wrong');
-          goNext(ok);
-        };
-        opts.appendChild(btn);
-      });
-    }
-
-    // Fill
-    function renderFill(q) {
-      document.getElementById('block-fill').style.display = 'block';
-      document.getElementById('fill-emoji').innerHTML = flagOrEmojiHTML(q.word);
-      document.getElementById('fill-feedback').textContent = '';
-      const wrap = document.getElementById('fill-word-wrap');
-      wrap.innerHTML = '';
-      q.word.word.split('').forEach((ch, i) => {
-        if (i === q.word.missingIndex) {
-          const inp = document.createElement('input');
-          inp.maxLength = 1; inp.id = 'fill-input';
-          wrap.appendChild(inp);
-        } else {
-          const s = document.createElement('span'); s.textContent = ch; wrap.appendChild(s);
-        }
-      });
-      setTimeout(() => { const el = document.getElementById('fill-input'); if(el) el.focus(); }, 100);
-    }
-    document.getElementById('fill-check').onclick = () => {
-      if (stepAnswered) return;
-      const q = stepQueue[stepQIdx];
-      const val = (document.getElementById('fill-input').value || '').toLowerCase().trim();
-      const ok = val === q.word.word[q.word.missingIndex];
-      stepAnswered = true;
-      const fb = document.getElementById('fill-feedback');
-      fb.textContent = ok ? '✅ Chính xác!' : '❌ Đáp án đúng là: ' + q.word.word;
-      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-      goNext(ok);
-    };
-
-    // Remove
-    function renderRemove(q) {
-      document.getElementById('block-remove').style.display = 'block';
-      document.getElementById('remove-emoji').innerHTML = flagOrEmojiHTML(q.word);
-      document.getElementById('remove-feedback').textContent = '';
-      const row = document.getElementById('letters-row');
-      row.innerHTML = '';
-      q.word.extraLetters.forEach((ch, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'letter-btn';
-        btn.textContent = ch;
-        btn.onclick = () => {
-          if (stepAnswered) return;
-          stepAnswered = true;
-          const ok = i === q.word.extraPos;
-          btn.classList.add(ok ? 'removed-correct' : 'removed-wrong');
-          const fb = document.getElementById('remove-feedback');
-          fb.textContent = ok ? '✅ Đúng rồi!' : '❌ Chữ thừa là: ' + q.word.extraLetters[q.word.extraPos];
-          fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-          goNext(ok);
-        };
-        row.appendChild(btn);
-      });
-    }
-
-    // Sentence (Đã chuẩn hóa tách từ bỏ dấu câu)
-    let sentenceWords = [];
-    let placedWords = [];
-    function renderSentence(q) {
-      document.getElementById('block-sentence').style.display = 'block';
-      document.getElementById('sentence-feedback').textContent = '';
-      const rawWords = q.target.replace(/[?.!]/g, '').split(' ');
-      sentenceWords = shuffle(rawWords.map((w, idx) => ({ id: idx, text: w })));
-      placedWords = [];
-      updateSentenceUI();
-    }
-    function updateSentenceUI() {
-      const area = document.getElementById('sentence-answer-area');
-      const bank = document.getElementById('sentence-chip-bank');
-      area.innerHTML = ''; bank.innerHTML = '';
-      placedWords.forEach(w => {
-        const chip = document.createElement('button');
-        chip.className = 'word-chip placed';
-        chip.textContent = w.text;
-        chip.onclick = () => { placedWords = placedWords.filter(x => x.id !== w.id); updateSentenceUI(); };
-        area.appendChild(chip);
-      });
-      sentenceWords.forEach(w => {
-        if (!placedWords.some(x => x.id === w.id)) {
-          const chip = document.createElement('button');
-          chip.className = 'word-chip';
-          chip.textContent = w.text;
-          chip.onclick = () => { placedWords.push(w); updateSentenceUI(); };
-          bank.appendChild(chip);
-        }
-      });
-    }
-    document.getElementById('sentence-check').onclick = () => {
-      if (stepAnswered) return;
-      const q = stepQueue[stepQIdx];
-      const built = placedWords.map(x => x.text).join(' ').toLowerCase();
-      const target = q.target.replace(/[?.!]/g, '').toLowerCase();
-      const ok = built === target;
-      stepAnswered = true;
-      const fb = document.getElementById('sentence-feedback');
-      fb.textContent = ok ? '✅ Chính xác!' : '❌ Câu đúng là: ' + q.target;
-      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-      goNext(ok);
-    };
-
-    // Writing
-    function renderWriting(q) {
-      document.getElementById('block-writing').style.display = 'block';
-      document.getElementById('writing-emoji').innerHTML = flagOrEmojiHTML(q.word);
-      document.getElementById('writing-input').value = '';
-      document.getElementById('writing-feedback').textContent = '';
-      setTimeout(() => document.getElementById('writing-input').focus(), 100);
-    }
-    document.getElementById('writing-check').onclick = checkWriting;
-    document.getElementById('writing-input').onkeydown = (e) => { if (e.key === 'Enter') checkWriting(); };
-    function checkWriting() {
-      if (stepAnswered) return;
-      const q = stepQueue[stepQIdx];
-      const val = document.getElementById('writing-input').value.trim().toLowerCase();
-      const ok = val === q.word.word.toLowerCase();
-      stepAnswered = true;
-      const fb = document.getElementById('writing-feedback');
-      fb.textContent = ok ? '✅ Chính xác!' : '❌ Đáp án là: ' + q.word.word;
-      fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-      goNext(ok);
-    }
-
-    // Speaking
-    const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-    let rec = null;
-    let micHeld = false;
-    let micAllowed = false;
-
-    function renderSpeaking(q) {
-      document.getElementById('block-speaking').style.display = 'block';
-      document.getElementById('speaking-emoji').innerHTML = flagOrEmojiHTML(q.word);
-      document.getElementById('speaking-word').textContent = q.word.word;
-      document.getElementById('speaking-feedback').textContent = '';
-      const recBlock = document.getElementById('speaking-record-block');
-      const enableBlock = document.getElementById('speaking-enable-block');
-      const unsuppBlock = document.getElementById('speaking-unsupported');
-
-      if (!SpeechAPI) {
-        recBlock.style.display = 'none'; enableBlock.style.display = 'none'; unsuppBlock.style.display = 'block';
-      } else if (micAllowed) {
-        recBlock.style.display = 'block'; enableBlock.style.display = 'none'; unsuppBlock.style.display = 'none';
-      } else {
-        recBlock.style.display = 'none'; enableBlock.style.display = 'block'; unsuppBlock.style.display = 'none';
-      }
-    }
-    document.getElementById('speaking-listen').onclick = () => {
-      const q = stepQueue[stepQIdx];
-      if (q) speak(q.word.word);
-    };
-    document.getElementById('speaking-enable-btn').onclick = () => {
-      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ audio: true }).then(s => {
-          s.getTracks().forEach(t => t.stop());
-          micAllowed = true;
-          document.getElementById('speaking-enable-block').style.display = 'none';
-          document.getElementById('speaking-record-block').style.display = 'block';
-        }).catch(() => {
-          document.getElementById('speaking-enable-feedback').textContent = '⚠️ Chưa cấp quyền Micro.';
-        });
-      } else {
-        micAllowed = true;
-        document.getElementById('speaking-enable-block').style.display = 'none';
-        document.getElementById('speaking-record-block').style.display = 'block';
-      }
-    };
-
-    function startListening() {
-      if (!SpeechAPI || stepAnswered) return;
-      try {
-        rec = new SpeechAPI();
-        rec.lang = 'en-US';
-        rec.start();
-        document.getElementById('speaking-mic').classList.add('listening');
-        document.getElementById('speaking-feedback').textContent = '🎧 Đang nghe bé nói...';
-        rec.onresult = (e) => {
-          if (stepAnswered) return;
-          const transcript = (e.results[0][0].transcript || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-          const target = stepQueue[stepQIdx].word.word.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const ok = transcript.includes(target) || target.includes(transcript);
-          stepAnswered = true;
-          const fb = document.getElementById('speaking-feedback');
-          fb.textContent = ok ? '✅ Bé nói rất tốt!' : '❌ Chưa chính xác, bé đọc lại nhé!';
-          fb.className = 'feedback ' + (ok ? 'ok' : 'bad');
-          goNext(ok);
-        };
-        rec.onerror = () => {
-          document.getElementById('speaking-mic').classList.remove('listening');
-        };
-        rec.onend = () => {
-          document.getElementById('speaking-mic').classList.remove('listening');
-        };
-      } catch (err) {}
-    }
-
-    const micBtn = document.getElementById('speaking-mic');
-    micBtn.onpointerdown = (e) => { e.preventDefault(); micHeld = true; startListening(); };
-    micBtn.onpointerup = (e) => { e.preventDefault(); micHeld = false; };
-    document.getElementById('speaking-fallback-ok').onclick = () => {
-      if (stepAnswered) return;
-      stepAnswered = true;
-      goNext(true);
-    };
-
-    // Finish Exam
-    function finishExam() {
-      const up = getUP(currentUnit.id);
-      const pct = Math.round((stepCorrect / stepQueue.length) * 100);
-      if (pct > up.bestScore) up.bestScore = pct;
-      const passed = pct >= PASS_THRESHOLD;
-      if (passed) up.passed = true;
-      saveProgress();
-
-      document.getElementById('result-pct').textContent = pct + '%';
-      const circle = document.getElementById('score-circle');
-      circle.className = 'score-circle ' + (passed ? 'pass' : 'fail');
-      document.getElementById('result-emoji').textContent = passed ? '🏆' : '💪';
-      document.getElementById('result-title').textContent = passed ? 'Xuất sắc!' : 'Cố gắng thêm nhé!';
-      const unlockMsg = document.getElementById('unlock-msg');
-      const nextUnit = UNITS.find(u => u.id === currentUnit.id + 1);
-
-      if (passed) {
-        unlockMsg.textContent = nextUnit ? '🎉 Bé đã mở khóa ' + nextUnit.title + '!' : '🎉 Bé đã hoàn thành khóa học!';
-        unlockMsg.className = 'unlock-msg pass';
-        document.getElementById('result-next').style.display = nextUnit ? 'inline-block' : 'none';
-      } else {
-        unlockMsg.textContent = 'Cần đạt tối thiểu ' + PASS_THRESHOLD + '% để mở Unit tiếp theo.';
-        unlockMsg.className = 'unlock-msg fail';
-        document.getElementById('result-next').style.display = 'none';
-      }
-      showScreen('result');
-    }
-
-    document.getElementById('result-retry').onclick = startUnitTest;
-    document.getElementById('result-next').onclick = () => {
-      const nextU = UNITS.find(u => u.id === currentUnit.id + 1);
-      if (nextU) { currentUnit = nextU; renderLessonList(); showScreen('unit-detail'); }
-    };
-    document.getElementById('result-map').onclick = () => { renderMap(); showScreen('map'); };
-
     renderMap();
-    showScreen('map');
   }
 })();
 </script>
