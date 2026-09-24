@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#58cc02">
-<title>Vương Quốc Tiếng Anh Lớp 4</title>
+<title>Tiếng Anh Lớp 4 - Unit 1: My Friends</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-<!-- Thư viện hoạt hình Lottie & Canvas Confetti -->
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -22,8 +20,7 @@
     --yellow-dark: #e5b200;
     --coral: #ff4b4b;
     --coral-dark: #d33131;
-    --purple: #ce82ff;
-    --purple-dark: #b560ef;
+    --purple: #a29bfe;
     --bg-page: #f7f9fa;
     --card-bg: #ffffff;
     --text-main: #3c3c3c;
@@ -40,21 +37,48 @@
     min-height: 100vh;
     padding-bottom: 40px;
   }
-  h1, h2, h3, button, .game-font { font-family: 'Fredoka', sans-serif; }
+  h1, h2, h3, button { font-family: 'Fredoka', sans-serif; }
 
   .app-container {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
     padding: 12px 16px;
   }
 
-  /* TOP STATUS BAR (Game Style) */
+  /* THANH CHỌN BÀI HỌC (LESSON 1 - 2 - 3) */
+  .lesson-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    background: #fff;
+    padding: 6px;
+    border-radius: 20px;
+    border: 2px solid var(--border-color);
+  }
+  .lesson-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 4px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+  .lesson-tab.active {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 4px 0 var(--blue-dark);
+  }
+
+  /* THANH TRẠNG THÁI TIẾN TRÌNH */
   .game-statusbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 8px 14px;
+    padding: 10px 16px;
     background: #fff;
     border-radius: 20px;
     border: 2px solid var(--border-color);
@@ -67,7 +91,6 @@
     gap: 6px;
     font-size: 16px;
     font-weight: 800;
-    color: var(--text-main);
   }
   .stat-bar-wrap {
     flex: 1;
@@ -75,7 +98,6 @@
     background: #e5e5e5;
     border-radius: 999px;
     overflow: hidden;
-    position: relative;
   }
   .stat-bar-fill {
     height: 100%;
@@ -85,215 +107,166 @@
     transition: width 0.4s ease;
   }
 
-  /* 3D CHUNKY BUTTONS */
-  .btn-3d {
-    border: none;
-    border-radius: 18px;
-    padding: 14px 24px;
-    font-size: 17px;
-    font-weight: 800;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    box-shadow: 0 5px 0 var(--btn-shadow);
-  }
-  .btn-3d:active {
-    transform: translateY(4px);
-    box-shadow: 0 1px 0 var(--btn-shadow);
-  }
-  .btn-green { background: var(--green); --btn-shadow: var(--green-dark); }
-  .btn-blue { background: var(--blue); --btn-shadow: var(--blue-dark); }
-  .btn-yellow { background: var(--yellow); --btn-shadow: var(--yellow-dark); color: #4b3600; }
-  .btn-coral { background: var(--coral); --btn-shadow: var(--coral-dark); }
-  .btn-purple { background: var(--purple); --btn-shadow: var(--purple-dark); }
-
-  /* CLASSROOM STAGE (Sân khấu lớp học) */
+  /* SÂN KHẤU LỚP HỌC */
   .classroom-stage {
     background: linear-gradient(180deg, #74b9ff 0%, #a29bfe 100%);
     border-radius: 26px;
-    padding: 20px 16px 12px;
+    padding: 18px 16px 14px;
     border: 3px solid #6c5ce7;
     box-shadow: 0 8px 0 #5844d1, 0 12px 24px rgba(0,0,0,0.12);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   .blackboard {
     background: #1e3725;
     border: 5px solid #d38d43;
     border-radius: 16px;
-    padding: 12px 16px;
+    padding: 12px 14px;
     color: #f1f2f6;
     text-align: center;
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
-  .board-title { font-size: 13px; color: #fbc531; font-weight: 700; letter-spacing: 1px; }
-  .board-en { font-size: 19px; font-weight: 800; margin: 4px 0 2px; }
-  .board-vi { font-size: 13px; color: #dfe4ea; opacity: 0.9; }
+  .board-title { font-size: 12.5px; color: #fbc531; font-weight: 700; letter-spacing: 1px; }
+  .board-en { font-size: 20px; font-weight: 800; margin: 4px 0 2px; }
+  .board-vi { font-size: 13.5px; color: #dfe4ea; opacity: 0.95; }
 
-  /* CHARACTERS DIALOGUE THEATRE */
+  /* DIỄN VIÊN ĐỐI THOẠI */
   .stage-actors {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 8px;
-    min-height: 170px;
-    position: relative;
+    padding: 0 10px;
+    min-height: 160px;
   }
   .actor-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 46%;
+    width: 48%;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
     opacity: 0.55;
     cursor: pointer;
   }
   .actor-box.active-speaker {
     opacity: 1;
-    transform: scale(1.08) translateY(-6px);
+    transform: scale(1.06) translateY(-4px);
   }
   .actor-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #fff;
-    border: 4px solid #fff;
+    width: 86px; height: 86px; border-radius: 50%;
+    background: #fff; border: 4px solid #fff;
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     overflow: hidden;
-    position: relative;
   }
   .actor-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .actor-name {
-    margin-top: 6px;
-    background: rgba(0,0,0,0.35);
-    color: #fff;
-    font-weight: 800;
-    font-size: 13px;
-    padding: 2px 10px;
-    border-radius: 999px;
+    margin-top: 6px; background: rgba(0,0,0,0.45); color: #fff;
+    font-weight: 800; font-size: 12px; padding: 2px 10px; border-radius: 999px;
   }
 
-  /* POPUP SPEECH BUBBLE */
   .speech-balloon {
     background: #ffffff;
     border-radius: 18px;
-    padding: 10px 14px;
-    box-shadow: 0 5px 0 rgba(0,0,0,0.12);
+    padding: 10px 12px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.12);
     border: 2px solid #dfe6e9;
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 800;
     color: #2d3436;
     margin-bottom: 8px;
-    position: relative;
-    max-width: 90%;
     text-align: center;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1.35;
   }
-  .speech-balloon::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0; height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #ffffff;
-  }
 
-  /* INTERACTION PAD */
+  /* BẢNG TƯƠNG TÁC THỰC HÀNH */
   .interaction-card {
     background: #ffffff;
     border-radius: 24px;
     border: 2px solid var(--border-color);
     box-shadow: 0 6px 0 var(--border-color);
-    padding: 20px 16px;
+    padding: 18px 16px;
     text-align: center;
   }
   .task-prompt {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
     color: var(--text-main);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
-  /* WORD CARDS (Flashcards with flag) */
+  /* THẺ BÀI QUỐC KỲ */
   .cards-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .game-card {
     background: #fff;
     border: 2px solid #e5e5e5;
-    border-radius: 20px;
-    padding: 14px 10px;
+    border-radius: 18px;
+    padding: 12px 10px;
     box-shadow: 0 4px 0 #e5e5e5;
     cursor: pointer;
-    transition: transform 0.1s ease, border-color 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.1s ease;
+  }
+  .game-card:active { transform: translateY(3px); box-shadow: 0 1px 0 #e5e5e5; }
+  .game-card.correct { border-color: var(--green); background: #f0fdf4; box-shadow: 0 4px 0 var(--green-dark); }
+  .game-card.wrong { border-color: var(--coral); background: #fef2f2; box-shadow: 0 4px 0 var(--coral-dark); }
+  .game-card img { width: 64px; height: 44px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.12); }
+  .game-card .gc-en { font-weight: 800; font-size: 15px; }
+  .game-card .gc-vi { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+
+  /* KHUNG NÓI MICRO */
+  .roleplay-box {
+    background: linear-gradient(180deg, #fff7e6 0%, #fff0cc 100%);
+    border: 2px dashed #ffc800;
+    border-radius: 20px;
+    padding: 14px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
   }
-  .game-card:active { transform: translateY(3px); box-shadow: 0 1px 0 #e5e5e5; }
-  .game-card.selected { border-color: var(--blue); background: #f0f9ff; }
-  .game-card img { width: 64px; height: 44px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-  .game-card .gc-en { font-weight: 800; font-size: 15px; color: var(--text-main); }
-  .game-card .gc-vi { font-size: 12px; color: var(--text-muted); font-weight: 700; }
-
-  /* ROLEPLAY MIC SECTION */
-  .roleplay-box {
-    background: linear-gradient(180deg, #fff7e6 0%, #fff0cc 100%);
-    border: 2px dashed #ffc800;
-    border-radius: 20px;
-    padding: 16px;
-    margin-top: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
   .mic-button-giant {
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
+    width: 76px; height: 76px; border-radius: 50%;
     background: linear-gradient(145deg, #ff4b4b, #d33131);
-    border: none;
-    color: #fff;
-    font-size: 34px;
-    cursor: pointer;
-    box-shadow: 0 6px 0 #9e1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: none; color: #fff; font-size: 32px;
+    cursor: pointer; box-shadow: 0 6px 0 #9e1a1a;
   }
   .mic-button-giant:active { transform: translateY(4px); box-shadow: 0 2px 0 #9e1a1a; }
   .mic-button-giant.listening {
-    animation: micPulse 1.2s infinite;
     background: linear-gradient(145deg, #2ec4b6, #1b9b8f);
     box-shadow: 0 6px 0 #126b62;
+    animation: micPulse 1.2s infinite;
   }
-  @keyframes micPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
+  @keyframes micPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-  /* FOOTER ACTIONS */
+  /* NÚT BẤM 3D CHUNKY */
+  .btn-3d {
+    border: none; border-radius: 18px; padding: 14px 22px;
+    font-size: 16px; font-weight: 800; color: #fff; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 5px 0 var(--btn-shadow);
+  }
+  .btn-3d:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--btn-shadow); }
+  .btn-green { background: var(--green); --btn-shadow: var(--green-dark); }
+  .btn-yellow { background: var(--yellow); --btn-shadow: var(--yellow-dark); color: #4b3600; }
+
   .action-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 22px;
-    gap: 12px;
+    margin-top: 18px;
+    gap: 10px;
   }
 </style>
 </head>
@@ -301,7 +274,14 @@
 
 <div class="app-container">
 
-  <!-- TOP GAMIFIED STATUS BAR -->
+  <!-- THANH CHỌN LESSON 1, 2, 3 (THEO CHUẨN SGK) -->
+  <div class="lesson-tabs">
+    <div class="lesson-tab active" id="tab-0" onclick="switchLesson(0)">📖 Lesson 1<br><small style="font-size:11px;">Where are you from?</small></div>
+    <div class="lesson-tab" id="tab-1" onclick="switchLesson(1)">🌏 Lesson 2<br><small style="font-size:11px;">Where's she from?</small></div>
+    <div class="lesson-tab" id="tab-2" onclick="switchLesson(2)">🔤 Lesson 3<br><small style="font-size:11px;">Phonics & Song</small></div>
+  </div>
+
+  <!-- THANH NĂNG LƯỢNG TIẾN ĐỘ -->
   <div class="game-statusbar">
     <div class="stat-item" style="color:var(--coral);">
       <span>❤️</span> <span id="stat-lives">5</span>
@@ -310,92 +290,235 @@
       <div class="stat-bar-fill" id="stat-progress"></div>
     </div>
     <div class="stat-item" style="color:var(--yellow-dark);">
-      <span>⭐</span> <span id="stat-stars">120</span>
+      <span>⭐</span> <span id="stat-stars">100</span>
     </div>
   </div>
 
-  <!-- SÂN KHẤU LỚP HỌC (THEATRE STAGE) -->
+  <!-- SÂN KHẤU HỘI THOẠI TRỰC TIẾP -->
   <div class="classroom-stage">
     
-    <!-- Bảng đen của cô -->
     <div class="blackboard">
-      <div class="board-title">✨ BÀI HỌC CÙNG CÔ EMILY ✨</div>
+      <div class="board-title" id="board-tag">✨ HOẠT ĐỘNG 1 / 4 ✨</div>
       <div class="board-en" id="board-text-en">Where are you from?</div>
       <div class="board-vi" id="board-text-vi">Bạn đến từ quốc gia nào?</div>
     </div>
 
-    <!-- Hai nhân vật đối thoại trực diện -->
     <div class="stage-actors">
-      <!-- Nhân vật A (Minh) -->
-      <div class="actor-box active-speaker" id="actor-left" onclick="playTurn('left')">
-        <div class="speech-balloon" id="bubble-left">Hello! I'm Minh. I'm from Viet Nam. 🇻🇳</div>
+      <!-- Nhân vật A -->
+      <div class="actor-box active-speaker" id="actor-left" onclick="speakActor('left')">
+        <div class="speech-balloon" id="bubble-left">...</div>
         <div class="actor-avatar">
-          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Minh&backgroundColor=ffd5dc" alt="Minh">
+          <img id="img-left" src="" alt="Left">
         </div>
-        <div class="actor-name">Bạn Minh</div>
+        <div class="actor-name" id="name-left">Bạn A</div>
       </div>
 
-      <!-- Nhân vật B (Mary) -->
-      <div class="actor-box" id="actor-right" onclick="playTurn('right')">
-        <div class="speech-balloon" id="bubble-right">Hi, Minh! I'm Mary. I'm from America. 🇺🇸</div>
+      <!-- Nhân vật B -->
+      <div class="actor-box" id="actor-right" onclick="speakActor('right')">
+        <div class="speech-balloon" id="bubble-right">...</div>
         <div class="actor-avatar">
-          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mary&backgroundColor=b6e3f4" alt="Mary">
+          <img id="img-right" src="" alt="Right">
         </div>
-        <div class="actor-name">Bạn Mary</div>
+        <div class="actor-name" id="name-right">Bạn B</div>
       </div>
     </div>
 
   </div>
 
-  <!-- BẢNG TƯƠNG TÁC THỰC HÀNH CỦA BÉ -->
+  <!-- BẢNG TƯƠNG TÁC THỰC HÀNH -->
   <div class="interaction-card">
-    <div class="task-prompt">👇 Chạm vào từng bạn để nghe đối thoại, rồi cùng chọn cờ nhé:</div>
+    <div class="task-prompt" id="task-question">👇 Nghe câu hỏi và chọn đúng lá cờ quê hương của bạn nhé:</div>
 
-    <!-- Bộ thẻ từ vựng trực quan dạng thẻ bài game -->
-    <div class="cards-grid">
-      <div class="game-card" onclick="selectCard(this, 'Viet Nam', 'Tôi đến từ Việt Nam!')">
-        <img src="https://flagcdn.com/80x60/vn.png" alt="VN">
-        <div class="gc-en">Viet Nam</div>
-        <div class="gc-vi">Việt Nam</div>
-      </div>
-      <div class="game-card" onclick="selectCard(this, 'America', 'Tôi đến từ nước Mỹ!')">
-        <img src="https://flagcdn.com/80x60/us.png" alt="US">
-        <div class="gc-en">America</div>
-        <div class="gc-vi">Nước Mỹ</div>
-      </div>
-      <div class="game-card" onclick="selectCard(this, 'Britain', 'Tôi đến từ nước Anh!')">
-        <img src="https://flagcdn.com/80x60/gb.png" alt="GB">
-        <div class="gc-en">Britain</div>
-        <div class="gc-vi">Nước Anh</div>
-      </div>
-      <div class="game-card" onclick="selectCard(this, 'Australia', 'Tôi đến từ nước Úc!')">
-        <img src="https://flagcdn.com/80x60/au.png" alt="AU">
-        <div class="gc-en">Australia</div>
-        <div class="gc-vi">Nước Úc</div>
-      </div>
-    </div>
+    <!-- Danh sách thẻ bài -->
+    <div class="cards-grid" id="cards-container"></div>
 
-    <!-- KHUNG ĐÓNG VAI LUYỆN NÓI MICRO (ROLE-PLAY) -->
+    <!-- Khung luyện nói Micro -->
     <div class="roleplay-box">
-      <div style="font-weight:900; font-size:16px; color:#c78100;">🎙️ THỬ TÀI ĐÓNG VAI BẠN MINH</div>
-      <div style="font-size:14px; font-weight:700; color:#555;">Đọc to câu: <span style="color:#d33131;">"I am from Viet Nam"</span></div>
+      <div style="font-weight:900; font-size:15px; color:#c78100;">🎙️ THỬ TÀI ĐÓNG VAI NÓI TIẾNG ANH</div>
+      <div style="font-size:14px; font-weight:700; color:#555;">Đọc to câu: <span id="target-voice-phrase" style="color:#d33131;">...</span></div>
       <button class="mic-button-giant" id="btn-giant-mic" onclick="toggleVoicePractice()">🎤</button>
-      <div id="mic-feedback-text" style="font-size:13px; font-weight:800; color:var(--text-muted);">Bấm vào micro và nói to nhé!</div>
+      <div id="mic-feedback-text" style="font-size:13px; font-weight:800; color:var(--text-muted);">Bấm vào mic rồi đọc to câu trên nhé!</div>
     </div>
 
-    <!-- Nút điều hướng chân trang -->
+    <!-- Nút điều hướng -->
     <div class="action-footer">
       <button class="btn-3d btn-yellow" onclick="listenSlowly()">🐢 Nghe chậm</button>
-      <button class="btn-3d btn-green" onclick="nextLesson()" style="flex:1;">Tiếp tục bài mới 🌟</button>
+      <button class="btn-3d btn-green" id="btn-next-step" onclick="handleNextClick()" style="flex:1;">Hoạt động tiếp theo ➡️</button>
     </div>
   </div>
 
 </div>
 
 <script>
-  let currentSpeaker = 'left';
-  let stars = 120;
-  let progress = 35;
+  // DỮ LIỆU ĐẦY ĐỦ CẢ 3 LESSON CHUẨN SGK GLOBAL SUCCESS LỚP 4
+  const LESSONS_DATA = [
+    // === LESSON 1: Trang 6-7 SGK (Việt Nam, Mỹ, Anh, Úc) ===
+    [
+      {
+        actorA: { name: "Bạn Minh", seed: "Minh", say: "Hello. I'm Minh. I'm from Viet Nam." },
+        actorB: { name: "Bạn Mary", seed: "Mary", say: "Hello Minh. I'm Mary. I'm from America." },
+        targetCountry: "America",
+        voicePhrase: "I am from America",
+        correctIndex: 1,
+        options: [
+          { en: "Viet Nam", vi: "Việt Nam", flag: "vn" },
+          { en: "America", vi: "Nước Mỹ", flag: "us" },
+          { en: "Britain", vi: "Nước Anh", flag: "gb" },
+          { en: "Australia", vi: "Nước Úc", flag: "au" }
+        ]
+      },
+      {
+        actorA: { name: "Bạn Lucy", seed: "Lucy", say: "Hi. I'm Lucy. I'm from Britain." },
+        actorB: { name: "Bạn Ben", seed: "Ben", say: "Hi Lucy. I'm Ben. I'm from Australia." },
+        targetCountry: "Australia",
+        voicePhrase: "I am from Australia",
+        correctIndex: 3,
+        options: [
+          { en: "Viet Nam", vi: "Việt Nam", flag: "vn" },
+          { en: "America", vi: "Nước Mỹ", flag: "us" },
+          { en: "Britain", vi: "Nước Anh", flag: "gb" },
+          { en: "Australia", vi: "Nước Úc", flag: "au" }
+        ]
+      },
+      {
+        actorA: { name: "Bạn Ben", seed: "Ben", say: "Where are you from, Lucy?" },
+        actorB: { name: "Bạn Lucy", seed: "Lucy", say: "I'm from Britain!" },
+        targetCountry: "Britain",
+        voicePhrase: "I am from Britain",
+        correctIndex: 2,
+        options: [
+          { en: "Viet Nam", vi: "Việt Nam", flag: "vn" },
+          { en: "America", vi: "Nước Mỹ", flag: "us" },
+          { en: "Britain", vi: "Nước Anh", flag: "gb" },
+          { en: "Australia", vi: "Nước Úc", flag: "au" }
+        ]
+      }
+    ],
+
+    // === LESSON 2: Trang 8-9 SGK (Nhật Bản, Thái Lan, Malaysia, Singapore) ===
+    [
+      {
+        actorA: { name: "Bạn Nam", seed: "Nam", say: "Who's that, Mai?" },
+        actorB: { name: "Bạn Mai", seed: "Mai", say: "It's my new friend. She's from Japan." },
+        targetCountry: "Japan",
+        voicePhrase: "She is from Japan",
+        correctIndex: 0,
+        options: [
+          { en: "Japan", vi: "Nhật Bản", flag: "jp" },
+          { en: "Thailand", vi: "Thái Lan", flag: "th" },
+          { en: "Malaysia", vi: "Malaysia", flag: "my" },
+          { en: "Singapore", vi: "Singapore", flag: "sg" }
+        ]
+      },
+      {
+        actorA: { name: "Bạn Tom", seed: "Tom", say: "Where is he from?" },
+        actorB: { name: "Bạn Linh", seed: "Linh", say: "He's from Thailand!" },
+        targetCountry: "Thailand",
+        voicePhrase: "He is from Thailand",
+        correctIndex: 1,
+        options: [
+          { en: "Japan", vi: "Nhật Bản", flag: "jp" },
+          { en: "Thailand", vi: "Thái Lan", flag: "th" },
+          { en: "Malaysia", vi: "Malaysia", flag: "my" },
+          { en: "Singapore", vi: "Singapore", flag: "sg" }
+        ]
+      },
+      {
+        actorA: { name: "Bạn Hoa", seed: "Hoa", say: "Where is she from?" },
+        actorB: { name: "Bạn Bill", seed: "Bill", say: "She's from Malaysia!" },
+        targetCountry: "Malaysia",
+        voicePhrase: "She is from Malaysia",
+        correctIndex: 2,
+        options: [
+          { en: "Japan", vi: "Nhật Bản", flag: "jp" },
+          { en: "Thailand", vi: "Thái Lan", flag: "th" },
+          { en: "Malaysia", vi: "Malaysia", flag: "my" },
+          { en: "Singapore", vi: "Singapore", flag: "sg" }
+        ]
+      },
+      {
+        actorA: { name: "Bạn Quân", seed: "Quan", say: "Where's your teacher from?" },
+        actorB: { name: "Bạn Lan", seed: "Lan", say: "He is from Singapore!" },
+        targetCountry: "Singapore",
+        voicePhrase: "He is from Singapore",
+        correctIndex: 3,
+        options: [
+          { en: "Japan", vi: "Nhật Bản", flag: "jp" },
+          { en: "Thailand", vi: "Thái Lan", flag: "th" },
+          { en: "Malaysia", vi: "Malaysia", flag: "my" },
+          { en: "Singapore", vi: "Singapore", flag: "sg" }
+        ]
+      }
+    ],
+
+    // === LESSON 3: Trang 10-11 SGK (Ngữ âm sound "a", "ia" & Bài vè Chant) ===
+    [
+      {
+        actorA: { name: "Cô Emily", seed: "MissEmily", say: "Listen to the sound 'a': America." },
+        actorB: { name: "Bạn Mary", seed: "Mary", say: "I'm from America!" },
+        targetCountry: "America",
+        voicePhrase: "America",
+        correctIndex: 0,
+        options: [
+          { en: "America", vi: "Âm 'a' cuối", flag: "us" },
+          { en: "Australia", vi: "Âm 'ia' cuối", flag: "au" },
+          { en: "Malaysia", vi: "Âm 'ia' cuối", flag: "my" },
+          { en: "Japan", vi: "Âm 'an' cuối", flag: "jp" }
+        ]
+      },
+      {
+        actorA: { name: "Cô Emily", seed: "MissEmily", say: "Listen to the sound 'ia': Australia." },
+        actorB: { name: "Bạn Ben", seed: "Ben", say: "Ben is from Australia!" },
+        targetCountry: "Australia",
+        voicePhrase: "Australia",
+        correctIndex: 1,
+        options: [
+          { en: "America", vi: "Âm 'a' cuối", flag: "us" },
+          { en: "Australia", vi: "Âm 'ia' cuối", flag: "au" },
+          { en: "Britain", vi: "Âm 'in' cuối", flag: "gb" },
+          { en: "Viet Nam", vi: "Việt Nam", flag: "vn" }
+        ]
+      }
+    ]
+  ];
+
+  let currentLessonIdx = 0;
+  let currentStepIdx = 0;
+  let stars = 100;
+  let canGoNext = false;
+  let audioCtx = null;
+
+  function switchLesson(lessonNum) {
+    currentLessonIdx = lessonNum;
+    currentStepIdx = 0;
+    document.querySelectorAll('.lesson-tab').forEach((t, i) => {
+      t.classList.toggle('active', i === lessonNum);
+    });
+    loadStep();
+  }
+
+  function playSFX(isSuccess) {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      if (isSuccess) {
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.15);
+      } else {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(160, now);
+        osc.frequency.linearRampToValueAtTime(100, now + 0.2);
+      }
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.3);
+    } catch(e) {}
+  }
 
   function speak(text, rate = 0.85) {
     if (!('speechSynthesis' in window)) return;
@@ -406,59 +529,94 @@
     window.speechSynthesis.speak(u);
   }
 
-  // Chuyển lượt đèn rọi (Turn-based spotlight)
-  function playTurn(side) {
-    currentSpeaker = side;
-    const actorLeft = document.getElementById('actor-left');
-    const actorRight = document.getElementById('actor-right');
-    
+  function loadStep() {
+    canGoNext = false;
+    const lessonData = LESSONS_DATA[currentLessonIdx];
+    const q = lessonData[currentStepIdx];
+
+    document.getElementById('board-tag').textContent = `✨ LESSON ${currentLessonIdx + 1} • HOẠT ĐỘNG ${currentStepIdx + 1} / ${lessonData.length} ✨`;
+    document.getElementById('stat-progress').style.width = ((currentStepIdx + 1) / lessonData.length * 100) + '%';
+
+    document.getElementById('name-left').textContent = q.actorA.name;
+    document.getElementById('img-left').src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${q.actorA.seed}&backgroundColor=ffd5dc`;
+    document.getElementById('bubble-left').textContent = q.actorA.say;
+
+    document.getElementById('name-right').textContent = q.actorB.name;
+    document.getElementById('img-right').src = `https://api.dicebear.com/7.x/adventurer/svg?seed=${q.actorB.seed}&backgroundColor=b6e3f4`;
+    document.getElementById('bubble-right').textContent = q.actorB.say;
+
+    document.getElementById('board-text-en').textContent = q.actorA.say;
+    document.getElementById('board-text-vi').textContent = `Mục tiêu tìm: Quốc gia ${q.targetCountry}`;
+
+    document.getElementById('target-voice-phrase').textContent = `"${q.voicePhrase}"`;
+    document.getElementById('mic-feedback-text').textContent = "Bấm vào mic rồi đọc to câu trên nhé!";
+    document.getElementById('mic-feedback-text').style.color = "var(--text-muted)";
+
+    const container = document.getElementById('cards-container');
+    container.innerHTML = '';
+    q.options.forEach((opt, idx) => {
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.innerHTML = `
+        <img src="https://flagcdn.com/80x60/${opt.flag}.png" alt="${opt.en}">
+        <div class="gc-en">${opt.en}</div>
+        <div class="gc-vi">${opt.vi}</div>
+      `;
+      card.onclick = () => selectCard(card, idx, q.correctIndex, opt.en);
+      container.appendChild(card);
+    });
+
+    speakActor('left');
+  }
+
+  function speakActor(side) {
+    const q = LESSONS_DATA[currentLessonIdx][currentStepIdx];
+    const leftEl = document.getElementById('actor-left');
+    const rightEl = document.getElementById('actor-right');
+
     if (side === 'left') {
-      actorLeft.classList.add('active-speaker');
-      actorRight.classList.remove('active-speaker');
-      speak("Hello. I'm Minh. I'm from Viet Nam.");
+      leftEl.classList.add('active-speaker');
+      rightEl.classList.remove('active-speaker');
+      speak(q.actorA.say);
     } else {
-      actorRight.classList.add('active-speaker');
-      actorLeft.classList.remove('active-speaker');
-      speak("Hello Minh. I'm Mary. I'm from America.");
+      rightEl.classList.add('active-speaker');
+      leftEl.classList.remove('active-speaker');
+      speak(q.actorB.say);
     }
   }
 
-  function selectCard(el, country, viText) {
-    document.querySelectorAll('.game-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    
-    // Cập nhật bảng đen
-    document.getElementById('board-text-en').textContent = "I'm from " + country + ".";
-    document.getElementById('board-text-vi').textContent = viText;
-    
-    speak("I am from " + country);
-    celebrateMini();
+  function selectCard(cardEl, pickedIdx, correctIdx, countryName) {
+    const cards = document.querySelectorAll('.game-card');
+    cards.forEach(c => c.classList.remove('correct', 'wrong'));
+
+    if (pickedIdx === correctIdx) {
+      cardEl.classList.add('correct');
+      playSFX(true);
+      speak("Correct! " + countryName);
+      stars += 15;
+      document.getElementById('stat-stars').textContent = stars;
+      confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
+      canGoNext = true;
+      document.getElementById('board-text-vi').textContent = `🎉 Hoan hô! Đáp án đúng là ${countryName}!`;
+    } else {
+      cardEl.classList.add('wrong');
+      playSFX(false);
+      speak("Try again!");
+      document.getElementById('board-text-vi').textContent = "Chưa đúng rồi, bé chọn lại lá cờ khác nhé!";
+    }
   }
 
   function listenSlowly() {
-    speak(document.getElementById('board-text-en').textContent, 0.6);
+    const q = LESSONS_DATA[currentLessonIdx][currentStepIdx];
+    speak(q.actorB.say, 0.6);
   }
 
-  // Hiệu ứng pháo hoa khi bé làm đúng
-  function celebrateMini() {
-    stars += 10;
-    progress = Math.min(100, progress + 15);
-    document.getElementById('stat-stars').textContent = stars;
-    document.getElementById('stat-progress').style.width = progress + '%';
-
-    confetti({
-      particleCount: 25,
-      spread: 60,
-      origin: { y: 0.8 }
-    });
-  }
-
-  // Nhận diện giọng nói Role-play
   let isListening = false;
   function toggleVoicePractice() {
     const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
     const micBtn = document.getElementById('btn-giant-mic');
     const fb = document.getElementById('mic-feedback-text');
+    const q = LESSONS_DATA[currentLessonIdx][currentStepIdx];
 
     if (!SpeechAPI) {
       fb.textContent = "Trình duyệt chưa hỗ trợ mic, con nhờ ba mẹ nghe con đọc nhé!";
@@ -479,16 +637,18 @@
         isListening = false;
         micBtn.classList.remove('listening');
         const spoken = (e.results[0][0].transcript || '').toLowerCase();
-        
-        if (spoken.includes('viet nam') || spoken.includes('vietnam')) {
-          fb.textContent = "🎉 Tuyệt vời! Con phát âm chuẩn như người bản xứ!";
+        const targetClean = q.targetCountry.toLowerCase();
+
+        if (spoken.includes(targetClean)) {
+          fb.textContent = "🌟 Tuyệt vời! Con phát âm rất chuẩn!";
           fb.style.color = "var(--green-dark)";
-          speak("Excellent! You did a great job!");
-          celebrateMini();
+          playSFX(true);
+          canGoNext = true;
+          confetti({ particleCount: 35, spread: 70, origin: { y: 0.7 } });
         } else {
-          fb.textContent = "💪 Gần đúng rồi, con bấm nói lại to hơn nhé!";
+          fb.textContent = `💪 Máy nghe được: "${spoken}". Bé thử đọc to lại nhé!`;
           fb.style.color = "var(--coral)";
-          speak("Try again, you can do it!");
+          playSFX(false);
         }
       };
 
@@ -500,14 +660,31 @@
     }
   }
 
-  function nextLesson() {
-    alert("🎉 Bé đã hoàn thành bài đối thoại này! Đang chuyển sang bài tiếp theo...");
+  function handleNextClick() {
+    if (!canGoNext) {
+      alert("👉 Bé hãy chọn đúng đáp án hoặc đọc vào mic trước khi sang câu tiếp theo nhé!");
+      return;
+    }
+
+    const lessonData = LESSONS_DATA[currentLessonIdx];
+    currentStepIdx++;
+
+    if (currentStepIdx < lessonData.length) {
+      loadStep();
+    } else {
+      confetti({ particleCount: 100, spread: 100, origin: { y: 0.5 } });
+      if (currentLessonIdx < 2) {
+        alert(`🎉 Xuất sắc! Bé đã học xong Lesson ${currentLessonIdx + 1}! Đang chuyển sang Lesson ${currentLessonIdx + 2}...`);
+        switchLesson(currentLessonIdx + 1);
+      } else {
+        alert("🏆 TUYỆT VỜI! Bé đã hoàn thành toàn bộ Unit 1 (từ trang 6 đến trang 11) trong SGK!");
+        switchLesson(0);
+      }
+    }
   }
 
-  // Phát âm câu mở đầu
-  setTimeout(() => {
-    playTurn('left');
-  }, 500);
+  // Khởi chạy Lesson 1
+  loadStep();
 </script>
 </body>
 </html>
