@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff6e6">
+<meta name="theme-color" content="#fff8eb">
 <title>Lớp học Tiếng Anh lớp 4 - Cùng Cô Emily</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,7 +108,7 @@
     border-radius: 24px; padding: 22px; box-shadow: 0 6px 20px var(--shadow); margin-top: 18px; border: 1px solid var(--border);
   }
 
-  /* ================= TEACHER CLASSROOM STYLES ================= */
+  /* TEACHER CLASSROOM STYLES */
   .teacher-stage {
     display: flex;
     align-items: flex-start;
@@ -172,22 +172,12 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.06);
   }
   .teacher-bubble::before {
-    content: '';
-    position: absolute;
-    left: -10px; top: 24px;
-    width: 0; height: 0;
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    border-right: 10px solid #b9e6fe;
+    content: ''; position: absolute; left: -10px; top: 24px;
+    border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-right: 10px solid #b9e6fe;
   }
   .teacher-bubble::after {
-    content: '';
-    position: absolute;
-    left: -7px; top: 25px;
-    width: 0; height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid #ffffff;
+    content: ''; position: absolute; left: -7px; top: 25px;
+    border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 8px solid #ffffff;
   }
   .teacher-say-en {
     font-size: 16.5px;
@@ -202,48 +192,24 @@
     font-weight: 600;
     margin: 0;
   }
-  .teacher-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-  }
+  .teacher-actions { display: flex; gap: 8px; margin-top: 10px; }
   .teacher-speak-btn {
-    background: var(--blue);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    padding: 6px 12px;
-    font-weight: 700;
-    font-size: 12.5px;
-    cursor: pointer;
-    box-shadow: 0 2px 0 #2076ad;
+    background: var(--blue); color: #fff; border: none; border-radius: 12px;
+    padding: 6px 12px; font-weight: 700; font-size: 12.5px; cursor: pointer; box-shadow: 0 2px 0 #2076ad;
   }
 
   /* Dialogue Area */
-  .dialogue-box {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 16px 0;
-  }
+  .dialogue-box { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
   .dialogue-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--bg);
-    border: 2px solid var(--border);
-    border-radius: 16px;
-    padding: 12px 14px;
-    cursor: pointer;
-    transition: transform 0.1s ease;
+    display: flex; align-items: center; gap: 10px; background: var(--bg);
+    border: 2px solid var(--border); border-radius: 16px; padding: 12px 14px;
+    cursor: pointer; transition: transform 0.1s ease;
   }
   .dialogue-item:active { transform: scale(0.98); }
   .dialogue-item.active-speaking { border-color: var(--green); background: #eafaf7; }
   .speaker-avatar {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: #fff; border: 2px solid var(--border);
-    display: flex; align-items:center; justify-content:center;
-    font-size: 24px; flex-shrink: 0;
+    width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 2px solid var(--border);
+    display: flex; align-items:center; justify-content:center; font-size: 24px; flex-shrink: 0;
   }
   .dialogue-content { flex: 1; }
   .dialogue-text { font-weight: 800; font-size: 15px; color: var(--text); }
@@ -258,6 +224,17 @@
   .flash-grid-item:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--border); }
   .flash-grid-item .fg-word { font-weight: 800; margin-top: 8px; font-size: 15px; color: var(--primary-dark); }
   .flash-grid-item .fg-vi { font-size: 12px; color: var(--text-soft); }
+
+  /* Speaking Practice */
+  .mic-stage { text-align: center; margin: 18px 0; }
+  .mic-btn {
+    width: 80px; height: 80px; border-radius: 50%; border: none; font-size: 34px; cursor: pointer;
+    background: linear-gradient(160deg, var(--honey-light), var(--coral)); color: white;
+    box-shadow: 0 5px 0 var(--coral-dark);
+  }
+  .mic-btn:active { transform: translateY(4px); box-shadow: none; }
+  .mic-btn.listening { background: linear-gradient(160deg, #ff8a8a, var(--red)); animation: pulse-mic 1s infinite; }
+  @keyframes pulse-mic { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
   /* Interactive Buttons */
   .primary-btn {
@@ -358,7 +335,6 @@
       <div class="teacher-stage">
         <div class="teacher-avatar-wrap">
           <div class="teacher-avatar" id="teacher-avatar">
-            <!-- Avatar hoạt hình cô giáo thân thiện -->
             <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=MissEmily&backgroundColor=b6e3f4" alt="Teacher Emily">
           </div>
           <div class="teacher-name-tag">Cô Emily</div>
@@ -439,7 +415,8 @@
               { flag: "us", word: "america", label: "America", vi: "Nước Mỹ" },
               { flag: "gb", word: "britain", label: "Britain", vi: "Nước Anh" },
               { flag: "au", word: "australia", label: "Australia", vi: "Nước Úc" }
-            ]
+            ],
+            practiceTarget: "Where are you from?"
           },
           {
             title: "Lesson 2: He's & She's from...",
@@ -456,7 +433,8 @@
               { flag: "th", word: "thailand", label: "Thailand", vi: "Thái Lan" },
               { flag: "my", word: "malaysia", label: "Malaysia", vi: "Malaysia" },
               { flag: "sg", word: "singapore", label: "Singapore", vi: "Singapore" }
-            ]
+            ],
+            practiceTarget: "She is from Japan"
           }
         ]
       },
@@ -478,7 +456,8 @@
               { emoji: "☀️", word: "afternoon", label: "Afternoon", vi: "Buổi chiều" },
               { emoji: "🌆", word: "evening", label: "Evening", vi: "Buổi tối" },
               { emoji: "🌙", word: "night", label: "Night", vi: "Ban đêm" }
-            ]
+            ],
+            practiceTarget: "What time is it?"
           }
         ]
       }
@@ -486,12 +465,10 @@
 
     let currentUnit = null;
     let currentLesson = null;
-    let teacherSpeakingTimeout = null;
 
     function cancelAllSpeech() {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       document.getElementById('teacher-avatar').classList.remove('talking');
-      if (teacherSpeakingTimeout) clearTimeout(teacherSpeakingTimeout);
     }
 
     function teacherSpeak(text, rate = 0.85) {
@@ -573,21 +550,18 @@
 
     // CLASSROOM RUNNER
     function startClassroomLesson() {
-      // 1. Cập nhật lời cô giáo
       document.getElementById('teacher-text-en').textContent = `"${currentLesson.teacherIntro.en}"`;
       document.getElementById('teacher-text-vi').textContent = currentLesson.teacherIntro.vi;
 
       document.getElementById('btn-teacher-speak').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.85);
       document.getElementById('btn-teacher-slow').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.65);
 
-      // Tự động phát lời cô chào đón bé sau khi mở màn hình
       setTimeout(() => teacherSpeak(currentLesson.teacherIntro.en, 0.85), 400);
 
-      // 2. Tạo nội dung học (Hội thoại & Thẻ bài)
       const body = document.getElementById('classroom-body');
       body.innerHTML = '';
 
-      // Khối hội thoại Look & Listen
+      // Hội thoại
       const dBox = document.createElement('div');
       dBox.className = 'dialogue-box';
       currentLesson.dialogues.forEach(d => {
@@ -610,12 +584,12 @@
       });
       body.appendChild(dBox);
 
-      // Khối từ vựng trực quan (Point and say)
+      // Thẻ từ vựng
       if (currentLesson.words) {
         const titleWords = document.createElement('div');
         titleWords.style.fontWeight = '800';
         titleWords.style.margin = '14px 0 8px';
-        titleWords.textContent = '👇 Chạm vào từng từ để cùng cô luyện đọc nhé:';
+        titleWords.textContent = '👇 Chạm vào từng thẻ để cô đọc mẫu nhé:';
         body.appendChild(titleWords);
 
         const fGrid = document.createElement('div');
@@ -631,12 +605,56 @@
             <div class="fg-word">${w.label}</div>
             <div class="fg-vi">${w.vi}</div>
           `;
-          c.onclick = () => {
-            teacherSpeak(`I am from ${w.label}`, 0.8);
-          };
+          c.onclick = () => teacherSpeak(`I am from ${w.label}`, 0.8);
           fGrid.appendChild(c);
         });
         body.appendChild(fGrid);
+      }
+
+      // Phần luyện nói cùng cô (Microphone)
+      if (currentLesson.practiceTarget) {
+        const micWrap = document.createElement('div');
+        micWrap.className = 'mic-stage';
+        micWrap.innerHTML = `
+          <div style="font-weight:800; font-size:16px; margin-bottom:6px; color:#1e3a8a;">🗣️ Cùng cô Emily luyện nói câu:</div>
+          <div style="font-size:20px; font-weight:800; color:var(--coral); margin-bottom:12px;">"${currentLesson.practiceTarget}"</div>
+          <button class="mic-btn" id="btn-practice-mic">🎤</button>
+          <div style="font-size:12.5px; color:var(--text-soft); margin-top:8px;">Bấm nút mic và đọc to câu trên nhé!</div>
+          <div class="feedback" id="mic-feedback"></div>
+        `;
+        body.appendChild(micWrap);
+
+        const micBtn = micWrap.querySelector('#btn-practice-mic');
+        const micFb = micWrap.querySelector('#mic-feedback');
+        const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechAPI) {
+          micBtn.onclick = () => {
+            const rec = new SpeechAPI();
+            rec.lang = 'en-US';
+            rec.start();
+            micBtn.classList.add('listening');
+            micFb.textContent = '🎧 Cô đang lắng nghe bé nói...';
+            rec.onresult = (e) => {
+              micBtn.classList.remove('listening');
+              const text = (e.results[0][0].transcript || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+              const target = currentLesson.practiceTarget.toLowerCase().replace(/[^a-z0-9]/g, '');
+              if (text.includes(target) || target.includes(text)) {
+                micFb.textContent = '🌟 Xuất sắc! Con phát âm rất chuẩn!';
+                micFb.className = 'feedback ok';
+                teacherSpeak("Very good! You did a great job!");
+              } else {
+                micFb.textContent = '💪 Chưa chuẩn lắm, con thử đọc lại to hơn nhé!';
+                micFb.className = 'feedback bad';
+                teacherSpeak("Try again, you can do it!");
+              }
+            };
+            rec.onerror = () => {
+              micBtn.classList.remove('listening');
+              micFb.textContent = '⚠️ Không nghe rõ, con bấm nói lại nhé!';
+            };
+          };
+        }
       }
     }
 
