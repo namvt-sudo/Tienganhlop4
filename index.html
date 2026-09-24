@@ -3,672 +3,511 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff8eb">
-<title>Lớp học Tiếng Anh lớp 4 - Cùng Cô Emily</title>
+<meta name="theme-color" content="#58cc02">
+<title>Vương Quốc Tiếng Anh Lớp 4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<!-- Thư viện hoạt hình Lottie & Canvas Confetti -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <style>
   :root {
-    --bg: #fff8eb;
+    --green: #58cc02;
+    --green-dark: #46a302;
+    --blue: #1cb0f6;
+    --blue-dark: #1899d6;
+    --yellow: #ffc800;
+    --yellow-dark: #e5b200;
+    --coral: #ff4b4b;
+    --coral-dark: #d33131;
+    --purple: #ce82ff;
+    --purple-dark: #b560ef;
+    --bg-page: #f7f9fa;
     --card-bg: #ffffff;
-    --text: #2c2117;
-    --text-soft: #857053;
-    --primary: #ffaa00;
-    --primary-dark: #e08300;
-    --honey-light: #ffdc73;
-    --coral: #ff6e59;
-    --coral-dark: #df4e3a;
-    --pink: #ff6f91;
-    --green: #2ec4b6;
-    --green-dark: #1b9b8f;
-    --red: #ef476f;
-    --blue: #3da9fc;
-    --purple: #9b5de5;
-    --border: #ffe2a8;
-    --shadow: rgba(110, 75, 10, 0.12);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #221a11;
-      --card-bg: #322617;
-      --text: #fef2df;
-      --text-soft: #c8b48f;
-      --border: #523f1e;
-      --shadow: rgba(0, 0, 0, 0.35);
-    }
+    --text-main: #3c3c3c;
+    --text-muted: #777777;
+    --border-color: #e5e5e5;
   }
 
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; user-select: none; }
   body {
     margin: 0;
-    background-color: var(--bg);
-    background-image:
-      radial-gradient(circle at 10% 12%, rgba(255,170,0,0.15) 0%, transparent 35%),
-      radial-gradient(circle at 90% 10%, rgba(46,196,182,0.14) 0%, transparent 32%),
-      radial-gradient(circle at 85% 85%, rgba(155,93,229,0.12) 0%, transparent 35%);
-    background-attachment: fixed;
-    color: var(--text);
-    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-page);
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-main);
     min-height: 100vh;
-    padding: 16px;
+    padding-bottom: 40px;
   }
-  h1, h2, h3, .step-num, .word-en, button { font-family: 'Fredoka', 'Nunito', sans-serif; }
-  .app { max-width: 760px; margin: 0 auto; }
+  h1, h2, h3, button, .game-font { font-family: 'Fredoka', sans-serif; }
 
-  /* Header */
-  header.top {
-    background: linear-gradient(135deg, #ffd973 0%, #ffaa00 55%, #ff8736 100%);
-    border-radius: 24px;
-    padding: 18px 22px;
+  .app-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 12px 16px;
+  }
+
+  /* TOP STATUS BAR (Game Style) */
+  .game-statusbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 8px 0 var(--primary-dark), 0 10px 20px var(--shadow);
-    color: #4a2b00;
-  }
-  header.top .title-block { display:flex; align-items:center; gap:12px; }
-  header.top .emoji { font-size: 40px; }
-  header.top h1 { font-size: 19px; margin: 0; }
-  header.top p { margin: 2px 0 0; font-size: 13px; opacity: 0.85; font-weight:700; }
-  .back-btn { background: rgba(255,255,255,0.7); border:none; border-radius:14px; padding:8px 14px; font-weight:700; cursor:pointer; color:#4a2b00; font-size:14px; }
-
-  .screen { display: none; }
-  .screen.active { display: block; }
-
-  /* Unit Map */
-  .unit-list { display: flex; flex-direction: column; gap: 18px; margin-top: 24px; }
-  .unit-tile {
-    background: var(--card-bg);
+    gap: 12px;
+    padding: 8px 14px;
+    background: #fff;
     border-radius: 20px;
-    padding: 16px 18px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 0 #e0e0e0;
+    margin-bottom: 16px;
+  }
+  .stat-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    box-shadow: 0 5px 0 var(--border), 0 8px 16px var(--shadow);
+    gap: 6px;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-main);
+  }
+  .stat-bar-wrap {
+    flex: 1;
+    height: 16px;
+    background: #e5e5e5;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .stat-bar-fill {
+    height: 100%;
+    width: 25%;
+    background: linear-gradient(90deg, #ffc800, #58cc02);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+
+  /* 3D CHUNKY BUTTONS */
+  .btn-3d {
+    border: none;
+    border-radius: 18px;
+    padding: 14px 24px;
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
     cursor: pointer;
-    transition: transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 5px 0 var(--btn-shadow);
   }
-  .unit-tile:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--border); }
-  .unit-tile.locked { opacity: 0.6; cursor: default; filter: grayscale(0.4); }
-  .unit-tile .hex-badge {
-    width: 60px; height: 60px; border-radius: 16px;
-    background: linear-gradient(160deg, var(--honey-light), var(--primary));
-    display: flex; align-items:center; justify-content:center; font-size: 30px;
+  .btn-3d:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--btn-shadow);
   }
-  .unit-tile.passed .hex-badge { background: linear-gradient(160deg, #7fe9dc, var(--green)); }
-  .unit-tile .unit-info { flex: 1; }
-  .unit-tile .unit-info .u-name { font-weight:700; font-size: 17px; }
-  .unit-tile .unit-info .u-sub { font-size: 12.5px; color: var(--text-soft); font-weight:600; margin-top:3px; }
-  .badge-pass { background: #d7f9ef; color:#0f7a67; font-size:11px; font-weight:800; padding: 3px 9px; border-radius: 10px; display:inline-block; margin-top:4px; }
+  .btn-green { background: var(--green); --btn-shadow: var(--green-dark); }
+  .btn-blue { background: var(--blue); --btn-shadow: var(--blue-dark); }
+  .btn-yellow { background: var(--yellow); --btn-shadow: var(--yellow-dark); color: #4b3600; }
+  .btn-coral { background: var(--coral); --btn-shadow: var(--coral-dark); }
+  .btn-purple { background: var(--purple); --btn-shadow: var(--purple-dark); }
 
-  /* Card */
-  .card {
-    background-color: var(--card-bg);
-    border-radius: 24px; padding: 22px; box-shadow: 0 6px 20px var(--shadow); margin-top: 18px; border: 1px solid var(--border);
-  }
-
-  /* TEACHER CLASSROOM STYLES */
-  .teacher-stage {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    background: linear-gradient(180deg, #eef9ff 0%, #e0f2fe 100%);
-    border: 3px solid #b9e6fe;
-    border-radius: 22px;
-    padding: 16px 18px;
+  /* CLASSROOM STAGE (Sân khấu lớp học) */
+  .classroom-stage {
+    background: linear-gradient(180deg, #74b9ff 0%, #a29bfe 100%);
+    border-radius: 26px;
+    padding: 20px 16px 12px;
+    border: 3px solid #6c5ce7;
+    box-shadow: 0 8px 0 #5844d1, 0 12px 24px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(61, 169, 252, 0.12);
   }
-  .teacher-avatar-wrap {
+  .blackboard {
+    background: #1e3725;
+    border: 5px solid #d38d43;
+    border-radius: 16px;
+    padding: 12px 16px;
+    color: #f1f2f6;
+    text-align: center;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+    margin-bottom: 18px;
+  }
+  .board-title { font-size: 13px; color: #fbc531; font-weight: 700; letter-spacing: 1px; }
+  .board-en { font-size: 19px; font-weight: 800; margin: 4px 0 2px; }
+  .board-vi { font-size: 13px; color: #dfe4ea; opacity: 0.9; }
+
+  /* CHARACTERS DIALOGUE THEATRE */
+  .stage-actors {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 8px;
+    min-height: 170px;
+    position: relative;
+  }
+  .actor-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
+    width: 46%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    opacity: 0.55;
+    cursor: pointer;
   }
-  .teacher-avatar {
-    width: 84px; height: 84px;
+  .actor-box.active-speaker {
+    opacity: 1;
+    transform: scale(1.08) translateY(-6px);
+  }
+  .actor-avatar {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    background: #ffffff;
-    border: 3px solid var(--blue);
+    background: #fff;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     overflow: hidden;
+    position: relative;
+  }
+  .actor-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .actor-name {
+    margin-top: 6px;
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+
+  /* POPUP SPEECH BUBBLE */
+  .speech-balloon {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 10px 14px;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.12);
+    border: 2px solid #dfe6e9;
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #2d3436;
+    margin-bottom: 8px;
+    position: relative;
+    max-width: 90%;
+    text-align: center;
+    line-height: 1.35;
+  }
+  .speech-balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ffffff;
+  }
+
+  /* INTERACTION PAD */
+  .interaction-card {
+    background: #ffffff;
+    border-radius: 24px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 6px 0 var(--border-color);
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .task-prompt {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 16px;
+  }
+
+  /* WORD CARDS (Flashcards with flag) */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .game-card {
+    background: #fff;
+    border: 2px solid #e5e5e5;
+    border-radius: 20px;
+    padding: 14px 10px;
+    box-shadow: 0 4px 0 #e5e5e5;
+    cursor: pointer;
+    transition: transform 0.1s ease, border-color 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .game-card:active { transform: translateY(3px); box-shadow: 0 1px 0 #e5e5e5; }
+  .game-card.selected { border-color: var(--blue); background: #f0f9ff; }
+  .game-card img { width: 64px; height: 44px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  .game-card .gc-en { font-weight: 800; font-size: 15px; color: var(--text-main); }
+  .game-card .gc-vi { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+
+  /* ROLEPLAY MIC SECTION */
+  .roleplay-box {
+    background: linear-gradient(180deg, #fff7e6 0%, #fff0cc 100%);
+    border: 2px dashed #ffc800;
+    border-radius: 20px;
+    padding: 16px;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .mic-button-giant {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff4b4b, #d33131);
+    border: none;
+    color: #fff;
+    font-size: 34px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #9e1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    animation: teacherBreathe 3s ease-in-out infinite;
   }
-  @keyframes teacherBreathe {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+  .mic-button-giant:active { transform: translateY(4px); box-shadow: 0 2px 0 #9e1a1a; }
+  .mic-button-giant.listening {
+    animation: micPulse 1.2s infinite;
+    background: linear-gradient(145deg, #2ec4b6, #1b9b8f);
+    box-shadow: 0 6px 0 #126b62;
   }
-  .teacher-avatar.talking {
-    animation: teacherTalk 0.5s ease-in-out infinite alternate;
-  }
-  @keyframes teacherTalk {
-    0% { transform: scale(1) translateY(0); }
-    100% { transform: scale(1.05) translateY(-3px); }
-  }
-  .teacher-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .teacher-name-tag {
-    font-size: 11px;
-    font-weight: 800;
-    color: #fff;
-    background: var(--blue);
-    padding: 3px 8px;
-    border-radius: 999px;
-    margin-top: -8px;
-    z-index: 2;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  @keyframes micPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
 
-  .teacher-bubble {
-    position: relative;
-    background: #ffffff;
-    border: 2px solid #b9e6fe;
-    border-radius: 18px;
-    padding: 14px 16px;
-    flex: 1;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
-  }
-  .teacher-bubble::before {
-    content: ''; position: absolute; left: -10px; top: 24px;
-    border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-right: 10px solid #b9e6fe;
-  }
-  .teacher-bubble::after {
-    content: ''; position: absolute; left: -7px; top: 25px;
-    border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 8px solid #ffffff;
-  }
-  .teacher-say-en {
-    font-size: 16.5px;
-    font-weight: 800;
-    color: #1e3a8a;
-    line-height: 1.4;
-    margin: 0 0 6px;
-  }
-  .teacher-say-vi {
-    font-size: 13px;
-    color: var(--text-soft);
-    font-weight: 600;
-    margin: 0;
-  }
-  .teacher-actions { display: flex; gap: 8px; margin-top: 10px; }
-  .teacher-speak-btn {
-    background: var(--blue); color: #fff; border: none; border-radius: 12px;
-    padding: 6px 12px; font-weight: 700; font-size: 12.5px; cursor: pointer; box-shadow: 0 2px 0 #2076ad;
-  }
-
-  /* Dialogue Area */
-  .dialogue-box { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
-  .dialogue-item {
-    display: flex; align-items: center; gap: 10px; background: var(--bg);
-    border: 2px solid var(--border); border-radius: 16px; padding: 12px 14px;
-    cursor: pointer; transition: transform 0.1s ease;
-  }
-  .dialogue-item:active { transform: scale(0.98); }
-  .dialogue-item.active-speaking { border-color: var(--green); background: #eafaf7; }
-  .speaker-avatar {
-    width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 2px solid var(--border);
-    display: flex; align-items:center; justify-content:center; font-size: 24px; flex-shrink: 0;
-  }
-  .dialogue-content { flex: 1; }
-  .dialogue-text { font-weight: 800; font-size: 15px; color: var(--text); }
-  .dialogue-sub { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
-
-  /* Flashcards Grid */
-  .flash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
-  .flash-grid-item {
-    background: var(--card-bg); border: 2px solid var(--border); border-radius: 18px; padding: 14px;
-    text-align: center; cursor: pointer; box-shadow: 0 4px 0 var(--border);
-  }
-  .flash-grid-item:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--border); }
-  .flash-grid-item .fg-word { font-weight: 800; margin-top: 8px; font-size: 15px; color: var(--primary-dark); }
-  .flash-grid-item .fg-vi { font-size: 12px; color: var(--text-soft); }
-
-  /* Speaking Practice */
-  .mic-stage { text-align: center; margin: 18px 0; }
-  .mic-btn {
-    width: 80px; height: 80px; border-radius: 50%; border: none; font-size: 34px; cursor: pointer;
-    background: linear-gradient(160deg, var(--honey-light), var(--coral)); color: white;
-    box-shadow: 0 5px 0 var(--coral-dark);
-  }
-  .mic-btn:active { transform: translateY(4px); box-shadow: none; }
-  .mic-btn.listening { background: linear-gradient(160deg, #ff8a8a, var(--red)); animation: pulse-mic 1s infinite; }
-  @keyframes pulse-mic { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-
-  /* Interactive Buttons */
-  .primary-btn {
-    background: var(--pink); color: #fff; border: none; padding: 12px 24px;
-    border-radius: 16px; font-weight: 700; font-size: 15px; cursor: pointer;
-    box-shadow: 0 4px 0 #c2485f;
-  }
-  .primary-btn:active { transform: translateY(2px); box-shadow: none; }
-  .primary-btn.green { background: var(--green); box-shadow: 0 4px 0 var(--green-dark); }
-  .primary-btn.purple { background: var(--purple); box-shadow: 0 4px 0 #6c3483; }
-
-  .feedback { margin-top: 12px; font-weight: 800; font-size: 15px; text-align: center; min-height: 24px; }
-  .feedback.ok { color: var(--green-dark); }
-  .feedback.bad { color: var(--red); }
-
-  /* Step Tiles */
-  .step-list { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
-  .step-tile {
-    background: var(--card-bg); border-radius: 16px; padding: 14px; display:flex; align-items:center; gap: 12px;
-    box-shadow: 0 4px 0 var(--border), 0 6px 12px var(--shadow); cursor: pointer;
-  }
-  .step-tile.locked { opacity: 0.5; cursor: default; }
-  .step-tile .step-num {
-    width:36px; height:36px; border-radius:50%; background: linear-gradient(160deg, var(--honey-light), var(--primary)); color:white;
-    display:flex; align-items:center; justify-content:center; font-weight:700; font-size: 15px;
-  }
-  .step-tile .step-name { font-weight:700; flex:1; font-size: 15px; }
-
-  /* Login */
-  .login-wrap { min-height: 80vh; display:flex; align-items:center; justify-content:center; padding: 16px; }
-  .login-box {
-    background: var(--card-bg); border-radius: 26px; padding: 34px 26px; max-width: 360px; width:100%;
-    text-align:center; box-shadow: 0 8px 0 var(--border), 0 12px 24px var(--shadow);
-  }
-  .login-field { text-align:left; margin-bottom: 14px; }
-  .login-field label { display:block; font-size: 13px; font-weight:700; margin-bottom: 5px; }
-  .login-field input {
-    width:100%; padding: 11px 14px; border-radius: 12px; border: 2px solid var(--border);
-    font-size: 15px; background: var(--bg); color: var(--text);
-  }
-  .login-submit {
-    width:100%; background: linear-gradient(135deg, var(--honey-light), var(--primary)); color:#4a2c00; border:none;
-    border-radius:14px; padding:13px; font-weight:700; font-size:15px; cursor:pointer; margin-top:6px;
-    box-shadow: 0 4px 0 var(--primary-dark);
+  /* FOOTER ACTIONS */
+  .action-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+    gap: 12px;
   }
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
-<div class="login-wrap" id="login-wrap">
-  <div class="login-box">
-    <div style="font-size:56px; margin-bottom:10px;">🐝</div>
-    <h2 style="color:var(--primary-dark); margin:0 0 6px;">Ong Chăm Chỉ</h2>
-    <p style="color:var(--text-soft); font-size:13px; margin:0 0 18px; font-weight:600;">Lớp học Tiếng Anh cô Emily chào đón bé!</p>
-    <div class="login-field">
-      <label>Tên đăng nhập</label>
-      <input type="text" id="login-username" value="tienganh" autocomplete="off">
-    </div>
-    <div class="login-field">
-      <label>Mật khẩu</label>
-      <input type="password" id="login-password" value="1" autocomplete="off">
-    </div>
-    <button class="login-submit" id="login-submit">Vào lớp học</button>
-    <div class="feedback bad" id="login-error"></div>
-  </div>
-</div>
+<div class="app-container">
 
-<!-- MAIN APP -->
-<div class="app" id="main-app" style="display:none;">
-
-  <header class="top">
-    <div class="title-block">
-      <div class="emoji" id="header-emoji">👩‍🏫</div>
-      <div>
-        <h1 id="header-title">Lớp học Cô Emily</h1>
-        <p id="header-sub">Chọn bài học để bắt đầu nhé!</p>
-      </div>
+  <!-- TOP GAMIFIED STATUS BAR -->
+  <div class="game-statusbar">
+    <div class="stat-item" style="color:var(--coral);">
+      <span>❤️</span> <span id="stat-lives">5</span>
     </div>
-    <button class="back-btn" id="back-btn" style="display:none;">‹ Quay lại</button>
-  </header>
-
-  <!-- SCREEN 1: MAP -->
-  <div class="screen active" id="screen-map">
-    <div class="unit-list" id="unit-list"></div>
+    <div class="stat-bar-wrap">
+      <div class="stat-bar-fill" id="stat-progress"></div>
+    </div>
+    <div class="stat-item" style="color:var(--yellow-dark);">
+      <span>⭐</span> <span id="stat-stars">120</span>
+    </div>
   </div>
 
-  <!-- SCREEN 2: UNIT DETAIL -->
-  <div class="screen" id="screen-unit-detail">
-    <div class="step-list" id="lesson-list"></div>
-  </div>
+  <!-- SÂN KHẤU LỚP HỌC (THEATRE STAGE) -->
+  <div class="classroom-stage">
+    
+    <!-- Bảng đen của cô -->
+    <div class="blackboard">
+      <div class="board-title">✨ BÀI HỌC CÙNG CÔ EMILY ✨</div>
+      <div class="board-en" id="board-text-en">Where are you from?</div>
+      <div class="board-vi" id="board-text-vi">Bạn đến từ quốc gia nào?</div>
+    </div>
 
-  <!-- SCREEN 3: CLASSROOM LESSON RUNNER -->
-  <div class="screen" id="screen-lesson">
-    <div class="card">
-
-      <!-- KHUNG CÔ GIÁO GIẢNG BÀI TRỰC TIẾP -->
-      <div class="teacher-stage">
-        <div class="teacher-avatar-wrap">
-          <div class="teacher-avatar" id="teacher-avatar">
-            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=MissEmily&backgroundColor=b6e3f4" alt="Teacher Emily">
-          </div>
-          <div class="teacher-name-tag">Cô Emily</div>
+    <!-- Hai nhân vật đối thoại trực diện -->
+    <div class="stage-actors">
+      <!-- Nhân vật A (Minh) -->
+      <div class="actor-box active-speaker" id="actor-left" onclick="playTurn('left')">
+        <div class="speech-balloon" id="bubble-left">Hello! I'm Minh. I'm from Viet Nam. 🇻🇳</div>
+        <div class="actor-avatar">
+          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Minh&backgroundColor=ffd5dc" alt="Minh">
         </div>
-        <div class="teacher-bubble">
-          <p class="teacher-say-en" id="teacher-text-en">"Hello children! Welcome to our English class!"</p>
-          <p class="teacher-say-vi" id="teacher-text-vi">Chào các con! Chào mừng đến với lớp học Tiếng Anh nhé!</p>
-          <div class="teacher-actions">
-            <button class="teacher-speak-btn" id="btn-teacher-speak">🔊 Nghe cô nói</button>
-            <button class="teacher-speak-btn" id="btn-teacher-slow" style="background:#4ecdc4; box-shadow:0 2px 0 #1b9b8f;">🐢 Nghe chậm</button>
-          </div>
-        </div>
+        <div class="actor-name">Bạn Minh</div>
       </div>
 
-      <!-- VÙNG TƯƠNG TÁC BÀI HỌC CỦA BÉ -->
-      <div id="classroom-body"></div>
-
-      <div class="feedback" id="activity-feedback"></div>
-      <button class="primary-btn green" id="activity-next" style="width:100%; margin-top:16px;">Bài tiếp theo ➡️</button>
+      <!-- Nhân vật B (Mary) -->
+      <div class="actor-box" id="actor-right" onclick="playTurn('right')">
+        <div class="speech-balloon" id="bubble-right">Hi, Minh! I'm Mary. I'm from America. 🇺🇸</div>
+        <div class="actor-avatar">
+          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Mary&backgroundColor=b6e3f4" alt="Mary">
+        </div>
+        <div class="actor-name">Bạn Mary</div>
+      </div>
     </div>
+
   </div>
 
-  <!-- SCREEN 4: LESSON DONE -->
-  <div class="screen" id="screen-lesson-done">
-    <div class="card" style="text-align:center; padding:32px 14px;">
-      <div style="font-size:60px;">🌟</div>
-      <h2>Hoàn thành bài học xuất sắc!</h2>
-      <p style="color:var(--text-soft); font-weight:600;">Cô Emily rất tự hào về con hôm nay.</p>
-      <button class="primary-btn purple" id="lesson-done-continue">Trở về danh sách bài</button>
+  <!-- BẢNG TƯƠNG TÁC THỰC HÀNH CỦA BÉ -->
+  <div class="interaction-card">
+    <div class="task-prompt">👇 Chạm vào từng bạn để nghe đối thoại, rồi cùng chọn cờ nhé:</div>
+
+    <!-- Bộ thẻ từ vựng trực quan dạng thẻ bài game -->
+    <div class="cards-grid">
+      <div class="game-card" onclick="selectCard(this, 'Viet Nam', 'Tôi đến từ Việt Nam!')">
+        <img src="https://flagcdn.com/80x60/vn.png" alt="VN">
+        <div class="gc-en">Viet Nam</div>
+        <div class="gc-vi">Việt Nam</div>
+      </div>
+      <div class="game-card" onclick="selectCard(this, 'America', 'Tôi đến từ nước Mỹ!')">
+        <img src="https://flagcdn.com/80x60/us.png" alt="US">
+        <div class="gc-en">America</div>
+        <div class="gc-vi">Nước Mỹ</div>
+      </div>
+      <div class="game-card" onclick="selectCard(this, 'Britain', 'Tôi đến từ nước Anh!')">
+        <img src="https://flagcdn.com/80x60/gb.png" alt="GB">
+        <div class="gc-en">Britain</div>
+        <div class="gc-vi">Nước Anh</div>
+      </div>
+      <div class="game-card" onclick="selectCard(this, 'Australia', 'Tôi đến từ nước Úc!')">
+        <img src="https://flagcdn.com/80x60/au.png" alt="AU">
+        <div class="gc-en">Australia</div>
+        <div class="gc-vi">Nước Úc</div>
+      </div>
+    </div>
+
+    <!-- KHUNG ĐÓNG VAI LUYỆN NÓI MICRO (ROLE-PLAY) -->
+    <div class="roleplay-box">
+      <div style="font-weight:900; font-size:16px; color:#c78100;">🎙️ THỬ TÀI ĐÓNG VAI BẠN MINH</div>
+      <div style="font-size:14px; font-weight:700; color:#555;">Đọc to câu: <span style="color:#d33131;">"I am from Viet Nam"</span></div>
+      <button class="mic-button-giant" id="btn-giant-mic" onclick="toggleVoicePractice()">🎤</button>
+      <div id="mic-feedback-text" style="font-size:13px; font-weight:800; color:var(--text-muted);">Bấm vào micro và nói to nhé!</div>
+    </div>
+
+    <!-- Nút điều hướng chân trang -->
+    <div class="action-footer">
+      <button class="btn-3d btn-yellow" onclick="listenSlowly()">🐢 Nghe chậm</button>
+      <button class="btn-3d btn-green" onclick="nextLesson()" style="flex:1;">Tiếp tục bài mới 🌟</button>
     </div>
   </div>
 
 </div>
 
 <script>
-(function() {
-  const VALID_USER = 'tienganh';
-  const VALID_PASS = '1';
+  let currentSpeaker = 'left';
+  let stars = 120;
+  let progress = 35;
 
-  function showApp() {
-    document.getElementById('login-wrap').style.display = 'none';
-    document.getElementById('main-app').style.display = 'block';
-    initApp();
+  function speak(text, rate = 0.85) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = rate;
+    window.speechSynthesis.speak(u);
   }
 
-  document.getElementById('login-submit').addEventListener('click', () => {
-    const u = document.getElementById('login-username').value.trim();
-    const p = document.getElementById('login-password').value;
-    if (u === VALID_USER && p === VALID_PASS) {
-      try { localStorage.setItem('tienganh4_login', '1'); } catch(e){}
-      showApp();
+  // Chuyển lượt đèn rọi (Turn-based spotlight)
+  function playTurn(side) {
+    currentSpeaker = side;
+    const actorLeft = document.getElementById('actor-left');
+    const actorRight = document.getElementById('actor-right');
+    
+    if (side === 'left') {
+      actorLeft.classList.add('active-speaker');
+      actorRight.classList.remove('active-speaker');
+      speak("Hello. I'm Minh. I'm from Viet Nam.");
     } else {
-      document.getElementById('login-error').textContent = '❌ Sai tên hoặc mật khẩu!';
+      actorRight.classList.add('active-speaker');
+      actorLeft.classList.remove('active-speaker');
+      speak("Hello Minh. I'm Mary. I'm from America.");
     }
-  });
-
-  if (localStorage.getItem('tienganh4_login') === '1') { showApp(); }
-
-  function initApp() {
-    const UNITS = [
-      {
-        id: 1, title: "Unit 1: My friends", emoji: "🌍",
-        lessons: [
-          {
-            title: "Lesson 1: Where are you from?",
-            teacherIntro: {
-              en: "Today, let's learn how to ask where our friends are from! Listen and repeat after me: Where are you from?",
-              vi: "Hôm nay cô trò mình cùng học cách hỏi quê quán của bạn bè nhé! Hãy cùng lắng nghe cô đọc mẫu nhé!"
-            },
-            dialogues: [
-              { speaker: "👦", name: "Minh", en: "Hello. I'm Minh. I'm from Viet Nam.", vi: "Xin chào, mình là Minh. Mình đến từ Việt Nam." },
-              { speaker: "👧", name: "Mary", en: "Hello, Minh. I'm Mary. I'm from America.", vi: "Chào Minh, mình là Mary. Mình đến từ nước Mỹ." },
-              { speaker: "👧", name: "Lucy", en: "Hi. I'm Lucy. I'm from Britain.", vi: "Chào bạn. Mình là Lucy. Mình đến từ nước Anh." },
-              { speaker: "👦", name: "Ben", en: "Hi, Lucy. I'm Ben. I'm from Australia.", vi: "Chào Lucy. Mình là Ben. Mình đến từ nước Úc." }
-            ],
-            words: [
-              { flag: "vn", word: "vietnam", label: "Viet Nam", vi: "Nước Việt Nam" },
-              { flag: "us", word: "america", label: "America", vi: "Nước Mỹ" },
-              { flag: "gb", word: "britain", label: "Britain", vi: "Nước Anh" },
-              { flag: "au", word: "australia", label: "Australia", vi: "Nước Úc" }
-            ],
-            practiceTarget: "Where are you from?"
-          },
-          {
-            title: "Lesson 2: He's & She's from...",
-            teacherIntro: {
-              en: "Great job! Now let's learn to talk about another friend: Where's he from? She's from Japan.",
-              vi: "Bây giờ cô hướng dẫn con cách hỏi về bạn nam và bạn nữ khác nhé: Cậu ấy/Cô ấy đến từ đâu?"
-            },
-            dialogues: [
-              { speaker: "👦", name: "Minh", en: "Who's that?", vi: "Đó là ai thế bạn?" },
-              { speaker: "👧", name: "Mai", en: "It's my new friend. She's from Japan.", vi: "Đó là bạn mới của mình. Bạn ấy đến từ Nhật Bản." }
-            ],
-            words: [
-              { flag: "jp", word: "japan", label: "Japan", vi: "Nhật Bản" },
-              { flag: "th", word: "thailand", label: "Thailand", vi: "Thái Lan" },
-              { flag: "my", word: "malaysia", label: "Malaysia", vi: "Malaysia" },
-              { flag: "sg", word: "singapore", label: "Singapore", vi: "Singapore" }
-            ],
-            practiceTarget: "She is from Japan"
-          }
-        ]
-      },
-      {
-        id: 2, title: "Unit 2: Time and daily routines", emoji: "⏰",
-        lessons: [
-          {
-            title: "Lesson 1: What time is it?",
-            teacherIntro: {
-              en: "Look at the clock! What time is it? Let's practice saying the time together!",
-              vi: "Nhìn vào chiếc đồng hồ kìa! Mấy giờ rồi nhỉ? Cùng cô luyện tập hỏi và trả lời giờ nhé!"
-            },
-            dialogues: [
-              { speaker: "👦", name: "Tom", en: "What time is it?", vi: "Mấy giờ rồi bạn ơi?" },
-              { speaker: "👧", name: "Mai", en: "It's seven o'clock.", vi: "Bây giờ là 7 giờ đúng rồi." }
-            ],
-            words: [
-              { emoji: "🌅", word: "morning", label: "Morning", vi: "Buổi sáng" },
-              { emoji: "☀️", word: "afternoon", label: "Afternoon", vi: "Buổi chiều" },
-              { emoji: "🌆", word: "evening", label: "Evening", vi: "Buổi tối" },
-              { emoji: "🌙", word: "night", label: "Night", vi: "Ban đêm" }
-            ],
-            practiceTarget: "What time is it?"
-          }
-        ]
-      }
-    ];
-
-    let currentUnit = null;
-    let currentLesson = null;
-
-    function cancelAllSpeech() {
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-      document.getElementById('teacher-avatar').classList.remove('talking');
-    }
-
-    function teacherSpeak(text, rate = 0.85) {
-      if (!('speechSynthesis' in window)) return;
-      cancelAllSpeech();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US';
-      u.rate = rate;
-
-      const avatar = document.getElementById('teacher-avatar');
-      u.onstart = () => avatar.classList.add('talking');
-      u.onend = () => avatar.classList.remove('talking');
-      u.onerror = () => avatar.classList.remove('talking');
-
-      window.speechSynthesis.speak(u);
-    }
-
-    function showScreen(id) {
-      cancelAllSpeech();
-      ['map', 'unit-detail', 'lesson', 'lesson-done'].forEach(s => {
-        document.getElementById('screen-' + s).classList.remove('active');
-      });
-      document.getElementById('screen-' + id).classList.add('active');
-      document.getElementById('back-btn').style.display = (id === 'map') ? 'none' : 'inline-block';
-    }
-
-    document.getElementById('back-btn').addEventListener('click', () => {
-      const active = document.querySelector('.screen.active').id;
-      if (active === 'screen-unit-detail') showScreen('map');
-      else if (active === 'screen-lesson') showScreen('unit-detail');
-      else showScreen('map');
-    });
-
-    // MAP
-    function renderMap() {
-      const list = document.getElementById('unit-list');
-      list.innerHTML = '';
-      UNITS.forEach(u => {
-        const div = document.createElement('div');
-        div.className = 'unit-tile';
-        div.innerHTML = `
-          <div class="hex-badge">${u.emoji}</div>
-          <div class="unit-info">
-            <div class="u-name">${u.title}</div>
-            <div class="u-sub">Gồm ${u.lessons.length} bài học cùng cô Emily</div>
-          </div>
-          <div style="font-size:24px; color:var(--primary-dark);">›</div>
-        `;
-        div.onclick = () => {
-          currentUnit = u;
-          renderUnitDetail();
-          showScreen('unit-detail');
-        };
-        list.appendChild(div);
-      });
-    }
-
-    // DETAIL
-    function renderUnitDetail() {
-      document.getElementById('header-title').textContent = currentUnit.title;
-      const list = document.getElementById('lesson-list');
-      list.innerHTML = '';
-      currentUnit.lessons.forEach((l, idx) => {
-        const div = document.createElement('div');
-        div.className = 'step-tile';
-        div.innerHTML = `
-          <div class="step-num">${idx + 1}</div>
-          <div class="step-name">${l.title}</div>
-          <div>▶️ Vào học</div>
-        `;
-        div.onclick = () => {
-          currentLesson = l;
-          startClassroomLesson();
-          showScreen('lesson');
-        };
-        list.appendChild(div);
-      });
-    }
-
-    // CLASSROOM RUNNER
-    function startClassroomLesson() {
-      document.getElementById('teacher-text-en').textContent = `"${currentLesson.teacherIntro.en}"`;
-      document.getElementById('teacher-text-vi').textContent = currentLesson.teacherIntro.vi;
-
-      document.getElementById('btn-teacher-speak').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.85);
-      document.getElementById('btn-teacher-slow').onclick = () => teacherSpeak(currentLesson.teacherIntro.en, 0.65);
-
-      setTimeout(() => teacherSpeak(currentLesson.teacherIntro.en, 0.85), 400);
-
-      const body = document.getElementById('classroom-body');
-      body.innerHTML = '';
-
-      // Hội thoại
-      const dBox = document.createElement('div');
-      dBox.className = 'dialogue-box';
-      currentLesson.dialogues.forEach(d => {
-        const item = document.createElement('div');
-        item.className = 'dialogue-item';
-        item.innerHTML = `
-          <div class="speaker-avatar">${d.speaker}</div>
-          <div class="dialogue-content">
-            <div class="dialogue-text">${d.name}: "${d.en}"</div>
-            <div class="dialogue-sub">${d.vi}</div>
-          </div>
-          <div style="font-size:20px;">🔊</div>
-        `;
-        item.onclick = () => {
-          document.querySelectorAll('.dialogue-item').forEach(el => el.classList.remove('active-speaking'));
-          item.classList.add('active-speaking');
-          teacherSpeak(d.en, 0.85);
-        };
-        dBox.appendChild(item);
-      });
-      body.appendChild(dBox);
-
-      // Thẻ từ vựng
-      if (currentLesson.words) {
-        const titleWords = document.createElement('div');
-        titleWords.style.fontWeight = '800';
-        titleWords.style.margin = '14px 0 8px';
-        titleWords.textContent = '👇 Chạm vào từng thẻ để cô đọc mẫu nhé:';
-        body.appendChild(titleWords);
-
-        const fGrid = document.createElement('div');
-        fGrid.className = 'flash-grid';
-        currentLesson.words.forEach(w => {
-          const c = document.createElement('div');
-          c.className = 'flash-grid-item';
-          const visual = w.flag ? 
-            `<img src="https://flagcdn.com/80x60/${w.flag}.png" style="width:60px; height:42px; border-radius:6px; box-shadow:0 2px 4px rgba(0,0,0,0.15);">` : 
-            `<span style="font-size:42px;">${w.emoji}</span>`;
-          c.innerHTML = `
-            ${visual}
-            <div class="fg-word">${w.label}</div>
-            <div class="fg-vi">${w.vi}</div>
-          `;
-          c.onclick = () => teacherSpeak(`I am from ${w.label}`, 0.8);
-          fGrid.appendChild(c);
-        });
-        body.appendChild(fGrid);
-      }
-
-      // Phần luyện nói cùng cô (Microphone)
-      if (currentLesson.practiceTarget) {
-        const micWrap = document.createElement('div');
-        micWrap.className = 'mic-stage';
-        micWrap.innerHTML = `
-          <div style="font-weight:800; font-size:16px; margin-bottom:6px; color:#1e3a8a;">🗣️ Cùng cô Emily luyện nói câu:</div>
-          <div style="font-size:20px; font-weight:800; color:var(--coral); margin-bottom:12px;">"${currentLesson.practiceTarget}"</div>
-          <button class="mic-btn" id="btn-practice-mic">🎤</button>
-          <div style="font-size:12.5px; color:var(--text-soft); margin-top:8px;">Bấm nút mic và đọc to câu trên nhé!</div>
-          <div class="feedback" id="mic-feedback"></div>
-        `;
-        body.appendChild(micWrap);
-
-        const micBtn = micWrap.querySelector('#btn-practice-mic');
-        const micFb = micWrap.querySelector('#mic-feedback');
-        const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-        if (SpeechAPI) {
-          micBtn.onclick = () => {
-            const rec = new SpeechAPI();
-            rec.lang = 'en-US';
-            rec.start();
-            micBtn.classList.add('listening');
-            micFb.textContent = '🎧 Cô đang lắng nghe bé nói...';
-            rec.onresult = (e) => {
-              micBtn.classList.remove('listening');
-              const text = (e.results[0][0].transcript || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-              const target = currentLesson.practiceTarget.toLowerCase().replace(/[^a-z0-9]/g, '');
-              if (text.includes(target) || target.includes(text)) {
-                micFb.textContent = '🌟 Xuất sắc! Con phát âm rất chuẩn!';
-                micFb.className = 'feedback ok';
-                teacherSpeak("Very good! You did a great job!");
-              } else {
-                micFb.textContent = '💪 Chưa chuẩn lắm, con thử đọc lại to hơn nhé!';
-                micFb.className = 'feedback bad';
-                teacherSpeak("Try again, you can do it!");
-              }
-            };
-            rec.onerror = () => {
-              micBtn.classList.remove('listening');
-              micFb.textContent = '⚠️ Không nghe rõ, con bấm nói lại nhé!';
-            };
-          };
-        }
-      }
-    }
-
-    document.getElementById('activity-next').addEventListener('click', () => {
-      showScreen('lesson-done');
-    });
-
-    document.getElementById('lesson-done-continue').addEventListener('click', () => {
-      showScreen('unit-detail');
-    });
-
-    renderMap();
   }
-})();
+
+  function selectCard(el, country, viText) {
+    document.querySelectorAll('.game-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    
+    // Cập nhật bảng đen
+    document.getElementById('board-text-en').textContent = "I'm from " + country + ".";
+    document.getElementById('board-text-vi').textContent = viText;
+    
+    speak("I am from " + country);
+    celebrateMini();
+  }
+
+  function listenSlowly() {
+    speak(document.getElementById('board-text-en').textContent, 0.6);
+  }
+
+  // Hiệu ứng pháo hoa khi bé làm đúng
+  function celebrateMini() {
+    stars += 10;
+    progress = Math.min(100, progress + 15);
+    document.getElementById('stat-stars').textContent = stars;
+    document.getElementById('stat-progress').style.width = progress + '%';
+
+    confetti({
+      particleCount: 25,
+      spread: 60,
+      origin: { y: 0.8 }
+    });
+  }
+
+  // Nhận diện giọng nói Role-play
+  let isListening = false;
+  function toggleVoicePractice() {
+    const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const micBtn = document.getElementById('btn-giant-mic');
+    const fb = document.getElementById('mic-feedback-text');
+
+    if (!SpeechAPI) {
+      fb.textContent = "Trình duyệt chưa hỗ trợ mic, con nhờ ba mẹ nghe con đọc nhé!";
+      return;
+    }
+
+    const rec = new SpeechAPI();
+    rec.lang = 'en-US';
+
+    if (!isListening) {
+      rec.start();
+      isListening = true;
+      micBtn.classList.add('listening');
+      fb.textContent = "🎧 Cô đang lắng nghe bé nói...";
+      fb.style.color = "var(--blue)";
+
+      rec.onresult = (e) => {
+        isListening = false;
+        micBtn.classList.remove('listening');
+        const spoken = (e.results[0][0].transcript || '').toLowerCase();
+        
+        if (spoken.includes('viet nam') || spoken.includes('vietnam')) {
+          fb.textContent = "🎉 Tuyệt vời! Con phát âm chuẩn như người bản xứ!";
+          fb.style.color = "var(--green-dark)";
+          speak("Excellent! You did a great job!");
+          celebrateMini();
+        } else {
+          fb.textContent = "💪 Gần đúng rồi, con bấm nói lại to hơn nhé!";
+          fb.style.color = "var(--coral)";
+          speak("Try again, you can do it!");
+        }
+      };
+
+      rec.onerror = () => {
+        isListening = false;
+        micBtn.classList.remove('listening');
+        fb.textContent = "⚠️ Chưa nghe rõ, con bấm lại nhé!";
+      };
+    }
+  }
+
+  function nextLesson() {
+    alert("🎉 Bé đã hoàn thành bài đối thoại này! Đang chuyển sang bài tiếp theo...");
+  }
+
+  // Phát âm câu mở đầu
+  setTimeout(() => {
+    playTurn('left');
+  }, 500);
 </script>
 </body>
 </html>
