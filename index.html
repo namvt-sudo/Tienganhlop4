@@ -1,765 +1,728 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Success English 4 - Unit 1: My Friends</title>
-  
-  <!-- Font chữ Fredoka & Nunito bo tròn chuẩn giao diện trẻ em -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Thư viện hiệu ứng pháo hoa Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiếng Anh Lớp 4 - Global Success</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-  <style>
-    :root {
-      --primary: #1cb0f6;
-      --primary-dark: #1899d6;
-      --green: #58cc02;
-      --green-dark: #46a302;
-      --yellow: #ffc800;
-      --yellow-dark: #e5b200;
-      --coral: #ff4b4b;
-      --coral-dark: #d33131;
-      --purple: #a855f7;
-      --purple-dark: #9333ea;
-      --bg: #f4f9fd;
-      --card-bg: #ffffff;
-      --text: #2b3a4a;
-      --text-muted: #8395a7;
-      --border: #e2ecf5;
-    }
+<style>
+  :root {
+    --bg-page: #f8fafd;
+    --purple-main: #9333ea;
+    --purple-btn: #8b5cf6;
+    --pink-btn: #ec4899;
+    --blue-btn: #38bdf8;
+    --orange-btn: #f59e0b;
+    --green-btn: #22c55e;
+    --text-dark: #1e293b;
+    --text-gray: #8898aa;
+    --border-card: #f1e8ff;
+  }
 
-    * { box-sizing: border-box; user-select: none; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      font-family: 'Nunito', sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      padding-bottom: 40px;
-    }
-    h1, h2, h3, button, .game-font { font-family: 'Fredoka', sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background-color: var(--bg-page);
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-dark);
+    padding-bottom: 60px;
+  }
+  h1, h2, h3, h4, button, .font-fun { font-family: 'Fredoka', sans-serif; }
 
-    .app-shell {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 12px 16px;
-    }
+  /* 1. TOP HEADER NAVIGATION BAR */
+  .app-header {
+    background: #ffffff;
+    border-bottom: 2px solid #eef2f6;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-left-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .brand-logo-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 2px solid #fed7aa;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #ea580c;
+  }
+  .brand-logo-pill img { width: 30px; height: 30px; border-radius: 50%; }
 
-    /* TOP STATUS BAR */
-    .status-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: var(--card-bg);
-      padding: 10px 18px;
-      border-radius: 24px;
-      box-shadow: 0 4px 0 var(--border);
-      margin-bottom: 12px;
-    }
-    .stat-pill {
-      font-weight: 900;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .hearts { color: var(--coral); }
-    .stars { color: #f59e0b; }
-    .exp-track {
-      flex: 1;
-      height: 14px;
-      background: #edf3f8;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .exp-fill {
-      height: 100%;
-      width: 20%;
-      background: linear-gradient(90deg, var(--yellow), var(--green));
-      border-radius: 999px;
-      transition: width 0.3s ease;
-    }
+  .header-btn {
+    border: none;
+    border-radius: 18px;
+    padding: 9px 18px;
+    font-size: 14.5px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .header-btn.explore { background: #ede9fe; color: #7c3aed; }
+  .header-btn.lessons { background: #ec4899; color: #ffffff; box-shadow: 0 4px 12px rgba(236,72,153,0.35); }
+  .header-btn.exercises { background: #e0f2fe; color: #0284c7; }
+  .header-btn.review { background: #fef3c7; color: #b45309; }
+  .header-btn.exams { background: #dcfce7; color: #15803d; }
+  .header-btn.minigames { background: #f3e8ff; color: #9333ea; }
+  .header-btn:hover { transform: translateY(-2px); opacity: 0.95; }
 
-    /* TOGGLE VIETNAMESE HINTS */
-    .hint-toggle-bar {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 8px;
-    }
-    .hint-btn {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      padding: 4px 12px;
-      font-size: 12.5px;
-      font-weight: 800;
-      cursor: pointer;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
-    .hint-btn.active {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: #f0f9ff;
-    }
-    .vn-hint {
-      display: none;
-      font-size: 12px;
-      color: #0284c7;
-      font-weight: 700;
-      margin-top: 2px;
-    }
-    body.show-hints .vn-hint {
-      display: inline-block;
-    }
+  .header-right-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .score-true-false-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1.5px solid #e2e8f0;
+    padding: 4px 8px;
+    border-radius: 14px;
+    font-weight: 900;
+    font-size: 13.5px;
+  }
+  .tag-score-true { background: #22c55e; color: #fff; padding: 4px 8px; border-radius: 8px; }
+  .tag-score-false { background: #ef4444; color: #fff; padding: 4px 8px; border-radius: 8px; }
 
-    /* FLOW MAP NAVIGATION */
-    .flow-nav {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      white-space: nowrap;
-      margin-bottom: 12px;
-    }
-    .nav-pill {
-      padding: 10px 16px;
-      border-radius: 18px;
-      font-weight: 800;
-      font-size: 13.5px;
-      cursor: pointer;
-      background: var(--card-bg);
-      border: 2px solid var(--border);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-      box-shadow: 0 3px 0 var(--border);
-    }
-    .nav-pill.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-      box-shadow: 0 4px 0 var(--primary-dark);
-      transform: translateY(-2px);
-    }
+  /* 2. NATURE CARTOON BANNER */
+  .banner-container {
+    max-width: 1080px;
+    margin: 16px auto;
+    padding: 0 16px;
+  }
+  .hero-nature-banner {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    height: 180px;
+    background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 60%, #86efac 100%);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+  }
+  .banner-backdrop-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+  .banner-center-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .banner-bee-avatar {
+    width: 90px;
+    height: 90px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+    animation: beeHover 3s ease-in-out infinite;
+  }
+  @keyframes beeHover {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .banner-titles { text-align: left; }
+  .banner-main-logo-text {
+    font-size: 34px;
+    font-weight: 900;
+    color: #d946ef;
+    text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 0 4px 10px rgba(0,0,0,0.1);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .banner-sub-tag {
+    background: #c026d3;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: inline-block;
+  }
 
-    /* 3D TACTILE BUTTONS */
-    .btn-3d {
-      border: none;
-      border-radius: 16px;
-      padding: 12px 20px;
-      font-size: 15px;
-      font-weight: 800;
-      color: #fff;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-      box-shadow: 0 4px 0 var(--shadow);
-    }
-    .btn-3d:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 var(--shadow);
-    }
-    .btn-green { background: var(--green); --shadow: var(--green-dark); }
-    .btn-blue { background: var(--primary); --shadow: var(--primary-dark); }
-    .btn-yellow { background: var(--yellow); --shadow: var(--yellow-dark); color: #4a2c00; }
-    .btn-coral { background: var(--coral); --shadow: var(--coral-dark); }
-    .btn-purple { background: var(--purple); --shadow: var(--purple-dark); }
+  /* 3. MAIN WORKSPACE WRAPPER */
+  .app-workspace {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 
-    /* TEACHER / MASCOT SPEECH CARD */
-    .mascot-card {
-      background: linear-gradient(135deg, #eff8ff 0%, #e0f2fe 100%);
-      border: 3px solid #bae6fd;
-      border-radius: 22px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 0 #93c5fd;
-    }
-    .mascot-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid var(--primary);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .mascot-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .mascot-speech { flex: 1; }
-    .mascot-role { font-size: 11px; font-weight: 800; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.5px; }
-    .mascot-text { font-size: 14.5px; font-weight: 800; color: #0c4a6e; line-height: 1.4; margin-top: 2px; }
+  /* SEMESTER CONTROLS */
+  .semester-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .semester-pill-group {
+    display: flex;
+    gap: 8px;
+  }
+  .semester-tab-pill {
+    border: none;
+    border-radius: 16px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .semester-tab-pill.active { background: #d946ef; color: #fff; }
+  .semester-tab-pill.inactive { background: #e2e8f0; color: #64748b; }
 
-    /* MAIN CONTENT SURFACE */
-    .content-surface {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 24px 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04), 0 4px 0 var(--border);
-    }
-    .section-head {
-      font-size: 19px;
-      font-weight: 800;
-      color: #1e293b;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .section-sub {
-      color: var(--text-muted);
-      font-size: 13.5px;
-      margin-bottom: 16px;
-      font-weight: 700;
-    }
+  /* 4. UNITS GRID (HIỂN THỊ LƯỚI CÁC UNIT 1-10 NHƯ ẢNH 2) */
+  .units-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media(max-width: 900px) { .units-card-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width: 540px) { .units-card-grid { grid-template-columns: 1fr; } }
 
-    /* FLASH SUMMARY / CHEAT SHEET */
-    .summary-card {
-      background: #fffbeb;
-      border: 2px solid #fde68a;
-      border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 0 #fcd34d;
-    }
-    .summary-title {
-      font-weight: 900;
-      color: #92400e;
-      font-size: 16px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .summary-item {
-      background: #fff;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid #fef3c7;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+  .unit-glass-card {
+    background: #ffffff;
+    border: 2px solid #eef2f6;
+    border-radius: 22px;
+    padding: 18px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+  .unit-glass-card:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  }
+  .unit-glass-card.active-unit {
+    border-color: #d946ef;
+    background: #fdf4ff;
+  }
+  .unit-title-head { font-size: 16px; font-weight: 900; color: #1e293b; margin-bottom: 2px; }
+  .unit-topic-name { font-size: 13.5px; font-weight: 700; color: #64748b; }
+  .unit-arrow-icon { font-size: 18px; font-weight: 900; color: #94a3b8; }
 
-    /* CARDS & FLAGS GRID */
-    .flags-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .flag-card {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 14px 10px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 4px 0 var(--border);
-      transition: all 0.15s ease;
-    }
-    .flag-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
-    }
-    .flag-card img {
-      width: 72px;
-      height: 48px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 8px;
-    }
-    .flag-card .name { font-weight: 900; font-size: 15px; }
+  /* 5. GIAO DIỆN BÀI HỌC (CHUẨN ẢNH 3: TIẾNG ANH TRÊN, TIẾNG VIỆT XÁM NHỎ DƯỚI) */
+  .lesson-view-container {
+    background: #ffffff;
+    border: 2px solid var(--border-card);
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.04);
+  }
+  .lesson-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .lesson-big-title { font-size: 22px; font-weight: 900; color: #1e293b; }
 
-    /* WORKBOOK COMPACT INTERACTION */
-    .wb-exercise-block {
-      background: #fff;
-      border: 2px dashed #cbd5e1;
-      border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-    .wb-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #f8fafc;
-      padding: 10px 14px;
-      border-radius: 14px;
-      margin-bottom: 8px;
-      border: 1px solid var(--border);
-    }
-    .drop-slot {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 32px;
-      border-radius: 8px;
-      background: #e0f2fe;
-      border: 2px dashed var(--primary);
-      font-weight: 900;
-      color: var(--primary-dark);
-      font-size: 16px;
-    }
-    .drop-slot.filled {
-      background: #dcfce7;
-      border: 2px solid var(--green);
-      color: var(--green-dark);
-    }
-    .bubble-picker {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin: 12px 0 6px 0;
-    }
-    .candy-bubble {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ffd973, #ffaa00);
-      color: #5c3b00;
-      font-size: 22px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 0 #cc7a00;
-      cursor: pointer;
-      transition: transform 0.1s;
-    }
-    .candy-bubble:active { transform: translateY(3px); box-shadow: 0 1px 0 #cc7a00; }
+  .sub-lesson-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .sub-pill-btn {
+    border: none;
+    border-radius: 14px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 800;
+    cursor: pointer;
+    background: #f1f5f9;
+    color: #64748b;
+  }
+  .sub-pill-btn.active { background: #38bdf8; color: #fff; }
 
-    /* OPTIONS PILL BUTTONS */
-    .options-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .opt-pill {
-      background: #fff;
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 14px 18px;
-      font-weight: 800;
-      font-size: 15px;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 3px 0 var(--border);
-      transition: all 0.15s ease;
-    }
-    .opt-pill:hover { border-color: var(--primary); }
-    .opt-pill.correct {
-      background: #ecfdf5;
-      border-color: var(--green);
-      box-shadow: 0 3px 0 var(--green-dark);
-      color: #065f46;
-    }
-    .opt-pill.wrong {
-      background: #fef2f2;
-      border-color: var(--coral);
-      box-shadow: 0 3px 0 var(--coral-dark);
-      color: #991b1b;
-    }
+  /* KHỐI 2 CỘT: PHONICS & VOCABULARY */
+  .dual-column-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  @media(max-width: 680px) { .dual-column-panel { grid-template-columns: 1fr; } }
 
-    /* SPEAKING LAB */
-    .speaking-lab-box {
-      background: linear-gradient(180deg, #fffbeb, #fef3c7);
-      border: 3px solid #fde68a;
-      border-radius: 24px;
-      padding: 22px 16px;
-      text-align: center;
-      margin-bottom: 18px;
-    }
-    .mic-giant-btn {
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, var(--coral), var(--coral-dark));
-      color: #fff;
-      font-size: 34px;
-      cursor: pointer;
-      box-shadow: 0 6px 0 #b91c1c;
-      margin: 14px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    .mic-giant-btn.listening {
-      background: linear-gradient(135deg, #10b981, #059669);
-      box-shadow: 0 6px 0 #047857;
-      animation: pulseMic 1.2s infinite;
-    }
-    @keyframes pulseMic { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+  .sub-panel-card {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 22px;
+    padding: 18px;
+  }
+  .panel-badge-title {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .panel-badge-title.phonics { color: #9333ea; }
+  .panel-badge-title.vocab { color: #16a34a; }
 
-    /* BOSS ARENA */
-    .boss-arena {
-      background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
-      color: #fff;
-      border-radius: 28px;
-      padding: 24px 18px;
-      text-align: center;
-      position: relative;
-    }
-    .boss-monster {
-      font-size: 76px;
-      display: inline-block;
-      animation: bossFloat 2s infinite ease-in-out;
-    }
-    @keyframes bossFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .boss-hp-track {
-      height: 18px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 999px;
-      margin: 12px auto 18px auto;
-      max-width: 380px;
-      overflow: hidden;
-      border: 2px solid rgba(255,255,255,0.4);
-    }
-    .boss-hp-fill {
-      height: 100%;
-      width: 100%;
-      background: linear-gradient(90deg, #ef4444, #f97316);
-      transition: width 0.3s ease;
-    }
+  /* DÒNG TỪ VỰNG & HỘI THOẠI SONG NGỮ CHUẨN ẢNH 3 */
+  .bilingual-speech-row {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 18px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+  .bilingual-speech-row:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+  }
+  .bilingual-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .en-text-bold {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .vi-text-sub {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-gray);
+  }
 
-    .hidden { display: none !important; }
-  </style>
+  /* NÚT LOA TRÒN XANH DƯƠNG */
+  .audio-speaker-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f0f9ff;
+    border: none;
+    color: #0284c7;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .audio-speaker-circle:hover {
+    background: #38bdf8;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  /* SENTENCE PATTERNS PANEL */
+  .sentence-pattern-card {
+    background: #ffffff;
+    border: 1.5px solid #ede9fe;
+    border-radius: 22px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+  }
+
+  /* KHỐI TRẮC NGHIỆM ĐIỀN TỪ (SGK TRANG 11) */
+  .quiz-section-card {
+    border-top: 2px dashed #f1f5f9;
+    padding-top: 22px;
+    margin-top: 22px;
+  }
+  .quiz-question-box {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .quiz-q-title { font-size: 16px; font-weight: 800; color: #1e293b; margin-bottom: 10px; }
+  .quiz-opt-btn-list { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt-btn {
+    background: #fff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 11px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+  }
+  .quiz-opt-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+  .quiz-opt-btn.correct { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+  .quiz-opt-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
+</style>
 </head>
 <body>
 
-<div class="app-shell">
+  <!-- ================= 1. HEADER CHUẨN ================= -->
+  <header class="app-header">
+    <div class="header-left-nav">
+      <div class="brand-logo-pill">
+        <span>🐝 Tiếng Anh 4</span>
+      </div>
+      <button class="header-btn explore" onclick="switchNav('explore')">🧭 Explore</button>
+      <button class="header-btn lessons" onclick="switchNav('lessons')">📖 Lessons</button>
+      <button class="header-btn exercises" onclick="switchNav('exercises')">✏️ Exercises</button>
+      <button class="header-btn review" onclick="switchNav('review')">🔄 Review</button>
+      <button class="header-btn exams" onclick="switchNav('exams')">🏆 Exams</button>
+      <button class="header-btn minigames" onclick="switchNav('minigames')">🎮 Mini Games</button>
+    </div>
 
-  <!-- TOP GAMIFIED STATUS -->
-  <div class="status-bar">
-    <div class="stat-pill hearts">❤️ <span id="stat-hp">5</span></div>
-    <div class="exp-track"><div class="exp-fill" id="stat-exp"></div></div>
-    <div class="stat-pill stars">⭐ <span id="stat-stars">120</span></div>
+    <!-- BẢNG ĐIỂM TRUE/FALSE -->
+    <div class="header-right-meta">
+      <div class="score-true-false-box">
+        <span class="tag-score-true">★ True <span id="score-true-num">0</span></span>
+        <span class="tag-score-false">★ False <span id="score-false-num">0</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 2. BANNER HOẠT HÌNH THIÊN NHIÊN ================= -->
+  <div class="banner-container">
+    <div class="hero-nature-banner">
+      <img class="banner-backdrop-svg" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&auto=format&fit=crop&q=80" alt="Banner background">
+      <div class="banner-center-content">
+        <img class="banner-bee-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=HappyBee&backgroundColor=ffdf00" alt="Linh vật">
+        <div class="banner-titles">
+          <div class="banner-main-logo-text">Tiếng Anh 4</div>
+          <div class="banner-sub-tag">Tiến bộ từng ngày bé nhé! 🌟</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- TOGGLE VIETNAMESE HINTS BUTTON -->
-  <div class="hint-toggle-bar">
-    <button class="hint-btn" id="btn-toggle-hint" onclick="toggleVietnameseHints()">🇻🇳 Hints: OFF</button>
-  </div>
+  <!-- ================= 3. KHU VỰC LÀM VIỆC CHÍNH ================= -->
+  <div class="app-workspace">
 
-  <!-- FLOW MAP NAVIGATION (PEDAGOGICAL PIPELINE) -->
-  <div class="flow-nav">
-    <div class="nav-pill active" onclick="switchSection('sgk')">📘 Student's Book</div>
-    <div class="nav-pill" onclick="switchSection('wb')">📙 Workbook</div>
-    <div class="nav-pill" onclick="switchSection('listening')">🎧 Listening Lab</div>
-    <div class="nav-pill" onclick="switchSection('speaking')">🗣️ Speaking Lab</div>
-    <div class="nav-pill" onclick="switchSection('review')">🧠 Review</div>
-    <div class="nav-pill" onclick="switchSection('boss')">👹 Boss Battle</div>
-    <div class="nav-pill" onclick="switchSection('rewards')">⭐ Rewards</div>
-  </div>
-
-  <!-- TEACHER EMILY MASCOT (100% ENGLISH SPEECH) -->
-  <div class="mascot-card">
-    <div class="mascot-avatar">
-      <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=MissEmily&backgroundColor=b6e3f4" alt="Teacher">
-    </div>
-    <div class="mascot-speech">
-      <div class="mascot-role">Teacher Emily</div>
-      <p class="mascot-text" id="mascot-msg">"Welcome to Unit 1: My Friends! Let's explore together!"</p>
-      <div class="vn-hint" id="mascot-msg-vn">Chào mừng các em đến với Unit 1: My Friends! Cùng khám phá nhé!</div>
-    </div>
-    <button class="btn-3d btn-blue" onclick="speakCurrentMascot()" style="padding: 8px 14px; font-size: 13px; border-radius: 14px;">🔊 Listen</button>
-  </div>
-
-  <!-- ==================== MAIN CONTENT SURFACE ==================== -->
-  <div class="content-surface">
-
-    <!-- ==================== 1. STUDENT'S BOOK ==================== -->
-    <div id="sec-sgk">
-      <div class="section-head">📘 Student's Book - Unit 1: My Friends</div>
-      <div class="section-sub">Tap any card to listen and repeat authentic dialogues! <span class="vn-hint">(Chạm vào thẻ để nghe phát âm)</span></div>
-
-      <!-- FLASHCARD SUMMARY SHEET -->
-      <div class="summary-card">
-        <div class="summary-title">
-          <span>⚡ Unit 1 Core Knowledge (Flash Summary)</span>
-          <button class="btn-3d btn-yellow" onclick="speakSummary()" style="padding:4px 10px; font-size:12px; border-radius:10px;">🔊 Read All</button>
-        </div>
-        <div class="summary-grid">
-          <div class="summary-item">🇻🇳 <strong>Viet Nam</strong>: Ha Noi</div>
-          <div class="summary-item">🇬🇧 <strong>Britain</strong>: London</div>
-          <div class="summary-item">🇺🇸 <strong>America</strong>: Washington D.C.</div>
-          <div class="summary-item">🇦🇺 <strong>Australia</strong>: Canberra</div>
-          <div class="summary-item">🇸🇬 <strong>Singapore</strong>: Singapore</div>
-          <div class="summary-item">🇲🇾 <strong>Malaysia</strong>: Kuala Lumpur</div>
-          <div class="summary-item">🇹🇭 <strong>Thailand</strong>: Bangkok</div>
-          <div class="summary-item">🇯🇵 <strong>Japan</strong>: Tokyo</div>
-        </div>
+    <!-- THANH CHỌN HỌC KỲ -->
+    <div class="semester-nav-row">
+      <div class="semester-pill-group">
+        <button class="semester-tab-pill active">Semester 1 (Học kỳ 1)</button>
+        <button class="semester-tab-pill inactive">Semester 2 (Học kỳ 2)</button>
       </div>
-
-      <!-- ALL 8 COUNTRIES -->
-      <div class="flags-grid">
-        <div class="flag-card" onclick="speak('Britain. I\'m from Britain.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/gb.png" alt="Britain">
-          <div class="name">Britain 🇬🇧</div>
-          <div class="vn-hint">Nước Anh</div>
-        </div>
-        <div class="flag-card" onclick="speak('Viet Nam. I\'m from Viet Nam.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/vn.png" alt="Viet Nam">
-          <div class="name">Viet Nam 🇻🇳</div>
-          <div class="vn-hint">Việt Nam</div>
-        </div>
-        <div class="flag-card" onclick="speak('America. I\'m from America.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/us.png" alt="America">
-          <div class="name">America 🇺🇸</div>
-          <div class="vn-hint">Nước Mỹ</div>
-        </div>
-        <div class="flag-card" onclick="speak('Australia. I\'m from Australia.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/au.png" alt="Australia">
-          <div class="name">Australia 🇦🇺</div>
-          <div class="vn-hint">Nước Úc</div>
-        </div>
-        <div class="flag-card" onclick="speak('Singapore. He\'s from Singapore.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/sg.png" alt="Singapore">
-          <div class="name">Singapore 🇸🇬</div>
-          <div class="vn-hint">Nước Xin-ga-po</div>
-        </div>
-        <div class="flag-card" onclick="speak('Malaysia. She\'s from Malaysia.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/my.png" alt="Malaysia">
-          <div class="name">Malaysia 🇲🇾</div>
-          <div class="vn-hint">Nước Ma-lai-xi-a</div>
-        </div>
-        <div class="flag-card" onclick="speak('Thailand. He\'s from Thailand.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/th.png" alt="Thailand">
-          <div class="name">Thailand 🇹🇭</div>
-          <div class="vn-hint">Nước Thái Lan</div>
-        </div>
-        <div class="flag-card" onclick="speak('Japan. She\'s from Japan.'); playSFX(true);">
-          <img src="https://flagcdn.com/w160/jp.png" alt="Japan">
-          <div class="name">Japan 🇯🇵</div>
-          <div class="vn-hint">Nước Nhật Bản</div>
-        </div>
-      </div>
-
-      <!-- LESSON 1 ACT 6: SONG -->
-      <div style="background:#f8fafc; border-radius:18px; padding:16px; border:2px solid var(--border);">
-        <div style="font-weight:900; margin-bottom:6px; color:#1e293b;">🎵 Lesson 1 - Act 6: Let's sing: Where are you from?</div>
-        <p style="font-size:14.5px; line-height:1.6; color:#475569;">
-          "Hello. I'm Minh. I'm from Viet Nam.<br>
-          Hello, Lucy. Where are you from? - I'm from Britain.<br>
-          Hello, Mary. Where are you from? - I'm from America.<br>
-          Hello, Ben. Where are you from? - I'm from Australia."
-        </p>
-        <button class="btn-3d btn-yellow" onclick="playSong()" style="margin-top:10px;">🎶 Play Song Audio</button>
+      <div style="font-size:14px; font-weight:800; color:#64748b;">
+        Học kỳ 1 • 10 Units
       </div>
     </div>
 
-    <!-- ==================== 2. WORKBOOK ==================== -->
-    <div id="sec-wb" class="hidden">
-      <div class="section-head">📙 Workbook - Unit 1: My Friends</div>
-      <div class="section-sub">Practice phonics, vocabulary and sentence patterns!</div>
-
-      <!-- WORKBOOK PART A.1: COMPLETE AND SAY (a / ia) -->
-      <div class="wb-exercise-block">
-        <div style="font-weight:900; font-size:15px; margin-bottom:4px;">A. PHONICS AND VOCABULARY</div>
-        <div style="font-size:13.5px; font-weight:800; color:var(--text-muted); margin-bottom:12px;">1. Complete and say. <span class="vn-hint">(Chọn thẻ từ rồi bấm âm a hoặc ia để bay vào)</span></div>
-
-        <div class="wb-row" id="slot-row-0" onclick="selectSlotRow(0)">
-          <div style="font-weight:900; font-size:18px;">a. Americ<span class="drop-slot" id="wb-slot-0" data-ans="a">?</span></div>
-          <button class="btn-3d btn-blue" onclick="speak('America'); event.stopPropagation();" style="padding:6px 12px; font-size:13px; border-radius:12px;">🔊</button>
+    <!-- LƯỚI 10 UNITS (CHUẨN ẢNH 2) -->
+    <div class="units-card-grid" id="units-catalog">
+      <div class="unit-glass-card active-unit" onclick="openUnit(1)">
+        <div>
+          <div class="unit-title-head">Unit 1</div>
+          <div class="unit-topic-name">My friends</div>
         </div>
-
-        <div class="wb-row" id="slot-row-1" onclick="selectSlotRow(1)">
-          <div style="font-weight:900; font-size:18px;">b. Austral<span class="drop-slot" id="wb-slot-1" data-ans="ia">?</span></div>
-          <button class="btn-3d btn-blue" onclick="speak('Australia'); event.stopPropagation();" style="padding:6px 12px; font-size:13px; border-radius:12px;">🔊</button>
-        </div>
-
-        <div class="wb-row" id="slot-row-2" onclick="selectSlotRow(2)">
-          <div style="font-weight:900; font-size:18px;">c. Malays<span class="drop-slot" id="wb-slot-2" data-ans="ia">?</span></div>
-          <button class="btn-3d btn-blue" onclick="speak('Malaysia'); event.stopPropagation();" style="padding:6px 12px; font-size:13px; border-radius:12px;">🔊</button>
-        </div>
-
-        <!-- SOUND BUBBLES PICKER (NO MORE Điền a / Điền ia) -->
-        <div class="bubble-picker">
-          <div class="candy-bubble" onclick="snapSound('a')">a</div>
-          <div class="candy-bubble" onclick="snapSound('ia')">ia</div>
-        </div>
+        <div class="unit-arrow-icon">›</div>
       </div>
 
-      <!-- WORKBOOK PART B.1: READ AND COMPLETE -->
-      <div class="wb-exercise-block">
-        <div style="font-weight:900; font-size:15px; margin-bottom:4px;">B. SENTENCE PATTERNS</div>
-        <div style="font-size:13.5px; font-weight:800; color:var(--text-muted); margin-bottom:12px;">1. Read and complete.</div>
-        <p style="font-size:16px; font-weight:800; margin-bottom:10px;">"Where's ________ from? - She's from Japan."</p>
-        <div class="options-stack">
-          <div class="opt-pill" onclick="checkAnswer(this, true)"><span>a. she</span><span>🔊</span></div>
-          <div class="opt-pill" onclick="checkAnswer(this, false)"><span>b. you</span><span>🔊</span></div>
-          <div class="opt-pill" onclick="checkAnswer(this, false)"><span>c. he</span><span>🔊</span></div>
+      <div class="unit-glass-card" onclick="openUnit(2)">
+        <div>
+          <div class="unit-title-head">Unit 2</div>
+          <div class="unit-topic-name">Time & routines</div>
         </div>
+        <div class="unit-arrow-icon">›</div>
       </div>
-    </div>
 
-    <!-- ==================== 3. LISTENING LAB ==================== -->
-    <div id="sec-listening" class="hidden">
-      <div class="section-head">🎧 Listening Lab - Fast Reflexes</div>
-      <div class="section-sub">Listen carefully to the audio and select the correct country flag!</div>
-
-      <div style="text-align:center; padding:10px 0;">
-        <button class="btn-3d btn-blue" onclick="playCurrentListenQ()" style="margin-bottom:16px;">🔊 Replay Audio Track</button>
-        <div id="listen-counter" style="font-weight:900; font-size:14px; color:var(--text-muted); margin-bottom:14px;">Question 1 / 3</div>
-
-        <div class="flags-grid" id="listen-options-grid">
-          <!-- Dynamically Generated Flag Cards -->
+      <div class="unit-glass-card" onclick="openUnit(3)">
+        <div>
+          <div class="unit-title-head">Unit 3</div>
+          <div class="unit-topic-name">My week</div>
         </div>
+        <div class="unit-arrow-icon">›</div>
       </div>
-    </div>
 
-    <!-- ==================== 4. SPEAKING LAB ==================== -->
-    <div id="sec-speaking" class="hidden">
-      <div class="section-head">🗣️ Speaking Lab - Voice Assessment</div>
-      <div class="section-sub">Read aloud the target sentence into your microphone!</div>
+      <div class="unit-glass-card" onclick="openUnit(4)">
+        <div>
+          <div class="unit-title-head">Unit 4</div>
+          <div class="unit-topic-name">Birthday party</div>
+        </div>
+        <div class="unit-arrow-icon">›</div>
+      </div>
 
-      <div class="speaking-lab-box">
-        <div style="font-size:12px; font-weight:900; color:#b45309; text-transform:uppercase;">Speaking Mission:</div>
-        <div style="font-size:24px; font-weight:900; color:#92400e; margin:8px 0;" id="speak-target-text">"I'm from Viet Nam."</div>
-        <div class="vn-hint">Đọc to câu: "I'm from Viet Nam."</div>
+      <div class="unit-glass-card" onclick="openUnit(5)">
+        <div>
+          <div class="unit-title-head">Unit 5</div>
+          <div class="unit-topic-name">Things we can do</div>
+        </div>
+        <div class="unit-arrow-icon">›</div>
+      </div>
 
-        <button class="mic-giant-btn" id="mic-main-btn" onclick="toggleMicrophone()">🎤</button>
-        <div id="mic-status-text" style="font-weight:800; font-size:14px; color:var(--text-muted);">Tap mic to record!</div>
+      <div class="unit-glass-card" onclick="openUnit(6)">
+        <div>
+          <div class="unit-title-head">Unit 6</div>
+          <div class="unit-topic-name">Our school</div>
+        </div>
+        <div class="unit-arrow-icon">›</div>
+      </div>
 
-        <button class="btn-3d btn-yellow" onclick="skipSpeakingLab()" style="margin-top:12px; padding:6px 14px; font-size:13px; border-radius:12px;">Skip this challenge</button>
+      <div class="unit-glass-card" onclick="openUnit(7)">
+        <div>
+          <div class="unit-title-head">Unit 7</div>
+          <div class="unit-topic-name">Our timetables</div>
+        </div>
+        <div class="unit-arrow-icon">›</div>
+      </div>
+
+      <div class="unit-glass-card" onclick="openUnit(8)">
+        <div>
+          <div class="unit-title-head">Unit 8</div>
+          <div class="unit-topic-name">Favourite subjects</div>
+        </div>
+        <div class="unit-arrow-icon">›</div>
       </div>
     </div>
 
-    <!-- ==================== 5. REVIEW ==================== -->
-    <div id="sec-review" class="hidden">
-      <div class="section-head">🧠 Unit 1 Review & Grammar Summary</div>
-      <div class="section-sub">Review sentence patterns before entering the Boss Arena!</div>
+    <!-- ================= 4. GIAO DIỆN HỌC BÀI (CHUẨN ẢNH 3) ================= -->
+    <div class="lesson-view-container" id="unit-detail-workspace">
 
-      <div style="display:flex; flex-direction:column; gap:12px;">
-        <div style="background:#eff6ff; border:2px solid #bfdbfe; border-radius:18px; padding:16px;">
-          <h4 style="color:#1d4ed8; font-size:16px; margin-bottom:6px;">1. Asking where someone is from (Self & You)</h4>
-          <p style="font-size:14.5px; line-height:1.5;">
-            ❓ <strong>Where are you from?</strong><br>
-            👉 <strong>I'm from Viet Nam.</strong> (I'm from Britain. / I'm from America.)
-          </p>
+      <!-- TIÊU ĐỀ BÀI VÀ SUB TABS -->
+      <div class="lesson-header-row">
+        <div>
+          <div style="font-size:13px; font-weight:800; color:#d946ef; text-transform:uppercase;">Unit 1: My Friends</div>
+          <h2 class="lesson-big-title">Look, listen and say.</h2>
         </div>
-
-        <div style="background:#fefce8; border:2px solid #fef08a; border-radius:18px; padding:16px;">
-          <h4 style="color:#a16207; font-size:16px; margin-bottom:6px;">2. Asking about a third person (He / She / They)</h4>
-          <p style="font-size:14.5px; line-height:1.5;">
-            ❓ <strong>Where's he from?</strong> 👉 <strong>He's from Singapore.</strong><br>
-            ❓ <strong>Where's she from?</strong> 👉 <strong>She's from Japan.</strong><br>
-            ❓ <strong>Where are they from?</strong> 👉 <strong>They're from Australia.</strong>
-          </p>
-        </div>
-
-        <div style="background:#f0fdf4; border:2px solid #bbf7d0; border-radius:18px; padding:16px;">
-          <h4 style="color:#15803d; font-size:16px; margin-bottom:6px;">3. Phonics & Pronunciation Rules</h4>
-          <p style="font-size:14.5px; line-height:1.5;">
-            🅰️ The <strong>/ə/</strong> sound: <em>Americ<strong>a</strong></em><br>
-            🅰️ The <strong>/iə/</strong> sound: <em>Austral<strong>ia</strong>, Malays<strong>ia</strong></em>
-          </p>
+        <div class="sub-lesson-tabs">
+          <button class="sub-pill-btn active" id="btn-sub-l1" onclick="switchSubLesson('l1')">Lesson 1 (p.10-11)</button>
+          <button class="sub-pill-btn" id="btn-sub-l2" onclick="switchSubLesson('l2')">Lesson 2 (p.12-13)</button>
+          <button class="sub-pill-btn" id="btn-sub-sbt" onclick="switchSubLesson('sbt')">Sách Bài Tập (p.4)</button>
         </div>
       </div>
-    </div>
 
-    <!-- ==================== 6. BOSS BATTLE ==================== -->
-    <div id="sec-boss" class="hidden">
-      <div class="boss-arena">
-        <div class="boss-monster" id="boss-emoji">👾</div>
-        <h2 style="font-size:22px; font-weight:900;">GRAMMAR MONSTER BATTLE</h2>
-        <div style="font-size:13px; opacity:0.85; margin-top:2px;">Answer correctly to deplete the Boss HP and win the trophy!</div>
+      <!-- VIEW CHO LESSON 1 -->
+      <div id="content-lesson-1">
 
-        <div class="boss-hp-track">
-          <div class="boss-hp-fill" id="boss-hp-bar"></div>
+        <!-- KHỐI 2 CỘT: PHONICS VÀ VOCABULARY -->
+        <div class="dual-column-panel">
+
+          <!-- CỘT PHONICS -->
+          <div class="sub-panel-card">
+            <div class="panel-badge-title phonics">🔤 Phonics</div>
+            <div style="font-size:18px; font-weight:900; color:#1e293b; margin-bottom:12px;">
+              Ending sounds: /ə/ & /iə/
+            </div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">America /ə/</div>
+                <div class="vi-text-sub">âm đuôi /ə/ trong nước Mỹ</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('America')">🔊</button>
+            </div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">Australia /iə/</div>
+                <div class="vi-text-sub">âm đuôi /iə/ trong nước Úc</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('Australia')">🔊</button>
+            </div>
+          </div>
+
+          <!-- CỘT VOCABULARY -->
+          <div class="sub-panel-card">
+            <div class="panel-badge-title vocab">📚 Vocabulary</div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">Britain 🇬🇧</div>
+                <div class="vi-text-sub">nước Anh</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('Britain')">🔊</button>
+            </div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">Viet Nam 🇻🇳</div>
+                <div class="vi-text-sub">nước Việt Nam</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('Viet Nam')">🔊</button>
+            </div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">America 🇺🇸</div>
+                <div class="vi-text-sub">nước Mỹ</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('America')">🔊</button>
+            </div>
+
+            <div class="bilingual-speech-row">
+              <div class="bilingual-text-group">
+                <div class="en-text-bold">Australia 🇦🇺</div>
+                <div class="vi-text-sub">nước Úc</div>
+              </div>
+              <button class="audio-speaker-circle" onclick="speak('Australia')">🔊</button>
+            </div>
+          </div>
+
         </div>
 
-        <div style="background:rgba(255,255,255,0.1); border-radius:18px; padding:18px; margin-top:10px;">
-          <div id="boss-q-text" style="font-size:18px; font-weight:800; margin-bottom:12px;">Question: "Where _____ you from?"</div>
-          <div class="options-stack" id="boss-options-box">
-            <!-- Dynamically Rendered -->
+        <!-- SENTENCE PATTERN -->
+        <div class="sentence-pattern-card">
+          <div class="panel-badge-title phonics">💬 Sentence Pattern</div>
+          <div class="bilingual-speech-row" style="border:none; padding:0; margin:0;">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold" style="font-size:18px;">Where are you from? — I'm from Viet Nam.</div>
+              <div class="vi-text-sub" style="font-size:13.5px;">Bạn đến từ đâu? — Mình đến từ Việt Nam.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Where are you from? I am from Viet Nam.')">🔊</button>
+          </div>
+        </div>
+
+        <!-- HỘI THOẠI LIỀN MẠCH MINH - MARY VÀ LUCY - BEN -->
+        <div style="margin-bottom:24px;">
+          <div style="font-size:14px; font-weight:900; color:#0284c7; text-transform:uppercase; margin-bottom:10px;">
+            1. Look, listen and repeat (Hội thoại hoàn chỉnh)
+          </div>
+
+          <!-- ĐOẠN MINH & MARY -->
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Minh: Hello. I'm Minh. I'm from Viet Nam. Where are you from?</div>
+              <div class="vi-text-sub">Xin chào. Mình là Minh. Mình đến từ Việt Nam. Bạn đến từ đâu?</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Hello. I am Minh. I am from Viet Nam. Where are you from?')">🔊</button>
+          </div>
+
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Mary: Hello, Minh. I'm Mary. I'm from America.</div>
+              <div class="vi-text-sub">Chào Minh. Mình là Mary. Mình đến từ nước Mỹ.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Hello, Minh. I am Mary. I am from America.')">🔊</button>
+          </div>
+
+          <!-- ĐOẠN LUCY & BEN -->
+          <div class="bilingual-speech-row" style="margin-top:14px;">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Lucy: Hi. I'm Lucy. I'm from Britain. Where are you from?</div>
+              <div class="vi-text-sub">Chào bạn. Mình là Lucy. Mình đến từ nước Anh. Bạn đến từ đâu?</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Hi. I am Lucy. I am from Britain. Where are you from?')">🔊</button>
+          </div>
+
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Ben: Hi, Lucy. I'm Ben. I'm from Australia.</div>
+              <div class="vi-text-sub">Chào Lucy. Mình là Ben. Mình đến từ nước Úc.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Hi, Lucy. I am Ben. I am from Australia.')">🔊</button>
+          </div>
+        </div>
+
+        <!-- BÀI TẬP SGK MỤC 5 (ĐỦ 4 CÂU) -->
+        <div class="quiz-section-card">
+          <div style="font-size:15px; font-weight:900; color:#1e293b; margin-bottom:14px;">
+            5. Look, complete and read (SGK Trang 11)
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">1. I'm Minh. I'm from ________. 🇻🇳</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Viet Nam')"><span>a. Viet Nam</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'America')"><span>b. America</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Britain')"><span>c. Britain</span><span>🔊</span></div>
+            </div>
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">2. I'm Mary. I'm ________. 🇺🇸</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'from Viet Nam')"><span>a. from Viet Nam</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'from America')"><span>b. from America</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'from Australia')"><span>c. from Australia</span><span>🔊</span></div>
+            </div>
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">3. A: ________ are you from? — B: I'm from Australia. 🇦🇺</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'What')"><span>a. What</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Where')"><span>b. Where</span><span>🔊</span></div>
+            </div>
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">4. A: Where are you ________? — B: I'm from Britain. 🇬🇧</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'from')"><span>a. from</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'in')"><span>b. in</span><span>🔊</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VIEW CHO SÁCH BÀI TẬP (SBT) -->
+      <div id="content-sbt" style="display:none;">
+        <div style="font-size:16px; font-weight:900; color:#b45309; margin-bottom:14px;">
+          📙 Bài Tập Củng Cố Unit 1 (SBT Trang 4)
+        </div>
+
+        <div class="quiz-question-box">
+          <div class="quiz-q-title">1. She's from ________. (Nghe và chọn)</div>
+          <div class="quiz-opt-btn-list">
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Australia')"><span>a. Australia 🇦🇺</span><span>🔊</span></div>
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Malaysia')"><span>b. Malaysia 🇲🇾</span><span>🔊</span></div>
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'America')"><span>c. America 🇺🇸</span><span>🔊</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-question-box">
+          <div class="quiz-q-title">2. He's from ________. (Nghe và chọn)</div>
+          <div class="quiz-opt-btn-list">
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Malaysia')"><span>a. Malaysia 🇲🇾</span><span>🔊</span></div>
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'America')"><span>b. America 🇺🇸</span><span>🔊</span></div>
+            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Australia')"><span>c. Australia 🇦🇺</span><span>🔊</span></div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ==================== 7. REWARDS ==================== -->
-    <div id="sec-rewards" class="hidden">
-      <div class="section-head">⭐ Hall of Fame & Achievements</div>
-      <div class="section-sub">Congratulations on mastering Unit 1: My Friends!</div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; text-align:center;">
-        <div style="background:#fef3c7; border:2px solid #fde68a; border-radius:20px; padding:20px;">
-          <div style="font-size:46px;">🏆</div>
-          <div style="font-weight:900; font-size:16px; margin-top:6px;">Unit 1 Champion</div>
-          <small style="color:#92400e;">100% Textbook & Workbook Complete</small>
-        </div>
-        <div style="background:#e0f2fe; border:2px solid #bae6fd; border-radius:20px; padding:20px;">
-          <div style="font-size:46px;">👑</div>
-          <div style="font-weight:900; font-size:16px; margin-top:6px;">Monster Slayer</div>
-          <small style="color:#0369a1;">Defeated Grammar Monster</small>
-        </div>
-      </div>
-
-      <div style="text-align:center; margin-top:24px;">
-        <button class="btn-3d btn-green" onclick="claimGrandReward()">🎉 Celebrate & Claim Gold Stars!</button>
-      </div>
     </div>
 
   </div>
 
-</div>
-
 <script>
-  let stars = 120;
-  let hp = 5;
-  let audioCtx = null;
+  let trueScore = 0;
+  let falseScore = 0;
 
-  // WEB AUDIO SOUND EFFECTS
-  function playSFX(isSuccess) {
-    try {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const now = audioCtx.currentTime;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      if (isSuccess) {
-        osc.frequency.setValueAtTime(440, now);
-        osc.frequency.exponentialRampToValueAtTime(880, now + 0.15);
-      } else {
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(180, now);
-        osc.frequency.linearRampToValueAtTime(100, now + 0.2);
-      }
-      gain.gain.setValueAtTime(0.2, now);
-      gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start(now);
-      osc.stop(now + 0.25);
-    } catch(e) {}
-  }
-
-  // WEB SPEECH SYNTHESIS
   function speak(text) {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
@@ -769,293 +732,55 @@
     window.speechSynthesis.speak(u);
   }
 
-  function speakCurrentMascot() {
-    speak(document.getElementById('mascot-msg').textContent);
-  }
-
-  function speakSummary() {
-    speak("Viet Nam. Britain. America. Australia. Singapore. Malaysia. Thailand. Japan.");
-  }
-
-  function playSong() {
-    speak("Hello. I'm Minh. I'm from Viet Nam. Hello, Lucy. Where are you from? I'm from Britain. Hello, Mary. Where are you from? I'm from America. Hello, Ben. Where are you from? I'm from Australia.");
-  }
-
-  // TOGGLE VIETNAMESE HINTS
-  function toggleVietnameseHints() {
-    document.body.classList.toggle('show-hints');
-    const isShowing = document.body.classList.contains('show-hints');
-    const btn = document.getElementById('btn-toggle-hint');
-    btn.textContent = isShowing ? "🇻🇳 Hints: ON" : "🇻🇳 Hints: OFF";
-    btn.classList.toggle('active', isShowing);
-  }
-
-  // SWITCH SECTIONS IN FLOW
-  function switchSection(secId) {
-    const list = ['sgk', 'wb', 'listening', 'speaking', 'review', 'boss', 'rewards'];
-    list.forEach(s => {
-      document.getElementById('sec-' + s).classList.add('hidden');
-    });
-    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-
-    document.getElementById('sec-' + secId).classList.remove('hidden');
-    event.currentTarget.classList.add('active');
-
-    // Update Mascot English guidance
-    const msg = document.getElementById('mascot-msg');
-    const msgVn = document.getElementById('mascot-msg-vn');
-    if (secId === 'sgk') {
-      msg.textContent = "Explore vocabulary and song in Student's Book!";
-      msgVn.textContent = "Khám phá từ vựng và bài hát trong Sách Giáo Khoa!";
-    } else if (secId === 'wb') {
-      msg.textContent = "Complete phonics and sentence patterns in Workbook!";
-      msgVn.textContent = "Hoàn thành phần ngữ âm và mẫu câu trong Sách Bài Tập!";
-    } else if (secId === 'listening') {
-      msg.textContent = "Listen carefully to the audio and select the right flag!";
-      msgVn.textContent = "Lắng nghe cẩn thận và chọn đúng lá cờ quốc gia!";
-    } else if (secId === 'speaking') {
-      msg.textContent = "Speak aloud into the microphone. You can do it!";
-      msgVn.textContent = "Hãy đọc thật to và rõ ràng vào micro nhé!";
-    } else if (secId === 'review') {
-      msg.textContent = "Review grammar rules before entering the Boss Battle!";
-      msgVn.textContent = "Ôn lại toàn bộ ngữ pháp trước khi vào trận đánh Boss!";
-    } else if (secId === 'boss') {
-      msg.textContent = "Battle the Grammar Monster and claim victory!";
-      msgVn.textContent = "Chiến đấu với Monster và giành chiến thắng nào!";
-    } else if (secId === 'rewards') {
-      msg.textContent = "Great job! Check out your trophies and medals!";
-      msgVn.textContent = "Làm tốt lắm! Hãy nhận cúp và huy hiệu khen thưởng!";
-    }
-  }
-
-  // WORKBOOK CANDY PHONICS
-  let activeSlotIndex = 0;
-  function selectSlotRow(idx) {
-    activeSlotIndex = idx;
-    for (let i = 0; i < 3; i++) {
-      document.getElementById('slot-row-' + i).style.borderColor = (i === idx) ? 'var(--primary)' : 'var(--border)';
-    }
-  }
-
-  function snapSound(sound) {
-    const slot = document.getElementById('wb-slot-' + activeSlotIndex);
-    const expected = slot.getAttribute('data-ans');
-
-    if (sound === expected) {
-      slot.textContent = sound;
-      slot.classList.add('filled');
-      playSFX(true);
-      stars += 10;
-      updateHeader();
-      confetti({ particleCount: 25, spread: 50, origin: { y: 0.8 } });
-
-      const word = activeSlotIndex === 0 ? "America" : activeSlotIndex === 1 ? "Australia" : "Malaysia";
-      speak(word);
-
-      activeSlotIndex = (activeSlotIndex + 1) % 3;
-      selectSlotRow(activeSlotIndex);
-    } else {
-      playSFX(false);
-      speak("Try again!");
-      slot.style.transform = 'translateX(-5px)';
-      setTimeout(() => slot.style.transform = 'translateX(5px)', 80);
-      setTimeout(() => slot.style.transform = 'none', 160);
-    }
-  }
-
-  function checkAnswer(el, isCorrect) {
+  function checkAnswer(el, isCorrect, speechText) {
+    speak(speechText);
     if (isCorrect) {
       el.classList.add('correct');
-      playSFX(true);
-      stars += 15;
-      updateHeader();
+      trueScore++;
+      document.getElementById('score-true-num').textContent = trueScore;
       confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
-      speak("Correct! She's from Japan.");
     } else {
       el.classList.add('wrong');
-      playSFX(false);
-      speak("Try again!");
-      setTimeout(() => el.classList.remove('wrong'), 700);
+      falseScore++;
+      document.getElementById('score-false-num').textContent = falseScore;
+      setTimeout(() => el.classList.remove('wrong'), 800);
     }
   }
 
-  // LISTENING LAB
-  let listenQIndex = 0;
-  const listenBank = [
-    { audio: "Where are you from? I'm from Britain.", correct: "Britain", options: ["Viet Nam", "Britain", "America"] },
-    { audio: "Where are you from? I'm from Australia.", correct: "Australia", options: ["Australia", "Japan", "Malaysia"] },
-    { audio: "Where's he from? He's from Singapore.", correct: "Singapore", options: ["Thailand", "Singapore", "Viet Nam"] }
-  ];
+  function switchSubLesson(tab) {
+    document.querySelectorAll('.sub-pill-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-sub-' + tab).classList.add('active');
 
-  const flagIcons = {
-    "Britain": "https://flagcdn.com/w160/gb.png",
-    "Viet Nam": "https://flagcdn.com/w160/vn.png",
-    "America": "https://flagcdn.com/w160/us.png",
-    "Australia": "https://flagcdn.com/w160/au.png",
-    "Japan": "https://flagcdn.com/w160/jp.png",
-    "Malaysia": "https://flagcdn.com/w160/my.png",
-    "Singapore": "https://flagcdn.com/w160/sg.png",
-    "Thailand": "https://flagcdn.com/w160/th.png"
-  };
-
-  function playCurrentListenQ() {
-    speak(listenBank[listenQIndex].audio);
-  }
-
-  function renderListeningLab() {
-    const cur = listenBank[listenQIndex];
-    document.getElementById('listen-counter').textContent = `Question ${listenQIndex + 1} / ${listenBank.length}`;
-    const grid = document.getElementById('listen-options-grid');
-    grid.innerHTML = '';
-
-    cur.options.forEach(country => {
-      const card = document.createElement('div');
-      card.className = 'flag-card';
-      card.innerHTML = `<img src="${flagIcons[country]}" alt="${country}"><div class="name">${country}</div>`;
-      card.onclick = () => {
-        if (country === cur.correct) {
-          playSFX(true);
-          stars += 15;
-          updateHeader();
-          confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
-          speak("Awesome! " + country);
-          setTimeout(() => {
-            listenQIndex = (listenQIndex + 1) % listenBank.length;
-            renderListeningLab();
-            playCurrentListenQ();
-          }, 1200);
-        } else {
-          playSFX(false);
-          card.style.borderColor = 'var(--coral)';
-          setTimeout(() => card.style.borderColor = 'var(--border)', 700);
-        }
-      };
-      grid.appendChild(card);
-    });
-  }
-
-  // SPEAKING LAB WITH MIC
-  function toggleMicrophone() {
-    const SpeechAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const btn = document.getElementById('mic-main-btn');
-    const status = document.getElementById('mic-status-text');
-
-    if (!SpeechAPI) {
-      status.textContent = "⚠️ Browser mic unsupported. Click skip below!";
-      return;
-    }
-
-    try {
-      const rec = new SpeechAPI();
-      rec.lang = 'en-US';
-      rec.start();
-      btn.classList.add('listening');
-      status.textContent = "🎧 Listening to your voice...";
-      status.style.color = "var(--primary)";
-
-      rec.onresult = (e) => {
-        btn.classList.remove('listening');
-        const spoken = (e.results[0][0].transcript || '').toLowerCase();
-        if (spoken.includes('viet nam') || spoken.includes('vietnam')) {
-          playSFX(true);
-          status.textContent = "🌟 Perfect pronunciation! 100% ⭐⭐⭐";
-          status.style.color = "var(--green-dark)";
-          stars += 25;
-          updateHeader();
-          confetti({ particleCount: 40, spread: 70, origin: { y: 0.7 } });
-          speak("Excellent job!");
-        } else {
-          playSFX(false);
-          status.textContent = `You said: "${spoken}". Try again!`;
-          status.style.color = "var(--coral)";
-        }
-      };
-
-      rec.onerror = () => {
-        btn.classList.remove('listening');
-        status.textContent = "Could not hear clearly. Tap mic to retry!";
-        status.style.color = "var(--coral)";
-      };
-    } catch(err) {
-      btn.classList.remove('listening');
+    if (tab === 'sbt') {
+      document.getElementById('content-lesson-1').style.display = 'none';
+      document.getElementById('content-sbt').style.display = 'block';
+    } else {
+      document.getElementById('content-lesson-1').style.display = 'block';
+      document.getElementById('content-sbt').style.display = 'none';
     }
   }
 
-  function skipSpeakingLab() {
-    playSFX(true);
-    document.getElementById('mic-status-text').textContent = "✅ Speaking task completed!";
-    stars += 10;
-    updateHeader();
-  }
-
-  // BOSS BATTLE ARENA
-  let bossHp = 100;
-  let bossQIndex = 0;
-  const bossBank = [
-    { q: "Where _____ you from?", opts: ["is", "are", "am"], ans: 1 },
-    { q: "Where's he from? - He's _____ Singapore.", opts: ["at", "on", "from"], ans: 2 },
-    { q: "Which country has London as its capital?", opts: ["Britain", "America", "Japan"], ans: 0 },
-    { q: "Which word ends with the sound /iə/?", opts: ["America", "Australia", "Japan"], ans: 1 }
-  ];
-
-  function renderBossBattle() {
-    if (bossHp <= 0) {
-      document.getElementById('boss-emoji').textContent = '💥';
-      document.getElementById('boss-q-text').textContent = '🏆 VICTORY! YOU DEFEATED THE MONSTER!';
-      document.getElementById('boss-options-box').innerHTML = '<button class="btn-3d btn-green" onclick="switchSection(\'rewards\')">Claim Rewards & Trophy 👑</button>';
-      confetti({ particleCount: 120, spread: 100, origin: { y: 0.5 } });
-      return;
+  function openUnit(unitNum) {
+    document.querySelectorAll('.unit-glass-card').forEach(c => c.classList.remove('active-unit'));
+    event.currentTarget.classList.add('active-unit');
+    if (unitNum === 1) {
+      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      alert("Unit " + unitNum + " đang cập nhật dữ liệu!");
     }
-    const cur = bossBank[bossQIndex];
-    document.getElementById('boss-q-text').textContent = cur.q;
-    const box = document.getElementById('boss-options-box');
-    box.innerHTML = '';
-
-    cur.opts.forEach((opt, idx) => {
-      const btn = document.createElement('div');
-      btn.className = 'opt-pill';
-      btn.textContent = opt;
-      btn.onclick = () => {
-        if (idx === cur.ans) {
-          btn.classList.add('correct');
-          playSFX(true);
-          bossHp -= 25;
-          document.getElementById('boss-hp-bar').style.width = bossHp + '%';
-          confetti({ particleCount: 35, spread: 60, origin: { y: 0.7 } });
-          speak("Direct hit!");
-          setTimeout(() => {
-            bossQIndex = (bossQIndex + 1) % bossBank.length;
-            renderBossBattle();
-          }, 900);
-        } else {
-          btn.classList.add('wrong');
-          playSFX(false);
-          hp = Math.max(1, hp - 1);
-          updateHeader();
-          speak("Try again!");
-          setTimeout(() => btn.classList.remove('wrong'), 700);
-        }
-      };
-      box.appendChild(btn);
-    });
   }
 
-  function claimGrandReward() {
-    playSFX(true);
-    confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 } });
-    speak("Congratulations! You are the champion of Unit 1!");
+  function switchNav(nav) {
+    if (nav === 'exercises') {
+      switchSubLesson('sbt');
+      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
+    } else if (nav === 'lessons') {
+      switchSubLesson('l1');
+      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      alert("Chuyên mục: " + nav.toUpperCase() + " đang được phát triển!");
+    }
   }
-
-  function updateHeader() {
-    document.getElementById('stat-stars').textContent = stars;
-    document.getElementById('stat-hp').textContent = hp;
-    document.getElementById('stat-exp').style.width = Math.min(100, (stars / 250) * 100) + '%';
-  }
-
-  // INITIALIZE
-  selectSlotRow(0);
-  renderListeningLab();
-  renderBossBattle();
 </script>
 </body>
 </html>
