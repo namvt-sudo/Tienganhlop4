@@ -12,15 +12,15 @@
 <style>
   :root {
     --bg-page: #f8fafd;
-    --purple-main: #9333ea;
-    --purple-btn: #8b5cf6;
-    --pink-btn: #ec4899;
-    --blue-btn: #38bdf8;
-    --orange-btn: #f59e0b;
-    --green-btn: #22c55e;
     --text-dark: #1e293b;
     --text-gray: #8898aa;
+    --pink-btn: #ec4899;
+    --blue-btn: #0284c7;
+    --blue-light: #e0f2fe;
+    --purple-main: #9333ea;
     --border-card: #f1e8ff;
+    --green: #22c55e;
+    --coral: #ef4444;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
@@ -30,9 +30,9 @@
     color: var(--text-dark);
     padding-bottom: 60px;
   }
-  h1, h2, h3, h4, button, .font-fun { font-family: 'Fredoka', sans-serif; }
+  h1, h2, h3, h4, button { font-family: 'Fredoka', sans-serif; }
 
-  /* 1. TOP HEADER NAVIGATION BAR */
+  /* TOP HEADER NAVIGATION */
   .app-header {
     background: #ffffff;
     border-bottom: 2px solid #eef2f6;
@@ -53,19 +53,14 @@
     white-space: nowrap;
   }
   .brand-logo-pill {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     background: #fff;
     border: 2px solid #fed7aa;
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 15px;
     font-weight: 900;
     color: #ea580c;
   }
-  .brand-logo-pill img { width: 30px; height: 30px; border-radius: 50%; }
-
   .header-btn {
     border: none;
     border-radius: 18px;
@@ -78,20 +73,11 @@
     gap: 6px;
     transition: all 0.2s ease;
   }
-  .header-btn.explore { background: #ede9fe; color: #7c3aed; }
   .header-btn.lessons { background: #ec4899; color: #ffffff; box-shadow: 0 4px 12px rgba(236,72,153,0.35); }
-  .header-btn.exercises { background: #e0f2fe; color: #0284c7; }
-  .header-btn.review { background: #fef3c7; color: #b45309; }
-  .header-btn.exams { background: #dcfce7; color: #15803d; }
-  .header-btn.minigames { background: #f3e8ff; color: #9333ea; }
-  .header-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+  .header-btn.sub { background: #f1f5f9; color: #475569; }
+  .header-btn.sub:hover { background: #e2e8f0; }
 
-  .header-right-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .score-true-false-box {
+  .header-score-box {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -101,197 +87,141 @@
     font-weight: 900;
     font-size: 13.5px;
   }
-  .tag-score-true { background: #22c55e; color: #fff; padding: 4px 8px; border-radius: 8px; }
-  .tag-score-false { background: #ef4444; color: #fff; padding: 4px 8px; border-radius: 8px; }
+  .tag-score-true { background: var(--green); color: #fff; padding: 4px 8px; border-radius: 8px; }
+  .tag-score-false { background: var(--coral); color: #fff; padding: 4px 8px; border-radius: 8px; }
 
-  /* 2. NATURE CARTOON BANNER */
+  /* NATURE CARTOON BANNER */
   .banner-container {
     max-width: 1080px;
     margin: 16px auto;
     padding: 0 16px;
   }
   .hero-nature-banner {
-    position: relative;
     border-radius: 28px;
-    overflow: hidden;
-    height: 180px;
-    background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 60%, #86efac 100%);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    height: 160px;
+    background: linear-gradient(135deg, #fbcfe8 0%, #bae6fd 60%, #bbf7d0 100%);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
     display: flex;
     align-items: center;
     justify-content: center;
     border: 3px solid #ffffff;
   }
-  .banner-backdrop-svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-  }
-  .banner-center-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .banner-bee-avatar {
-    width: 90px;
-    height: 90px;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
-    animation: beeHover 3s ease-in-out infinite;
-  }
-  @keyframes beeHover {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .banner-titles { text-align: left; }
   .banner-main-logo-text {
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 900;
-    color: #d946ef;
-    text-shadow: 2px 2px 0px #fff, -2px -2px 0px #fff, 0 4px 10px rgba(0,0,0,0.1);
-    line-height: 1;
+    color: #c026d3;
+    text-shadow: 2px 2px 0px #fff;
     margin-bottom: 4px;
   }
   .banner-sub-tag {
-    background: #c026d3;
+    background: #d946ef;
     color: #fff;
-    padding: 4px 14px;
+    padding: 4px 16px;
     border-radius: 20px;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 800;
     display: inline-block;
   }
 
-  /* 3. MAIN WORKSPACE WRAPPER */
+  /* WORKSPACE */
   .app-workspace {
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 16px;
   }
 
-  /* SEMESTER CONTROLS */
-  .semester-nav-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-  }
-  .semester-pill-group {
-    display: flex;
-    gap: 8px;
-  }
-  .semester-tab-pill {
-    border: none;
-    border-radius: 16px;
-    padding: 8px 18px;
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-  }
-  .semester-tab-pill.active { background: #d946ef; color: #fff; }
-  .semester-tab-pill.inactive { background: #e2e8f0; color: #64748b; }
-
-  /* 4. UNITS GRID (HIỂN THỊ LƯỚI CÁC UNIT 1-10 NHƯ ẢNH 2) */
+  /* UNITS GRID */
   .units-card-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 22px;
   }
-  @media(max-width: 900px) { .units-card-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media(max-width: 540px) { .units-card-grid { grid-template-columns: 1fr; } }
+  @media(max-width: 800px) { .units-card-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .unit-glass-card {
     background: #ffffff;
     border: 2px solid #eef2f6;
-    border-radius: 22px;
-    padding: 18px 20px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    border-radius: 20px;
+    padding: 16px 18px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 0.2s ease;
   }
-  .unit-glass-card:hover {
-    border-color: #cbd5e1;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  }
   .unit-glass-card.active-unit {
     border-color: #d946ef;
     background: #fdf4ff;
   }
-  .unit-title-head { font-size: 16px; font-weight: 900; color: #1e293b; margin-bottom: 2px; }
-  .unit-topic-name { font-size: 13.5px; font-weight: 700; color: #64748b; }
-  .unit-arrow-icon { font-size: 18px; font-weight: 900; color: #94a3b8; }
+  .unit-title-head { font-size: 15px; font-weight: 900; color: #1e293b; }
+  .unit-topic-name { font-size: 13px; font-weight: 700; color: #64748b; }
 
-  /* 5. GIAO DIỆN BÀI HỌC (CHUẨN ẢNH 3: TIẾNG ANH TRÊN, TIẾNG VIỆT XÁM NHỎ DƯỚI) */
+  /* MAIN LESSON CONTAINER */
   .lesson-view-container {
     background: #ffffff;
     border: 2px solid var(--border-card);
     border-radius: 28px;
-    padding: 26px;
+    padding: 24px;
     box-shadow: 0 6px 20px rgba(147, 51, 234, 0.04);
   }
   .lesson-header-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
   }
   .lesson-big-title { font-size: 22px; font-weight: 900; color: #1e293b; }
 
-  .sub-lesson-tabs {
+  /* CLEAN TABS - NO PAGE NUMBERS */
+  .clean-lesson-tabs {
     display: flex;
     gap: 8px;
-    margin-bottom: 22px;
+    flex-wrap: wrap;
   }
-  .sub-pill-btn {
+  .tab-btn {
     border: none;
-    border-radius: 14px;
-    padding: 8px 16px;
-    font-size: 13.5px;
+    border-radius: 16px;
+    padding: 9px 18px;
+    font-size: 14px;
     font-weight: 800;
     cursor: pointer;
     background: #f1f5f9;
     color: #64748b;
+    transition: all 0.2s;
   }
-  .sub-pill-btn.active { background: #38bdf8; color: #fff; }
-
-  /* KHỐI 2 CỘT: PHONICS & VOCABULARY */
-  .dual-column-panel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
+  .tab-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
   }
-  @media(max-width: 680px) { .dual-column-panel { grid-template-columns: 1fr; } }
 
-  .sub-panel-card {
+  /* 4 SKILLS SECTION CARDS */
+  .skill-block {
     background: #ffffff;
     border: 1.5px solid #f1f5f9;
     border-radius: 22px;
     padding: 18px;
+    margin-bottom: 20px;
   }
-  .panel-badge-title {
-    font-size: 13px;
+  .skill-badge-title {
+    font-size: 13.5px;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
-  .panel-badge-title.phonics { color: #9333ea; }
-  .panel-badge-title.vocab { color: #16a34a; }
+  .skill-badge-title.listening { color: #0284c7; }
+  .skill-badge-title.speaking { color: #d946ef; }
+  .skill-badge-title.reading { color: #16a34a; }
+  .skill-badge-title.writing { color: #f59e0b; }
 
-  /* DÒNG TỪ VỰNG & HỘI THOẠI SONG NGỮ CHUẨN ẢNH 3 */
+  /* BILINGUAL ROW */
   .bilingual-speech-row {
     background: #ffffff;
     border: 1.5px solid #f1f5f9;
@@ -326,7 +256,7 @@
     color: var(--text-gray);
   }
 
-  /* NÚT LOA TRÒN XANH DƯƠNG */
+  /* CIRCLE SPEAKER BUTTON */
   .audio-speaker-circle {
     width: 36px;
     height: 36px;
@@ -342,26 +272,20 @@
     transition: all 0.2s;
   }
   .audio-speaker-circle:hover {
-    background: #38bdf8;
+    background: #0284c7;
     color: #fff;
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
-  /* SENTENCE PATTERNS PANEL */
-  .sentence-pattern-card {
-    background: #ffffff;
-    border: 1.5px solid #ede9fe;
-    border-radius: 22px;
-    padding: 18px 20px;
-    margin-bottom: 22px;
+  /* 2-COLUMNS GRID */
+  .dual-column-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
+  @media(max-width: 680px) { .dual-column-panel { grid-template-columns: 1fr; } }
 
-  /* KHỐI TRẮC NGHIỆM ĐIỀN TỪ (SGK TRANG 11) */
-  .quiz-section-card {
-    border-top: 2px dashed #f1f5f9;
-    padding-top: 22px;
-    margin-top: 22px;
-  }
+  /* QUIZ QUESTION BOX */
   .quiz-question-box {
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
@@ -391,21 +315,20 @@
 </head>
 <body>
 
-  <!-- ================= 1. HEADER CHUẨN ================= -->
+  <!-- ================= HEADER ================= -->
   <header class="app-header">
     <div class="header-left-nav">
       <div class="brand-logo-pill">
         <span>🐝 Tiếng Anh 4</span>
       </div>
-      <button class="header-btn explore" onclick="switchNav('explore')">🧭 Explore</button>
-      <button class="header-btn lessons" onclick="switchNav('lessons')">📖 Lessons</button>
-      <button class="header-btn exercises" onclick="switchNav('exercises')">✏️ Exercises</button>
-      <button class="header-btn review" onclick="switchNav('review')">🔄 Review</button>
-      <button class="header-btn exams" onclick="switchNav('exams')">🏆 Exams</button>
-      <button class="header-btn minigames" onclick="switchNav('minigames')">🎮 Mini Games</button>
+      <button class="header-btn sub">Explore</button>
+      <button class="header-btn lessons">Lessons</button>
+      <button class="header-btn sub" onclick="selectTab('sbt')">Exercises</button>
+      <button class="header-btn sub">Review</button>
+      <button class="header-btn sub">Exams</button>
+      <button class="header-btn sub">Mini Games</button>
     </div>
 
-    <!-- BẢNG ĐIỂM TRUE/FALSE -->
     <div class="header-right-meta">
       <div class="score-true-false-box">
         <span class="tag-score-true">★ True <span id="score-true-num">0</span></span>
@@ -414,205 +337,126 @@
     </div>
   </header>
 
-  <!-- ================= 2. BANNER HOẠT HÌNH THIÊN NHIÊN ================= -->
+  <!-- ================= BANNER ================= -->
   <div class="banner-container">
     <div class="hero-nature-banner">
-      <img class="banner-backdrop-svg" src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&auto=format&fit=crop&q=80" alt="Banner background">
-      <div class="banner-center-content">
-        <img class="banner-bee-avatar" src="https://api.dicebear.com/7.x/bottts/svg?seed=HappyBee&backgroundColor=ffdf00" alt="Linh vật">
-        <div class="banner-titles">
-          <div class="banner-main-logo-text">Tiếng Anh 4</div>
-          <div class="banner-sub-tag">Tiến bộ từng ngày bé nhé! 🌟</div>
-        </div>
+      <div style="text-align:center;">
+        <div class="banner-main-logo-text">Tiếng Anh 4</div>
+        <div class="banner-sub-tag">Tiến bộ từng ngày bé nhé! 🌟</div>
       </div>
     </div>
   </div>
 
-  <!-- ================= 3. KHU VỰC LÀM VIỆC CHÍNH ================= -->
+  <!-- ================= WORKSPACE ================= -->
   <div class="app-workspace">
 
-    <!-- THANH CHỌN HỌC KỲ -->
-    <div class="semester-nav-row">
-      <div class="semester-pill-group">
-        <button class="semester-tab-pill active">Semester 1 (Học kỳ 1)</button>
-        <button class="semester-tab-pill inactive">Semester 2 (Học kỳ 2)</button>
-      </div>
-      <div style="font-size:14px; font-weight:800; color:#64748b;">
-        Học kỳ 1 • 10 Units
-      </div>
-    </div>
-
-    <!-- LƯỚI 10 UNITS (CHUẨN ẢNH 2) -->
-    <div class="units-card-grid" id="units-catalog">
-      <div class="unit-glass-card active-unit" onclick="openUnit(1)">
+    <!-- LƯỚI 4 UNITS -->
+    <div class="units-card-grid">
+      <div class="unit-glass-card active-unit" onclick="selectTab('l1')">
         <div>
           <div class="unit-title-head">Unit 1</div>
           <div class="unit-topic-name">My friends</div>
         </div>
-        <div class="unit-arrow-icon">›</div>
+        <div style="font-weight:900; color:#94a3b8;">›</div>
       </div>
-
-      <div class="unit-glass-card" onclick="openUnit(2)">
+      <div class="unit-glass-card">
         <div>
           <div class="unit-title-head">Unit 2</div>
-          <div class="unit-topic-name">Time & routines</div>
+          <div class="unit-topic-name">Time and daily routines</div>
         </div>
-        <div class="unit-arrow-icon">›</div>
+        <div style="font-weight:900; color:#94a3b8;">›</div>
       </div>
-
-      <div class="unit-glass-card" onclick="openUnit(3)">
+      <div class="unit-glass-card">
         <div>
           <div class="unit-title-head">Unit 3</div>
           <div class="unit-topic-name">My week</div>
         </div>
-        <div class="unit-arrow-icon">›</div>
+        <div style="font-weight:900; color:#94a3b8;">›</div>
       </div>
-
-      <div class="unit-glass-card" onclick="openUnit(4)">
+      <div class="unit-glass-card">
         <div>
           <div class="unit-title-head">Unit 4</div>
-          <div class="unit-topic-name">Birthday party</div>
+          <div class="unit-topic-name">My birthday party</div>
         </div>
-        <div class="unit-arrow-icon">›</div>
-      </div>
-
-      <div class="unit-glass-card" onclick="openUnit(5)">
-        <div>
-          <div class="unit-title-head">Unit 5</div>
-          <div class="unit-topic-name">Things we can do</div>
-        </div>
-        <div class="unit-arrow-icon">›</div>
-      </div>
-
-      <div class="unit-glass-card" onclick="openUnit(6)">
-        <div>
-          <div class="unit-title-head">Unit 6</div>
-          <div class="unit-topic-name">Our school</div>
-        </div>
-        <div class="unit-arrow-icon">›</div>
-      </div>
-
-      <div class="unit-glass-card" onclick="openUnit(7)">
-        <div>
-          <div class="unit-title-head">Unit 7</div>
-          <div class="unit-topic-name">Our timetables</div>
-        </div>
-        <div class="unit-arrow-icon">›</div>
-      </div>
-
-      <div class="unit-glass-card" onclick="openUnit(8)">
-        <div>
-          <div class="unit-title-head">Unit 8</div>
-          <div class="unit-topic-name">Favourite subjects</div>
-        </div>
-        <div class="unit-arrow-icon">›</div>
+        <div style="font-weight:900; color:#94a3b8;">›</div>
       </div>
     </div>
 
-    <!-- ================= 4. GIAO DIỆN HỌC BÀI (CHUẨN ẢNH 3) ================= -->
-    <div class="lesson-view-container" id="unit-detail-workspace">
+    <!-- MAIN LESSON CARD -->
+    <div class="lesson-view-container">
 
-      <!-- TIÊU ĐỀ BÀI VÀ SUB TABS -->
+      <!-- CLEAN TABS: ĐÃ LOẠI BỎ TOÀN BỘ SỐ TRANG P.XX -->
       <div class="lesson-header-row">
         <div>
           <div style="font-size:13px; font-weight:800; color:#d946ef; text-transform:uppercase;">Unit 1: My Friends</div>
-          <h2 class="lesson-big-title">Look, listen and say.</h2>
+          <h2 class="lesson-big-title" id="lesson-screen-title">Lesson 1</h2>
         </div>
-        <div class="sub-lesson-tabs">
-          <button class="sub-pill-btn active" id="btn-sub-l1" onclick="switchSubLesson('l1')">Lesson 1 (p.10-11)</button>
-          <button class="sub-pill-btn" id="btn-sub-l2" onclick="switchSubLesson('l2')">Lesson 2 (p.12-13)</button>
-          <button class="sub-pill-btn" id="btn-sub-sbt" onclick="switchSubLesson('sbt')">Sách Bài Tập (p.4)</button>
+        <div class="clean-lesson-tabs">
+          <button class="tab-btn active" id="tab-btn-l1" onclick="selectTab('l1')">Lesson 1</button>
+          <button class="tab-btn" id="tab-btn-l2" onclick="selectTab('l2')">Lesson 2</button>
+          <button class="tab-btn" id="tab-btn-l3" onclick="selectTab('l3')">Lesson 3</button>
+          <button class="tab-btn" id="tab-btn-sbt" onclick="selectTab('sbt')">Workbook</button>
         </div>
       </div>
 
-      <!-- VIEW CHO LESSON 1 -->
-      <div id="content-lesson-1">
+      <!-- ================= VIEW 1: LESSON 1 ================= -->
+      <div id="box-lesson-1">
 
-        <!-- KHỐI 2 CỘT: PHONICS VÀ VOCABULARY -->
-        <div class="dual-column-panel">
-
-          <!-- CỘT PHONICS -->
-          <div class="sub-panel-card">
-            <div class="panel-badge-title phonics">🔤 Phonics</div>
-            <div style="font-size:18px; font-weight:900; color:#1e293b; margin-bottom:12px;">
-              Ending sounds: /ə/ & /iə/
-            </div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">America /ə/</div>
-                <div class="vi-text-sub">âm đuôi /ə/ trong nước Mỹ</div>
+        <!-- 1. LISTENING -->
+        <div class="skill-block">
+          <div class="skill-badge-title listening">🎧 1. Listening & Phonics (Nghe phát âm)</div>
+          <div class="dual-column-panel">
+            <div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">America</div>
+                  <div class="vi-text-sub">nước Mỹ (âm đuôi /ə/)</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('America')">🔊</button>
               </div>
-              <button class="audio-speaker-circle" onclick="speak('America')">🔊</button>
-            </div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">Australia /iə/</div>
-                <div class="vi-text-sub">âm đuôi /iə/ trong nước Úc</div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Australia</div>
+                  <div class="vi-text-sub">nước Úc (âm đuôi /iə/)</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Australia')">🔊</button>
               </div>
-              <button class="audio-speaker-circle" onclick="speak('Australia')">🔊</button>
+            </div>
+            <div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Britain</div>
+                  <div class="vi-text-sub">nước Anh</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Britain')">🔊</button>
+              </div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Viet Nam</div>
+                  <div class="vi-text-sub">nước Việt Nam</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Viet Nam')">🔊</button>
+              </div>
             </div>
           </div>
-
-          <!-- CỘT VOCABULARY -->
-          <div class="sub-panel-card">
-            <div class="panel-badge-title vocab">📚 Vocabulary</div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">Britain 🇬🇧</div>
-                <div class="vi-text-sub">nước Anh</div>
-              </div>
-              <button class="audio-speaker-circle" onclick="speak('Britain')">🔊</button>
-            </div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">Viet Nam 🇻🇳</div>
-                <div class="vi-text-sub">nước Việt Nam</div>
-              </div>
-              <button class="audio-speaker-circle" onclick="speak('Viet Nam')">🔊</button>
-            </div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">America 🇺🇸</div>
-                <div class="vi-text-sub">nước Mỹ</div>
-              </div>
-              <button class="audio-speaker-circle" onclick="speak('America')">🔊</button>
-            </div>
-
-            <div class="bilingual-speech-row">
-              <div class="bilingual-text-group">
-                <div class="en-text-bold">Australia 🇦🇺</div>
-                <div class="vi-text-sub">nước Úc</div>
-              </div>
-              <button class="audio-speaker-circle" onclick="speak('Australia')">🔊</button>
-            </div>
-          </div>
-
         </div>
 
-        <!-- SENTENCE PATTERN -->
-        <div class="sentence-pattern-card">
-          <div class="panel-badge-title phonics">💬 Sentence Pattern</div>
-          <div class="bilingual-speech-row" style="border:none; padding:0; margin:0;">
+        <!-- 2. SPEAKING -->
+        <div class="skill-block">
+          <div class="skill-badge-title speaking">🗣️ 2. Speaking (Mẫu câu giao tiếp)</div>
+          <div class="bilingual-speech-row">
             <div class="bilingual-text-group">
-              <div class="en-text-bold" style="font-size:18px;">Where are you from? — I'm from Viet Nam.</div>
-              <div class="vi-text-sub" style="font-size:13.5px;">Bạn đến từ đâu? — Mình đến từ Việt Nam.</div>
+              <div class="en-text-bold" style="font-size:17.5px;">Where are you from? — I'm from Viet Nam.</div>
+              <div class="vi-text-sub">Bạn đến từ đâu? — Mình đến từ Việt Nam.</div>
             </div>
             <button class="audio-speaker-circle" onclick="speak('Where are you from? I am from Viet Nam.')">🔊</button>
           </div>
         </div>
 
-        <!-- HỘI THOẠI LIỀN MẠCH MINH - MARY VÀ LUCY - BEN -->
-        <div style="margin-bottom:24px;">
-          <div style="font-size:14px; font-weight:900; color:#0284c7; text-transform:uppercase; margin-bottom:10px;">
-            1. Look, listen and repeat (Hội thoại hoàn chỉnh)
-          </div>
+        <!-- 3. READING -->
+        <div class="skill-block">
+          <div class="skill-badge-title reading">📖 3. Reading (Đọc hiểu hội thoại hoàn chỉnh)</div>
 
-          <!-- ĐOẠN MINH & MARY -->
           <div class="bilingual-speech-row">
             <div class="bilingual-text-group">
               <div class="en-text-bold">Minh: Hello. I'm Minh. I'm from Viet Nam. Where are you from?</div>
@@ -629,8 +473,7 @@
             <button class="audio-speaker-circle" onclick="speak('Hello, Minh. I am Mary. I am from America.')">🔊</button>
           </div>
 
-          <!-- ĐOẠN LUCY & BEN -->
-          <div class="bilingual-speech-row" style="margin-top:14px;">
+          <div class="bilingual-speech-row" style="margin-top:12px;">
             <div class="bilingual-text-group">
               <div class="en-text-bold">Lucy: Hi. I'm Lucy. I'm from Britain. Where are you from?</div>
               <div class="vi-text-sub">Chào bạn. Mình là Lucy. Mình đến từ nước Anh. Bạn đến từ đâu?</div>
@@ -647,72 +490,195 @@
           </div>
         </div>
 
-        <!-- BÀI TẬP SGK MỤC 5 (ĐỦ 4 CÂU) -->
-        <div class="quiz-section-card">
-          <div style="font-size:15px; font-weight:900; color:#1e293b; margin-bottom:14px;">
-            5. Look, complete and read (SGK Trang 11)
-          </div>
+        <!-- 4. WRITING -->
+        <div class="skill-block">
+          <div class="skill-badge-title writing">✍️ 4. Writing (Hoàn thành câu theo SGK Mục 5)</div>
 
           <div class="quiz-question-box">
-            <div class="quiz-q-title">1. I'm Minh. I'm from ________. 🇻🇳</div>
+            <div class="quiz-q-title">1. I'm Minh. I'm from ________.</div>
             <div class="quiz-opt-btn-list">
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Viet Nam')"><span>a. Viet Nam</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'America')"><span>b. America</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Britain')"><span>c. Britain</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'Viet Nam')"><span>a. Viet Nam</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'America')"><span>b. America</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'Britain')"><span>c. Britain</span><span>🔊</span></div>
             </div>
           </div>
 
           <div class="quiz-question-box">
-            <div class="quiz-q-title">2. I'm Mary. I'm ________. 🇺🇸</div>
+            <div class="quiz-q-title">2. I'm Mary. I'm ________.</div>
             <div class="quiz-opt-btn-list">
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'from Viet Nam')"><span>a. from Viet Nam</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'from America')"><span>b. from America</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'from Australia')"><span>c. from Australia</span><span>🔊</span></div>
-            </div>
-          </div>
-
-          <div class="quiz-question-box">
-            <div class="quiz-q-title">3. A: ________ are you from? — B: I'm from Australia. 🇦🇺</div>
-            <div class="quiz-opt-btn-list">
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'What')"><span>a. What</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Where')"><span>b. Where</span><span>🔊</span></div>
-            </div>
-          </div>
-
-          <div class="quiz-question-box">
-            <div class="quiz-q-title">4. A: Where are you ________? — B: I'm from Britain. 🇬🇧</div>
-            <div class="quiz-opt-btn-list">
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'from')"><span>a. from</span><span>🔊</span></div>
-              <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'in')"><span>b. in</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'from Viet Nam')"><span>a. from Viet Nam</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'from America')"><span>b. from America</span><span>🔊</span></div>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- VIEW CHO SÁCH BÀI TẬP (SBT) -->
-      <div id="content-sbt" style="display:none;">
-        <div style="font-size:16px; font-weight:900; color:#b45309; margin-bottom:14px;">
-          📙 Bài Tập Củng Cố Unit 1 (SBT Trang 4)
-        </div>
+      <!-- ================= VIEW 2: LESSON 2 ================= -->
+      <div id="box-lesson-2" style="display:none;">
 
-        <div class="quiz-question-box">
-          <div class="quiz-q-title">1. She's from ________. (Nghe và chọn)</div>
-          <div class="quiz-opt-btn-list">
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'Australia')"><span>a. Australia 🇦🇺</span><span>🔊</span></div>
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Malaysia')"><span>b. Malaysia 🇲🇾</span><span>🔊</span></div>
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'America')"><span>c. America 🇺🇸</span><span>🔊</span></div>
+        <!-- 1. LISTENING L2 -->
+        <div class="skill-block">
+          <div class="skill-badge-title listening">🎧 1. Listening (4 Quốc gia tiếp theo)</div>
+          <div class="dual-column-panel">
+            <div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Singapore</div>
+                  <div class="vi-text-sub">nước Xin-ga-po</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Singapore')">🔊</button>
+              </div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Malaysia</div>
+                  <div class="vi-text-sub">nước Ma-lai-xi-a</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Malaysia')">🔊</button>
+              </div>
+            </div>
+            <div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Thailand</div>
+                  <div class="vi-text-sub">nước Thái Lan</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Thailand')">🔊</button>
+              </div>
+              <div class="bilingual-speech-row">
+                <div class="bilingual-text-group">
+                  <div class="en-text-bold">Japan</div>
+                  <div class="vi-text-sub">nước Nhật Bản</div>
+                </div>
+                <button class="audio-speaker-circle" onclick="speak('Japan')">🔊</button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="quiz-question-box">
-          <div class="quiz-q-title">2. He's from ________. (Nghe và chọn)</div>
-          <div class="quiz-opt-btn-list">
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Malaysia')"><span>a. Malaysia 🇲🇾</span><span>🔊</span></div>
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, true, 'America')"><span>b. America 🇺🇸</span><span>🔊</span></div>
-            <div class="quiz-opt-btn" onclick="checkAnswer(this, false, 'Australia')"><span>c. Australia 🇦🇺</span><span>🔊</span></div>
+        <!-- 2. SPEAKING L2 -->
+        <div class="skill-block">
+          <div class="skill-badge-title speaking">🗣️ 2. Speaking (Mẫu câu hỏi ngôi thứ ba)</div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Where's she from? — She's from Japan.</div>
+              <div class="vi-text-sub">Bạn ấy đến từ đâu? — Bạn ấy đến từ Nhật Bản.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Where is she from? She is from Japan.')">🔊</button>
+          </div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Where's he from? — He's from Singapore.</div>
+              <div class="vi-text-sub">Cậu ấy đến từ đâu? — Cậu ấy đến từ Xin-ga-po.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Where is he from? He is from Singapore.')">🔊</button>
           </div>
         </div>
+
+        <!-- 3. READING L2 -->
+        <div class="skill-block">
+          <div class="skill-badge-title reading">📖 3. Reading (Hội thoại bạn mới)</div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Linh: Who's that? — Mary: It's my new friend.</div>
+              <div class="vi-text-sub">Kia là ai vậy? — Đó là người bạn mới của mình.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Who is that? It is my new friend.')">🔊</button>
+          </div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Linh: Where's she from? — Mary: She's from Japan.</div>
+              <div class="vi-text-sub">Bạn ấy đến từ đâu? — Bạn ấy đến từ Nhật Bản.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Where is she from? She is from Japan.')">🔊</button>
+          </div>
+        </div>
+
+        <!-- 4. WRITING L2 -->
+        <div class="skill-block">
+          <div class="skill-badge-title writing">✍️ 4. Writing (Luyện tập cấu trúc)</div>
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">Where's he from? — He's from ________. (Cờ Thái Lan)</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'Thailand')"><span>a. Thailand</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'Japan')"><span>b. Japan</span><span>🔊</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= VIEW 3: LESSON 3 ================= -->
+      <div id="box-lesson-3" style="display:none;">
+
+        <!-- 1. LISTENING & CHANT L3 -->
+        <div class="skill-block">
+          <div class="skill-badge-title listening">🎧 1. Listening & Chant (Bài vè ngữ âm)</div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">America, America. Mary's from America.</div>
+              <div class="vi-text-sub">Nước Mỹ, nước Mỹ. Mary đến từ nước Mỹ.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('America, America. Mary is from America.')">🔊</button>
+          </div>
+          <div class="bilingual-speech-row">
+            <div class="bilingual-text-group">
+              <div class="en-text-bold">Australia, Australia. Ben's from Australia.</div>
+              <div class="vi-text-sub">Nước Úc, nước Úc. Ben đến từ nước Úc.</div>
+            </div>
+            <button class="audio-speaker-circle" onclick="speak('Australia, Australia. Ben is from Australia.')">🔊</button>
+          </div>
+        </div>
+
+        <!-- 3. READING COMPREHENSION L3 -->
+        <div class="skill-block">
+          <div class="skill-badge-title reading">📖 3. Reading (Đọc đoạn văn và chọn True/False)</div>
+          <div style="background:#f8fafc; border-radius:14px; padding:14px; margin-bottom:14px; font-size:15px; line-height:1.6;">
+            "Hello. I am Minh. I am from Viet Nam. I have two new friends, Tony and Laura. Tony is from America. Laura is from Australia."
+          </div>
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">1. Minh is from Viet Nam.</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'True')"><span>True (Đúng)</span><span>✔️</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'False')"><span>False (Sai)</span><span>❌</span></div>
+            </div>
+          </div>
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">2. Tony is from Australia.</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'True')"><span>True (Đúng)</span><span>✔️</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'False')"><span>False (Sai)</span><span>❌</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= VIEW 4: WORKBOOK ================= -->
+      <div id="box-sbt" style="display:none;">
+
+        <div class="skill-block">
+          <div class="skill-badge-title writing">✍️ Workbook Exercises (Sách Bài Tập)</div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">1. She's from ________. (Nghe và chọn)</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'Australia')"><span>a. Australia</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'Malaysia')"><span>b. Malaysia</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'America')"><span>c. America</span><span>🔊</span></div>
+            </div>
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-title">2. He's from ________. (Nghe và chọn)</div>
+            <div class="quiz-opt-btn-list">
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'Malaysia')"><span>a. Malaysia</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, true, 'America')"><span>b. America</span><span>🔊</span></div>
+              <div class="quiz-opt-btn" onclick="checkQuiz(this, false, 'Australia')"><span>c. Australia</span><span>🔊</span></div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -732,7 +698,7 @@
     window.speechSynthesis.speak(u);
   }
 
-  function checkAnswer(el, isCorrect, speechText) {
+  function checkQuiz(el, isCorrect, speechText) {
     speak(speechText);
     if (isCorrect) {
       el.classList.add('correct');
@@ -747,39 +713,32 @@
     }
   }
 
-  function switchSubLesson(tab) {
-    document.querySelectorAll('.sub-pill-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('btn-sub-' + tab).classList.add('active');
+  // LOGIC CHUYỂN BÀI ĐỘC LẬP TUYỆT ĐỐI
+  function selectTab(tabKey) {
+    // 1. Cập nhật nút active
+    ['l1', 'l2', 'l3', 'sbt'].forEach(k => {
+      document.getElementById('tab-btn-' + k).classList.toggle('active', k === tabKey);
+    });
 
-    if (tab === 'sbt') {
-      document.getElementById('content-lesson-1').style.display = 'none';
-      document.getElementById('content-sbt').style.display = 'block';
-    } else {
-      document.getElementById('content-lesson-1').style.display = 'block';
-      document.getElementById('content-sbt').style.display = 'none';
-    }
-  }
+    // 2. Ẩn tất cả các màn hình
+    document.getElementById('box-lesson-1').style.display = 'none';
+    document.getElementById('box-lesson-2').style.display = 'none';
+    document.getElementById('box-lesson-3').style.display = 'none';
+    document.getElementById('box-sbt').style.display = 'none';
 
-  function openUnit(unitNum) {
-    document.querySelectorAll('.unit-glass-card').forEach(c => c.classList.remove('active-unit'));
-    event.currentTarget.classList.add('active-unit');
-    if (unitNum === 1) {
-      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
-    } else {
-      alert("Unit " + unitNum + " đang cập nhật dữ liệu!");
-    }
-  }
+    // 3. Đổi tiêu đề và hiển thị đúng bài được bấm
+    const titleMap = {
+      'l1': 'Lesson 1',
+      'l2': 'Lesson 2',
+      'l3': 'Lesson 3',
+      'sbt': 'Workbook'
+    };
+    document.getElementById('lesson-screen-title').textContent = titleMap[tabKey];
 
-  function switchNav(nav) {
-    if (nav === 'exercises') {
-      switchSubLesson('sbt');
-      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
-    } else if (nav === 'lessons') {
-      switchSubLesson('l1');
-      document.getElementById('unit-detail-workspace').scrollIntoView({ behavior: 'smooth' });
-    } else {
-      alert("Chuyên mục: " + nav.toUpperCase() + " đang được phát triển!");
-    }
+    if (tabKey === 'l1') document.getElementById('box-lesson-1').style.display = 'block';
+    if (tabKey === 'l2') document.getElementById('box-lesson-2').style.display = 'block';
+    if (tabKey === 'l3') document.getElementById('box-lesson-3').style.display = 'block';
+    if (tabKey === 'sbt') document.getElementById('box-sbt').style.display = 'block';
   }
 </script>
 </body>
